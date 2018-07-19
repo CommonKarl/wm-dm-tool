@@ -1,0 +1,9 @@
+form > *{
+    display: block;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+label{
+    margin-bottom: 0px;
+}
