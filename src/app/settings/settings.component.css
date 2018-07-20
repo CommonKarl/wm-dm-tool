@@ -7,3 +7,7 @@ form > *{
 label{
     margin-bottom: 0px;
 }
+
+button{
+    margin: 5px;
+}

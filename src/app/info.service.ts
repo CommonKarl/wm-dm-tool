@@ -31,6 +31,29 @@ export class InfoService {
     this.moons = CalendarData.moons;
   }
 
+  addDay() {
+    if (this.calendar.day < 30) {
+      this.calendar.day += 1;
+    } else {
+      this.calendar.month += 1;
+      this.calendar.day = 1;
+    }
+    /*_.forEach(this.calendar.moon_phase, function (value, index) {
+      // Get moon name and cycle #
+      let moon = index.replace('_', ' ');
+      moon = this.toTitleCase(moon);
+      const cycle = CalendarData.lunar_cyc[moon];
+
+      if (value < cycle) {
+        this.calendar.moon_phase[index] = value + 1;
+      } else {
+        this.calendar.moon_phase[index] = 0;
+      }
+    }.bind(this));*/
+    this.updateMoonPhase();
+    this.updateInfo();
+  }
+
   updateMoonPhase() {
     const totalDays = ((this.calendar.year - 1) * 240) + (this.calendar.month * 30) + this.calendar.day;
     this.calendar.moon_phase.night_sun = (totalDays - 1 + CalendarData.lunar_shf["Night Sun"]) % CalendarData.lunar_cyc["Night Sun"];
@@ -48,6 +71,12 @@ export class InfoService {
 
   getShift(moon) {
     return CalendarData.lunar_shf[moon];
+  }
+
+  toTitleCase(str) {
+    return str.replace(/\w\S*/g, function (txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
   }
 }
 

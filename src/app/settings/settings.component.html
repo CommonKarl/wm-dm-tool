@@ -1,4 +1,5 @@
 <button pButton type="button" label="Set Calendar" (click)="openCalendarTool()" icon="ui-icon-date-range"></button>
+<button pButton type="button" label="Add a Day" (click)="addDay()" icon="ui-icon-today" [disabled]="dateSet == false"></button>
 
 <p-dialog header="Set Calendar" [(visible)]="showCalendarTool" [draggable]="false">
     <form (ngSubmit)="setCalendar()" #calendarForm="ngForm">

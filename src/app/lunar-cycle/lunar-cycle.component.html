@@ -1,8 +1,7 @@
-<div class="flex">
-  <!--<ng-template *ngIf="moons">
+<div class="flex center-text">
     <div *ngFor="let moon of moons">
-      <h3>{{moon}}</h3>
-      <img src="../../assets/images/moons/">
+      <h3>{{moon.name}}</h3>
+      <img *ngIf="moon.cycle" [src]="'../../assets/images/moons/' + moon.name + '_' + moon.cycle + '.jpg'">
+      <h4>{{moon.cycle}}</h4>
     </div>
-  </ng-template>-->
 </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { InfoService } from '../info.service';
 
 import { SelectItem } from 'primeng/api';
+import { Subscription } from '../../../node_modules/rxjs';
 
 @Component({
   selector: 'dm-settings',
@@ -10,11 +11,13 @@ import { SelectItem } from 'primeng/api';
 })
 export class SettingsComponent implements OnInit {
 
+  calendarInfo: Subscription;
   showCalendarTool = false;
-  chosenDay: number;
-  chosenMonth: number;
+  chosenDay = 1;
+  chosenMonth = 0;
   chosenYear = 1;
   months: SelectItem[];
+  dateSet = false;
 
   constructor(private infoservice: InfoService) {
     this.months = [
@@ -30,10 +33,24 @@ export class SettingsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.calendarInfo = this.infoservice.calendarObs.subscribe(
+      x => {
+        this.chosenYear = x.year;
+        this.chosenDay = x.day;
+        this.chosenMonth = x.month;
+      },
+      err => console.error(err)
+    );
+
+    this.setCalendar();
   }
 
   openCalendarTool() {
     this.showCalendarTool = true;
+  }
+
+  addDay() {
+    this.infoservice.addDay();
   }
 
   setCalendar() {
@@ -46,6 +63,7 @@ export class SettingsComponent implements OnInit {
       this.infoservice.calendar.month = this.chosenMonth;
       this.infoservice.calendar.year = this.chosenYear;
       this.infoservice.updateMoonPhase();
+      this.dateSet = true;
       // console.log(this.infoservice);
     }
   }

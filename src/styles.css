@@ -59,3 +59,11 @@ select{
     font-family: "Roboto", "Helvetica Neue", sans-serif;
     font-size: 1em;
 }
+
+h2, h3, h4, h5{
+    margin: 4px;
+}
+
+.center-text{
+    text-align: center;
+}

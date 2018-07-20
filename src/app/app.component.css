@@ -8,13 +8,15 @@ html, body, #app-container{
 #app-container{
     height: 100vh;
     display: grid;
+    justify-items: center;
+    align-items: center;
     grid-template-columns: 25% 50% 25%;
     grid-template-rows: 25% 25% 25% 25%;
     grid-template-areas:
         "weather map calendar"
         "weather map time"
         "lunar encounter time"
-        "lunar encounter settings"
+        "lunar encounter settings";
 }
 
 dm-weather-generator{
