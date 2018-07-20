@@ -566,6 +566,7 @@ export const ET_NorthPlains = {
         swarm_of_poisonous_snakes: 2,
         death_butterfly_swarm: 4
     },
+    gnome_svirfneblin: .5,
     dust_mephit: .5,
     cockatrice: .5,
     ooze: {
