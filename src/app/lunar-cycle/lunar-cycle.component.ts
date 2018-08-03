@@ -14,22 +14,20 @@ export class LunarCycleComponent implements OnInit {
   moons: Moon[] = [];
   calendarInfo: Subscription;
 
-  constructor(private infoservice: InfoService) {
-    this.moonNames = this.infoservice.moons;
+  constructor(private infoService: InfoService) {
+    this.moonNames = this.infoService.moons;
     _.forEach(this.moonNames, function (value, index) {
       this.moons.push(new Moon);
       this.moons[index].name = value;
-      this.moons[index].cycleNum = this.infoservice.getCycle(value);
-      this.moons[index].shiftNum = this.infoservice.getShift(value);
+      this.moons[index].cycleNum = this.infoService.getCycle(value);
+      this.moons[index].shiftNum = this.infoService.getShift(value);
     }.bind(this));
-    console.log(this.moons);
   }
 
   ngOnInit() {
-    this.calendarInfo = this.infoservice.calendarObs.subscribe(
+    this.calendarInfo = this.infoService.calendarObs.subscribe(
       x => {
         this.configureMoons(x);
-        console.log(x);
       },
       err => console.error(err)
     );
@@ -40,7 +38,7 @@ export class LunarCycleComponent implements OnInit {
     _.forEach(data.moon_phase, function (value, index) {
       // get moon name by index; value = current moon cycle #
       let moon = index.replace('_', ' ');
-      moon = this.infoservice.toTitleCase(moon);
+      moon = this.infoService.toTitleCase(moon);
 
       const moonObj = this.moons.filter(function (obj) { return obj.name === moon; })[0];
       moonObj.cycle = Cycle[Math.floor(value / moonObj.cycleNum * 8)];

@@ -1,3 +1,20 @@
-<p>
-  map works!
-</p>
+<ul>
+  <li (click)="changeLocation('SouthJungle')">South Jungle</li>
+  <li (click)="changeLocation('Hills')">Hills</li>
+  <li (click)="changeLocation('WestJungle')">West Jungle</li>
+  <li (click)="changeLocation('UpperWestJungle')">Upper West Jungle</li>
+  <li (click)="changeLocation('EastJungle')">East Jungle</li>
+  <li (click)="changeLocation('Swamp')">Swamp</li>
+  <li (click)="changeLocation('NorthHills')">North Hills</li>
+</ul>
+
+<ul>
+  <li (click)="changeLocation('SouthPlains')">South Plains</li>
+  <li (click)="changeLocation('Highlands')">Highlands</li>
+  <li (click)="changeLocation('Desert')">Desert</li>
+  <li (click)="changeLocation('NorthPlains')">North Plains</li>
+  <li (click)="changeLocation('Mountains')">Mountains</li>
+  <li (click)="changeLocation('NorthMountains')">North Mountains</li>
+</ul>
+
+<h2>Current Location: {{location}}</h2>

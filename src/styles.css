@@ -67,3 +67,7 @@ h2, h3, h4, h5{
 .center-text{
     text-align: center;
 }
+
+.longButton{
+    width: 100%;;
+}

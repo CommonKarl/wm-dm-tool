@@ -9,6 +9,7 @@ import { Subject, from } from '../../node_modules/rxjs';
 })
 export class InfoService {
 
+  location = "SouthJungle";
   calendarObs: Subject<Calendar>;
   calendar: Calendar = {
     day: 0,
@@ -51,7 +52,6 @@ export class InfoService {
       }
     }.bind(this));*/
     this.updateMoonPhase();
-    this.updateInfo();
   }
 
   updateMoonPhase() {

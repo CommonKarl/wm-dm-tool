@@ -1,4 +1,4 @@
-export const ET_SouthJungle = {
+export const SouthJungle = {
     baboon: 0,
     rat: 0,
     spider: {
@@ -53,7 +53,7 @@ export const ET_SouthJungle = {
     Oehoeboeroe: 5
 };
 
-export const ET_Hills = {
+export const Hills = {
     giant_fire_beetle: 0,
     stirge: .125,
     blood_hawk: .125,
@@ -96,7 +96,7 @@ export const ET_Hills = {
     cyclops: 6
 };
 
-export const ET_WestJungle = {
+export const WestJungle = {
     baboon: 0,
     quipper: 0,
     spider: {
@@ -146,7 +146,7 @@ export const ET_WestJungle = {
     shambling_mound: 5
 };
 
-export const ET_UpperWestJungle = {
+export const UpperWestJungle = {
     stirge: .125,
     blight: {
         twig_blight: .125,
@@ -204,7 +204,7 @@ export const ET_UpperWestJungle = {
     vesiculosa: 11
 };
 
-export const ET_EastJungle = {
+export const EastJungle = {
     baboon: 0,
     witch_grass: 0,
     snake: {
@@ -255,7 +255,7 @@ export const ET_EastJungle = {
     drakon: 5
 };
 
-export const ET_Swamp = {
+export const Swamp = {
     rat: {
         rat: 0,
         giant_rat: .125
@@ -313,7 +313,7 @@ export const ET_Swamp = {
     froghemoth: 10
 };
 
-export const ET_NorthHills = {
+export const NorthHills = {
     baboon: 0,
     rat: {
         rat: 0,
@@ -388,7 +388,7 @@ export const ET_NorthHills = {
     hydra: 8
 };
 
-export const ET_SouthPlains = {
+export const SouthPlains = {
     hyena: {
         hyena: 0,
         giant_hyena: 1
@@ -448,7 +448,7 @@ export const ET_SouthPlains = {
     djinni: 11
 };
 
-export const ET_Highlands = {
+export const Highlands = {
     hyena: {
         hyena: 0,
         giant_hyena: 1
@@ -513,7 +513,7 @@ export const ET_Highlands = {
     hydra: 8
 };
 
-export const ET_Desert = {
+export const Desert = {
     vulture: {
         vulture: 0,
         giant_vulture: 1
@@ -543,7 +543,7 @@ export const ET_Desert = {
     vesiculosa: 11,
 };
 
-export const ET_NorthPlains = {
+export const NorthPlains = {
     vulture: {
         vulture: 0,
         giant_vulture: 1
@@ -590,7 +590,7 @@ export const ET_NorthPlains = {
     clay_golem: 9
 };
 
-export const ET_Mountains = {
+export const Mountains = {
     snotling: {
         xvart: .125,
         xvart_speaker: .125,
@@ -630,7 +630,7 @@ export const ET_Mountains = {
     roc: 11
 };
 
-export const ET_NorthMountains = {
+export const NorthMountains = {
     ice_mephit: .5,
     hobgoblin: {
         hobgoblin: .5,

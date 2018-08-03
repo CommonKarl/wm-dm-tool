@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InfoService } from '../info.service';
 
 @Component({
   selector: 'dm-map',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MapComponent implements OnInit {
 
-  constructor() { }
+  location: String;
+
+  constructor(private infoService: InfoService) { }
 
   ngOnInit() {
+    this.location = this.infoService.location;
+  }
+
+  changeLocation(location) {
+    this.location = location;
+    this.infoService.location = location;
   }
 
 }

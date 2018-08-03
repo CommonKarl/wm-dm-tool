@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { InfoService } from '../info.service';
+import { Subscription } from '../../../node_modules/rxjs';
 
 @Component({
   selector: 'dm-time',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TimeComponent implements OnInit {
 
-  constructor() { }
+  calendarInfo: Subscription;
+
+  constructor(private infoService: InfoService) { }
 
   ngOnInit() {
+    this.calendarInfo = this.infoService.calendarObs.subscribe(
+      x => {
+        console.log(x);
+      },
+      err => console.error(err)
+    );
   }
 
 }
+

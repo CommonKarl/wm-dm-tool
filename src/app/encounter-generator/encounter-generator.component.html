@@ -1,3 +1,25 @@
-<p>
-  encounter-generator works!
-</p>
+<div>
+  <h3>PCs:</h3>
+  <ul>
+    <li *ngFor="let character of PC; let i = index" [attr.data-index]="i" (click)="popPC(i)">Level {{character.level}} {{character.class}}</li>
+  </ul>
+  <button pButton type="button" label="Add PC" (click)="openPCTool()"></button>
+
+</div>
+<div>
+  <p>{{currEncounter}}</p>
+  <button pButton type="button" label="Generate Encounter" (click)="generateEncounter()" class="longButton"></button>
+</div>
+
+<p-dialog header="Add PC" [(visible)]="showPCTool" [draggable]="false">
+  <form (ngSubmit)="addPC()" #pcForm="ngForm">
+      <label>Class:</label>
+      <input type="text" name="class" pInputText [(ngModel)]="chosenClass" required/>
+      <label>Level:</label>
+      <input type="number" name="level" min=1 pInputText [(ngModel)]="chosenLevel" required/>
+
+      <div style="display: block; text-align: center; margin-top: 5px;">
+        <button pButton type="submit" label="Submit" [disabled]="!pcForm.form.valid"></button>
+      </div>
+  </form>
+</p-dialog>
