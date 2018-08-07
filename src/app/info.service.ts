@@ -10,6 +10,9 @@ import { Subject, from } from '../../node_modules/rxjs';
 export class InfoService {
 
   location = "SouthJungle";
+  locationCR = 1;
+  locationDL = 1; // Danger Level (1-6; roll 1d6 on # or lower = encounter in that time period)
+  dangerZone = false; // if true then Danger Level should increase by 1
   calendarObs: Subject<Calendar>;
   calendar: Calendar = {
     day: 0,

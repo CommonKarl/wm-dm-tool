@@ -8,17 +8,21 @@ import { InfoService } from '../info.service';
 })
 export class MapComponent implements OnInit {
 
-  location: String;
+  DZ: boolean;
 
   constructor(private infoService: InfoService) { }
 
   ngOnInit() {
-    this.location = this.infoService.location;
   }
 
-  changeLocation(location) {
-    this.location = location;
+  changeLocation(location, challengeRating, dangerLevel) {
     this.infoService.location = location;
+    this.infoService.locationCR = challengeRating;
+    this.infoService.locationDL = dangerLevel;
+  }
+
+  dangerZone() {
+    this.infoService.dangerZone = this.DZ;
   }
 
 }

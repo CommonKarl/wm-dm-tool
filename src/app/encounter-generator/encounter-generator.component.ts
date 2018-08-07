@@ -10,11 +10,6 @@ import { InfoService } from '../info.service';
 export class EncounterGeneratorComponent implements OnInit {
 
   currEncounter: string;
-  PC: Player[] = [];
-  showPCTool = false;
-
-  chosenClass: string;
-  chosenLevel: number;
 
   constructor(private infoService: InfoService) { }
 
@@ -32,33 +27,6 @@ export class EncounterGeneratorComponent implements OnInit {
     } else {
       // monster block with multiple types/CRs
     }
+    console.log(this.infoService.locationCR);
   }
-
-  openPCTool() {
-    this.showPCTool = true;
-  }
-
-  addPC() {
-    const tempPC = { class: this.chosenClass, level: this.chosenLevel };
-    this.PC.push(tempPC);
-    this.showPCTool = false;
-  }
-
-  popPC(index) {
-    this.PC.splice(index, 1);
-  }
-
-}
-
-export class Player {
-  class: string;
-  level: number;
-}
-
-const XP_by_level = {
-  1: 75,
-  2: 150,
-  3: 225,
-  4: 375,
-  5: 750
 }

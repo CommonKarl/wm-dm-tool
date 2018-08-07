@@ -1,5 +1,13 @@
-ul, h2{
+.blockWrap{
     display: inline-block;
+    margin-left: 5px;
+}
+
+h2{
+    display: inline;
+}
+
+ul{
     list-style-type: none;
 }
 

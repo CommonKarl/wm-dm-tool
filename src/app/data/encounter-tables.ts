@@ -1,6 +1,9 @@
 export const SouthJungle = {
     baboon: 0,
-    rat: 0,
+    rat: {
+        rat: 0,
+        giant_rat: .125
+    },
     spider: {
         spider: 0,
         giant_wolf_spider: .25,
@@ -15,7 +18,6 @@ export const SouthJungle = {
         giant_constrictor_snake: 2
     },
     stirge: .125,
-    tribal_warrior: .125,
     kobold: {
         kobold: .125,
         kobold_inventor: .25,
@@ -24,10 +26,7 @@ export const SouthJungle = {
         kobold_scale_sorcerer: 1
     },
     panther: .25,
-    boar: .25,
-    giant_lizard: .25,
     pixie: .25,
-    vegepygmy: .25,
     velociraptor: .25,
     grung: .25,
     wolf: {
@@ -38,7 +37,6 @@ export const SouthJungle = {
         black_bear: .5,
         brown_bear: 1,
     },
-    harpy: 1,
     ettercap: 2,
     ankheg: 2,
     pegasus: 2,
@@ -99,12 +97,15 @@ export const Hills = {
 export const WestJungle = {
     baboon: 0,
     quipper: 0,
+    rat: {
+        rat: 0,
+        giant_rat: .125
+    },
     spider: {
         spider: 0,
         giant_wolf_spider: .25,
         giant_spider: 1,
     },
-    giant_rat: .125,
     blight: {
         twig_blight: .125,
         needle_blight: .25,
@@ -167,7 +168,10 @@ export const UpperWestJungle = {
         giant_wolf_spider: .25,
         giant_spider: 1,
     },
-    mud_mephit: .25,
+    mephit: {
+        mud_mephit: .25,
+        steam_mephit: .25
+    },
     snake: {
         flying_snake: .125,
         poisonous_snake: .125,
@@ -215,7 +219,10 @@ export const EastJungle = {
         giant_constrictor_snake: 2
     },
     tribal_warrior: .125,
-    steam_mephit: .25,
+    mephit: {
+        mud_mephit: .25,
+        steam_mephit: .25
+    },
     goblin: {
         goblin: .25,
         goblin_boss: 1
@@ -237,14 +244,14 @@ export const EastJungle = {
     dinosaur: {
         velociraptor: .25,
         deinonychus: 1,
+        allosaurus: 2,
         ankylosaurus: 3,
     },
-    Tri_flower_Frond: .5,
+    tri_flower_frond: .5,
     eblis: .5,
     crocodile: .5,
     igniguana: 1,
     crimson_drake: 1,
-    allosaurus: 2,
     ankheg: 2,
     owlbear: 3,
     wood_woad: 5,
@@ -256,10 +263,6 @@ export const EastJungle = {
 };
 
 export const Swamp = {
-    rat: {
-        rat: 0,
-        giant_rat: .125
-    },
     swarm: {
         swarm_of_rats: .25,
         swarm_of_bats: .25,
@@ -267,11 +270,6 @@ export const Swamp = {
         swarm_of_quippers: 1,
         swarm_of_poisonous_snakes: 2,
         death_butterfly_swarm: 4
-    },
-    spider: {
-        spider: 0,
-        giant_wolf_spider: .25,
-        giant_spider: 1,
     },
     snake: {
         flying_snake: .125,
@@ -281,7 +279,17 @@ export const Swamp = {
         swamp_adder: .25,
         giant_constrictor_snake: 2
     },
-    mud_mephit: .25,
+    snail_slaves: {
+        commoner: 0,
+        tribal_warrior: .125,
+        scout: .5,
+        crabman: 1,
+        cult_fanatic: 2
+    },
+    mephit: {
+        mud_mephit: .25,
+        steam_mephit: .25
+    },
     giant_frog: .25,
     skeleton: .25,
     zombie: {
@@ -298,10 +306,8 @@ export const Swamp = {
         ghould: 1,
         ghast: 2
     },
-    crabman: 1,
     moss_lurker: 1,
     black_dragon_wyrmling: 2,
-    will_o_wisp: 2,
     wight: 3,
     flail_snail: 3,
     ghost: 4,
@@ -314,11 +320,6 @@ export const Swamp = {
 };
 
 export const NorthHills = {
-    baboon: 0,
-    rat: {
-        rat: 0,
-        giant_rat: .125
-    },
     swarm: {
         swarm_of_rats: .25,
         swarm_of_bats: .25,
@@ -326,11 +327,6 @@ export const NorthHills = {
         swarm_of_quippers: 1,
         swarm_of_poisonous_snakes: 2,
         death_butterfly_swarm: 4
-    },
-    spider: {
-        spider: 0,
-        giant_wolf_spider: .25,
-        giant_spider: 1,
     },
     snake: {
         flying_snake: .125,
@@ -345,7 +341,6 @@ export const NorthHills = {
         needle_blight: .25,
         vine_blight: .5
     },
-    pixies: .25,
     dinosaur: {
         velociraptor: .25,
         deinonychus: 1,
@@ -362,7 +357,6 @@ export const NorthHills = {
         lizardfolk_shaman: 2,
         lizardfolk_queen: 4
     },
-    dryad: 1,
     harpy: {
         harpy: 1,
         owl_harpy: 5
@@ -398,7 +392,6 @@ export const SouthPlains = {
         giant_vulture: 1
     },
     bloodhawk: .125,
-    stirge: .125,
     axe_beak: .5,
     undead: {
         skeleton: .25,
@@ -479,14 +472,6 @@ export const Highlands = {
         gnoll_fang_of_yeenoghu: 4,
         flind: 9
     },
-    swarm: {
-        swarm_of_rats: .25,
-        swarm_of_bats: .25,
-        swarm_of_insects: .25,
-        swarm_of_quippers: 1,
-        swarm_of_poisonous_snakes: 2,
-        death_butterfly_swarm: 4
-    },
     giant_horsefly: .5,
     rust_monster: 1 / 2,
     death_dog: 1,
@@ -514,6 +499,7 @@ export const Highlands = {
 };
 
 export const Desert = {
+    environmental_hazard: 0,
     vulture: {
         vulture: 0,
         giant_vulture: 1
@@ -552,7 +538,7 @@ export const NorthPlains = {
         scorpion: 0,
         giant_scorpion: 3
     },
-    giant_lizards: .25,
+    giant_lizard: .25,
     spider: {
         spider: 0,
         giant_wolf_spider: .25,
@@ -567,7 +553,10 @@ export const NorthPlains = {
         death_butterfly_swarm: 4
     },
     gnome_svirfneblin: .5,
-    dust_mephit: .5,
+    mephit: {
+        mud_mephit: .25,
+        dust_mephit: .5
+    },
     cockatrice: .5,
     ooze: {
         gray_ooze: .5,
@@ -596,7 +585,6 @@ export const Mountains = {
         xvart_speaker: .125,
         xvart_warlock: 1
     },
-    panther: .25,
     pteranodon: .25,
     giant_goat: .5,
     ice_mephit: .5,
@@ -625,8 +613,10 @@ export const Mountains = {
     wyvern: 6,
     cyclops: 6,
     chimera: 6,
-    stone_giant: 7,
-    frost_giant: 8,
+    giant: {
+        stone_giant: 7,
+        frost_giant: 8,
+    },
     roc: 11
 };
 
@@ -641,10 +631,16 @@ export const NorthMountains = {
     },
     ice_drake: 1,
     saber_toothed_tiger: 2,
-    ogres: 2,
+    ogre: {
+        half_ogre: 1,
+        ogre: 2,
+        ogre_bolt_launcher: 2,
+        ogre_howdah: 2,
+        ogre_chain_brute: 3
+    },
     manitcore: 3,
     yeti: 3,
-    chimeras: 3,
+    manticore: 3,
     red_dragon_wyrmling: 4,
     elemental: {
         air_elemental: 5,
@@ -655,6 +651,8 @@ export const NorthMountains = {
         young_remorhaz: 5,
         remorhaz: 11
     },
+    troll: 5,
+    chimera: 6,
     wyvern: 6,
     cyclops: 6,
     giant: {
