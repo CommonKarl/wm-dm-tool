@@ -10,13 +10,26 @@ import { Subscription } from '../../../node_modules/rxjs';
 export class TimeComponent implements OnInit {
 
   calendarInfo: Subscription;
+  encounterInfo: Subscription;
+
+  timePeriod: number;
+  isEncounter: boolean;
 
   constructor(private infoService: InfoService) { }
 
   ngOnInit() {
+    this.isEncounter = false;
+
     this.calendarInfo = this.infoService.calendarObs.subscribe(
       x => {
-        console.log(x);
+        this.timePeriod = x.time_period;
+      },
+      err => console.error(err)
+    );
+
+    this.encounterInfo = this.infoService.encounterObs.subscribe(
+      x => {
+        this.isEncounter = x;
       },
       err => console.error(err)
     );

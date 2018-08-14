@@ -1,5 +1,9 @@
-<button pButton type="button" label="Set Calendar" (click)="openCalendarTool()" icon="ui-icon-date-range"></button>
-<button pButton type="button" label="Add a Day" (click)="addDay()" icon="ui-icon-today" [disabled]="dateSet == false"></button>
+<div class="settingsWrap">
+    <button pButton type="button" label="Advance Time Period" (click)="advanceTimePeriod()" icon="ui-icon-timer" style="width: 100%"></button>
+    <button pButton type="button" label="Set Calendar" (click)="openCalendarTool()" icon="ui-icon-date-range"></button>
+    <button pButton type="button" label="Add a Day" (click)="addDay()" icon="ui-icon-today" [disabled]="dateSet == false"></button>
+    <button pButton type="button" label="Generate Treasure" (click)="openTreasure()" icon="ui-icon-today"></button>
+</div>
 
 <p-dialog header="Set Calendar" [(visible)]="showCalendarTool" [draggable]="false">
     <form (ngSubmit)="setCalendar()" #calendarForm="ngForm">
@@ -13,5 +17,22 @@
         <input type="number" name="year" min=1 pInputText [(ngModel)]="chosenYear" />
 
         <button pButton type="submit" label="Submit" [disabled]="!calendarForm.form.valid"></button>
+    </form>
+</p-dialog>
+
+<p-dialog header="Generate Treasure" [(visible)]="showTreasureTool" [draggable]="true" [modal]="true" [dismissableMask]="true">
+    <form (ngSubmit)="generateTreasure()" #treasureForm="ngForm">
+        <div class="flex-col center">
+            <label>Individual Treasure | Treasure Horde</label>
+            <p-inputSwitch [(ngModel)]="individualOrHorde" name="hordeOption"></p-inputSwitch>
+        </div>
+        <label *ngIf="!individualOrHorde">Monster Challenge Rating:</label>
+        <label *ngIf="individualOrHorde">Treasure Horde Area Level:</label>
+        <input type="number" name="day" min=1 pInputText [(ngModel)]="encounterLevel" required/>
+
+        <button pButton type="submit" label="Generate Treasure"></button>
+        <div style="margin-top: 15px;">
+            {{treasureHorde}}
+        </div>
     </form>
 </p-dialog>

@@ -11,3 +11,11 @@ label{
 button{
     margin: 5px;
 }
+
+.settingsWrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-wrap: wrap;
+}

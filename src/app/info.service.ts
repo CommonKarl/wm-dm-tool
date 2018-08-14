@@ -14,6 +14,7 @@ export class InfoService {
   locationDL = 1; // Danger Level (1-6; roll 1d6 on # or lower = encounter in that time period)
   dangerZone = false; // if true then Danger Level should increase by 1
   calendarObs: Subject<Calendar>;
+  encounterObs: Subject<boolean>;
   calendar: Calendar = {
     day: 0,
     month: 0,
@@ -22,7 +23,7 @@ export class InfoService {
       night_sun: 0,
       blood_moon: 0
     },
-    time_period: 0
+    time_period: 1
   };
   months: string[];
   days: string[];
@@ -30,6 +31,7 @@ export class InfoService {
 
   constructor() {
     this.calendarObs = new Subject();
+    this.encounterObs = new Subject();
     this.months = CalendarData.months;
     this.days = CalendarData.weekdays;
     this.moons = CalendarData.moons;
@@ -54,7 +56,19 @@ export class InfoService {
         this.calendar.moon_phase[index] = 0;
       }
     }.bind(this));*/
+    this.calendar.time_period = 1;
+    this.rollForEncounter();
     this.updateMoonPhase();
+  }
+
+  advanceTimePeriod() {
+    if (this.calendar.time_period >= 6) {
+      this.addDay();
+    } else {
+      this.calendar.time_period += 1;
+      this.rollForEncounter();
+      this.updateInfo();
+    }
   }
 
   updateMoonPhase() {
@@ -64,8 +78,21 @@ export class InfoService {
     this.updateInfo();
   }
 
+  rollForEncounter() {
+    if ((Math.floor(Math.random() * 6) + 1) <= (this.dangerZone ? this.locationDL + 1 : this.locationDL)) {
+      // encounter happens!
+      this.updateEncounter(true);
+    } else {
+      this.updateEncounter(false);
+    }
+  }
+
   updateInfo() {
     this.calendarObs.next(this.calendar);
+  }
+
+  updateEncounter(is: boolean) {
+    this.encounterObs.next(is);
   }
 
   getCycle(moon) {
