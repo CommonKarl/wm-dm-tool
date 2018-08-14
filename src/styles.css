@@ -10,12 +10,23 @@
 }
 
 .flex{
-    display: flex;
+    display: flex !important;
     justify-content: space-around;
 }
 
 .flex-wrap>*{
     cursor: pointer;
+}
+
+.center{
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.flex-col{
+    display: flex !important;
+    flex-direction: column;
 }
 
 .flex-inner{

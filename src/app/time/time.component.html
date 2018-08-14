@@ -1,8 +1,8 @@
 <ul>
-  <li>Predawn (2am-6am)</li>
-  <li>Dawn (6am-10am)</li>
-  <li>Morning (10am-2pm)</li>
-  <li>Afternoon (2pm-6pm)</li>
-  <li>Evening (6pm-10pm)</li>
-  <li>Midnight (10pm-2am)</li>
+  <li [ngClass]="{'current-time': timePeriod == 1}"><i class="material-icons left" *ngIf="isEncounter && timePeriod == 1">bug_report</i>Predawn (2am-6am)</li>
+  <li [ngClass]="{'current-time': timePeriod == 2}"><i class="material-icons left" *ngIf="isEncounter && timePeriod == 2">bug_report</i>Dawn (6am-10am)</li>
+  <li [ngClass]="{'current-time': timePeriod == 3}"><i class="material-icons left" *ngIf="isEncounter && timePeriod == 3">bug_report</i>Morning (10am-2pm)</li>
+  <li [ngClass]="{'current-time': timePeriod == 4}"><i class="material-icons left" *ngIf="isEncounter && timePeriod == 4">bug_report</i>Afternoon (2pm-6pm)</li>
+  <li [ngClass]="{'current-time': timePeriod == 5}"><i class="material-icons left" *ngIf="isEncounter && timePeriod == 5">bug_report</i>Evening (6pm-10pm)</li>
+  <li [ngClass]="{'current-time': timePeriod == 6}"><i class="material-icons left" *ngIf="isEncounter && timePeriod == 6">bug_report</i>Midnight (10pm-2am)</li>
 </ul>

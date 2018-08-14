@@ -28,7 +28,11 @@ export const SouthJungle = {
     panther: .25,
     pixie: .25,
     velociraptor: .25,
-    grung: .25,
+    grung: {
+        grung: .25,
+        grung_wildling: 1,
+        grung_elite_warrior: 2
+    },
     wolf: {
         wolf: .25,
         dire_wolf: 1

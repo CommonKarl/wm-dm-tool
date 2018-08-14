@@ -1,4 +1,10 @@
-<div>
-  <p>{{currEncounter}}</p>
-  <button pButton type="button" label="Generate Encounter" (click)="generateEncounter()" class="longButton"></button>
+<div style="margin-bottom: 5px; text-align: center">
+  <label>Number of PCs: </label>
+  <p-spinner [size]=1 [(ngModel)]="numPC" [min]="1" [max]="8"></p-spinner>
 </div>
+<button pButton type="button" label="Generate Encounter" (click)="generateEncounter()" style="width: 80%; margin-bottom: 10px; margin-left: 10%;"></button>
+<p>Monster: {{currEncounter}}</p>
+<p>CR: {{currEncounterCR | json}}</p>
+<p>Xp Allowance: {{xpAllowance}}</p>
+<p>Xp Allowance (Medium): {{xpAllowanceMed}}</p>
+<p>Xp Allowance (Deadly): {{xpAllowanceDeadly}}</p>
