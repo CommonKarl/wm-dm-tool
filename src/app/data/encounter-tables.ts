@@ -205,7 +205,7 @@ export const UpperWestJungle = {
     saber_toothed_tiger: 2,
     manticore: 3,
     troll: 5,
-    vesiculosa: 11
+    froghemoth: 10
 };
 
 export const EastJungle = {
@@ -316,7 +316,10 @@ export const Swamp = {
     catoblepas: 5,
     water_elemental: 5,
     hydra: 8,
-    froghemoth: 10
+    snail_lord: {
+        snail_lord: 7,
+        ancient_snail_lord: 8
+    }
 };
 
 export const NorthHills = {

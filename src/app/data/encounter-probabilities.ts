@@ -111,7 +111,7 @@ export const UpperWestJungle = {
     19: "faerie_dragon",
     20: "manticore",
     21: "troll",
-    22: "vesiculosa"
+    22: "froghemoth"
 };
 
 export const EastJungle = {
@@ -157,7 +157,7 @@ export const Swamp = {
     19: "troll",
     20: "ghost",
     21: "catobelpas",
-    22: "froghemoth"
+    22: "snail_lord"
 };
 
 export const NorthHills = {
