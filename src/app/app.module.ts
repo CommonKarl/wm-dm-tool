@@ -18,6 +18,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import {InputSwitchModule} from 'primeng/inputswitch';
 import {SpinnerModule} from 'primeng/spinner';
+import {CheckboxModule} from 'primeng/checkbox';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {SpinnerModule} from 'primeng/spinner';
     FormsModule,
     InputTextModule,
     InputSwitchModule,
-    SpinnerModule
+    SpinnerModule,
+    CheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

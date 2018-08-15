@@ -8,6 +8,10 @@ label{
     margin-bottom: 0px;
 }
 
+input{
+    margin-bottom: 8px;
+}
+
 button{
     margin: 5px;
 }
@@ -18,4 +22,8 @@ button{
     align-items: center;
     height: 100%;
     flex-wrap: wrap;
+}
+
+.inline{
+    display: inline-block;
 }
