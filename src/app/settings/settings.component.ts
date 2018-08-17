@@ -225,17 +225,17 @@ export class SettingsComponent implements OnInit {
     const typed20 = this.roll(20);
     let treasure = '';
     switch (true) {
-      case (typed20 < 2): treasure = this.generateArt();
+      /*case (typed20 < 2): treasure = this.generateArt();
         break;
       case (typed20 < 4): treasure = this.generateJeweledItem();
         break;
-      case (typed20 < 28): treasure = this.generateGood();
+      case (typed20 < 8): treasure = this.generateGood();
         break;
-      case (typed20 < 14): treasure = this.generateCoins();
+      case (typed20 < 14): treasure = this.generateCoins(treasureValue);
         break;
       case (typed20 < 18): treasure = this.generateFurnishingClothing();
-        break;
-      case (typed20 < 20): treasure = this.generateGems();
+        break;*/
+      case (typed20 < 1120): treasure = this.generateGems(treasureValue);
         break;
       case (typed20 < 21): treasure = this.generateArt();
         // generateMagicOrSpecialItem();
@@ -507,19 +507,245 @@ export class SettingsComponent implements OnInit {
     return good;
   }
 
-  generateCoins() {
+  generateCoins(value) {
     let coins;
+    const d12 = this.roll(12);
+    switch (true) {
+      case (d12 < 4): coins = value * 100 + ' cp';
+        break;
+      case (d12 < 8): coins = value * 10 + ' sp';
+        break;
+      case (d12 < 12): coins = value + ' gp';
+        break;
+      case (d12 < 13): coins = value / 10 + ' pp';
+        break;
+      default: console.log('coin error');
+        break;
+    }
+
+    coins += " in a " + this.treasureDetails("Container");
     return coins;
   }
 
   generateFurnishingClothing() {
-    let foc;
+    let foc = 'Furnishing/Clothing';
     return foc;
   }
 
-  generateGems() {
+  generateGems(value) {
     let gems;
-    return gems;
+    let numGems = this.roll(12);
+    switch (true) {
+      case (numGems < 2): numGems = 1; value *= 2;
+        break;
+      case (numGems < 4): numGems = 1;
+        break;
+      case (numGems < 6): numGems = this.roll(3) + 1;
+        break;
+      case (numGems < 8): numGems = this.roll(6) + 2;
+        break;
+      case (numGems < 10): numGems = this.roll(4) + this.roll(4) + 2;
+        break;
+      case (numGems < 12): numGems = this.roll(6) + this.roll(6) + this.roll(6) + 3;
+        break;
+      case (numGems < 13): numGems = 100;
+        break;
+      default: console.log('num gems error');
+        break;
+    }
+    const gemValue = Math.round(value / numGems * 10) / 10;
+
+    let gemStep;
+    switch (true) {
+      case (gemValue < .11): gemStep = 1;
+        break;
+      case (gemValue < .51): gemStep = 2;
+        break;
+      case (gemValue < 1): gemStep = 3;
+        break;
+      case (gemValue < 2): gemStep = 4;
+        break;
+      case (gemValue < 11): gemStep = 5;
+        break;
+      case (gemValue < 51): gemStep = 6;
+        break;
+      case (gemValue < 151): gemStep = 7;
+        break;
+      case (gemValue < 301): gemStep = 8;
+        break;
+      case (gemValue < 501): gemStep = 9;
+        break;
+      case (gemValue < 1001): gemStep = 10;
+        break;
+      case (gemValue < 2501): gemStep = 11;
+        break;
+      case (gemValue < 5001): gemStep = 12;
+        break;
+      case (gemValue < 10001): gemStep = 13;
+        break;
+      case (gemValue < 50001): gemStep = 14;
+        break;
+      case (gemValue > 50000): gemStep = 15;
+        break;
+      default: console.log('gem step error');
+        break;
+    }
+
+    let gemType;
+    let gemRank;
+    let stepDifference;
+    do {
+      gemType = this.treasureDetailsArr(Gem);
+
+      _.forEach(GemRanks, function (gemList, key) {
+        if (gemList.includes(gemType) === true) {
+          gemRank = key;
+        }
+      });
+
+      stepDifference = gemStep - gemRank;
+      // positive step difference = gem upgrade
+      // neg step diff = gem downgrade
+    } while (stepDifference < -6 || stepDifference > 10);
+
+    let size;
+    let sized20;
+    let sizeMod;
+    let qualityMod;
+    do {
+      sized20 = this.roll(20);
+      switch (true) {
+        case (sized20 < 2): sizeMod = -3; size = 'Tiny';
+          break;
+        case (sized20 < 3): sizeMod = -2; size = 'Very Small';
+          break;
+        case (sized20 < 6): sizeMod = -1; size = 'Small';
+          break;
+        case (sized20 < 14): sizeMod = 0; size = 'Average';
+          break;
+        case (sized20 < 18): sizeMod = 1; size = 'Large';
+          break;
+        case (sized20 < 19): sizeMod = 2; size = 'Very Large';
+          break;
+        case (sized20 < 20): sizeMod = 3; size = 'Huge';
+          break;
+        case (sized20 < 21):
+          sized20 = this.roll(20);
+          switch (true) {
+            case (sized20 < 15): sizeMod = 4; size = 'Massive';
+              break;
+            case (sized20 < 21): sizeMod = 5; size = 'Gargantuan';
+              break;
+            default: console.log('gem size 2 error');
+          }
+          break;
+        default: console.log('gem size error');
+          break;
+      }
+      qualityMod = stepDifference - sizeMod;
+    } while ((qualityMod < -3 || qualityMod > 5) === true);
+
+    let quality;
+    switch (qualityMod) {
+      case -3: quality = 'Badly Flawed';
+        break;
+      case -2: quality = 'Flawed';
+        break;
+      case -1: quality = 'with Minor Inclusions';
+        break;
+      case 0: quality = 'Average Quality';
+        break;
+      case 1: quality = 'Good Quality';
+        break;
+      case 2: quality = 'Excellent Quality';
+        break;
+      case 3: quality = 'Near Perfect';
+        break;
+      case 4: quality = 'Perfect';
+        break;
+      case 5: quality = 'Flawless';
+        break;
+      default: console.log('gem quality error');
+        break;
+    }
+
+    return gems = numGems + ' ' + size + ' ' + gemType + ', ' + quality + '(' + gemValue + ' gp each)';
+
+    /*let totalMod = 0;
+    let size;
+    let sized20 = this.roll(20);
+    switch (true) {
+      case (sized20 < 2): totalMod -= 3; size = 'Tiny';
+        break;
+      case (sized20 < 3): totalMod -= 2; size = 'Very Small';
+        break;
+      case (sized20 < 6): totalMod -= 1; size = 'Small';
+        break;
+      case (sized20 < 14): size = 'Average';
+        break;
+      case (sized20 < 18): totalMod += 1; size = 'Large';
+        break;
+      case (sized20 < 19): totalMod += 2; size = 'Very Large';
+        break;
+      case (sized20 < 20): totalMod += 3; size = 'Huge';
+        break;
+      case (sized20 < 21):
+        sized20 = this.roll(20);
+        switch (true) {
+          case (sized20 < 15): totalMod += 4; size = 'Massive';
+            break;
+          case (sized20 < 21): totalMod += 5; size = 'Gargantuan';
+            break;
+          default: console.log('gem size 2 error');
+        }
+        break;
+      default: console.log('gem size error');
+        break;
+    }
+
+    let quality;
+    let qualityd20 = this.roll(20);
+    switch (true) {
+      case (qualityd20 < 2): totalMod -= 3; quality = 'Badly Flawed';
+        break;
+      case (qualityd20 < 3): totalMod -= 2; quality = 'Flawed';
+        break;
+      case (qualityd20 < 6): totalMod -= 1; quality = 'Minor Inclusions';
+        break;
+      case (qualityd20 < 14): quality = 'Average';
+        break;
+      case (qualityd20 < 18): totalMod += 1; quality = 'Good';
+        break;
+      case (qualityd20 < 19): totalMod += 2; quality = 'Excellent';
+        break;
+      case (qualityd20 < 20): totalMod += 3; quality = 'Near Perfect';
+        break;
+      case (qualityd20 < 21):
+        qualityd20 = this.roll(20);
+        switch (true) {
+          case (qualityd20 < 15): totalMod += 4; quality = 'Perfect';
+            break;
+          case (qualityd20 < 21): totalMod += 5; quality = 'Flawless';
+            break;
+          default: console.log('gem size 2 error');
+        }
+        break;
+      default: console.log('gem size error');
+        break;
+    }
+
+    let stepDifference = (totalMod > 0) ? (gemStep - totalMod) : (gemStep + totalMod);
+    if (stepDifference < 5) {
+      console.log(stepDifference + ' crappy gems');
+      stepDifference = 5;
+    } else if (stepDifference > 10) {
+      console.log(stepDifference + ' gems too good');
+      stepDifference = 10;
+    }*/
+
+    // const gemType = this.treasureDetailsArr(Gems[stepDifference]);
+
+    // return gems = numGems + ' ' + size + ' ' + gemType + ', ' + quality + ' (' + (Math.round( gemValue * 10 ) / 10) + ' gp each)';
   }
 
   treasureDetails(arrString) {
@@ -583,7 +809,6 @@ export class SettingsComponent implements OnInit {
       this.infoService.updateMoonPhase();
       this.infoService.rollForEncounter();
       this.dateSet = true;
-      // console.log(this.infoService);
     }
   }
 
@@ -736,3 +961,71 @@ const MagicalComponents = ['Adamantine', 'Adders Stomach', 'Agate', 'Amber Rod',
   'Forked Metal Rod', 'Gem Encrusted Bowl', 'Powered Gems', 'Giant Slug Bile', 'Glass Eye', 'Gold Dust', 'Herbs', 'Holy Water', 'Unholy Water', 'Jade Circlet',
   'Jade Dust', 'Jeweled Horn', 'Jeweled Dagger', 'Lodestone', 'Mercury', 'Moonseeds', 'Oils', 'Incense', 'Pearl', 'Platinum Rings', 'Red Dragon Scale', 'Ruby',
   'Sapphire', 'Jacinth', 'Silver Bar', 'Silver Cage', 'Silver Powder', 'Sunstone', 'Umber Hulk Blood', 'Eyeball encased in Gem'];
+
+// Container
+
+const Container = ['Random Bag', 'Barrel', 'Random Coffer', 'Random Chest', 'Random HugeChest', 'Random Urn', 'Random Jar', 'Niche', 'Pile'];
+
+const Bag = [{
+  1: ['Random Fabric', 'Random Fabric', 'Random FancyFabric'],
+  2: ['Bag', 'Sack']
+}];
+
+const Coffer = [{
+  1: ['Random ContainerMat'],
+  2: ['Coffer', 'Kist']
+}];
+
+const Chest = [{
+  1: ['Random ContainerMat'],
+  2: ['Chest']
+}];
+
+const HugeChest = [{
+  1: ['Huge'],
+  2: ['Random ContainerMat'],
+  3: ['Chest']
+}];
+
+const Urn = [{
+  1: ['Random ContainerCeramic'],
+  2: ['Urn with'],
+  3: ['Random Lid']
+}];
+
+const Jar = [{
+  1: ['Random ContainerCeramic'],
+  2: ['Jar with'],
+  3: ['Random Lid']
+}];
+
+const Lid = ['no lid', 'a wax seal', 'a stopper', 'a lid'];
+
+const ContainerCeramic = ['Glass', 'Random Wood', 'Random Metal', 'Pottery', 'Ceramic'];
+
+const ContainerMat = ['Bronze', 'Cheap Wooden', 'Carved Wooden', 'Painted Wooden', 'Sturdy Wooden', 'Random Wood', 'Copper', 'Gold', 'Iron', 'Lead', 'Leather',
+  'Marble', 'Silver', 'Slate', 'Steel', 'Random Stone', 'Magical Energy'];
+
+// Gems
+
+const Gem = ['Azurite', 'Banded Agate', 'Blue Quartz', 'Eye Agate', 'Hematite', 'Lapis Lazuli', 'Malachite', 'Moss Agate', 'Obsidian', 'Pyrite', 'Rhodochrosite',
+  'Tiger Eye', 'Turquoise', 'Mother of Pearl', 'Amazon Stone', 'Bloodstone', 'Carnelian', 'Chalcedony', 'Chrysoprase', 'Citrine', 'Jasper', 'Moonstone', 'Onyx',
+  'Rock Crystal', 'Sardonyx', 'Serpentine', 'Smoky Quartz', 'Star Rose Quartz', 'Variscite', 'Amber', 'Alamandines', 'Alexandrite', 'Amethyst', 'Chrysoberyl',
+  'Coral', 'Diopside', 'Garnet', 'Idicolite', 'Jade', 'Jet', 'Morganite', 'Nephrite', 'Pearl', 'Spessarite', 'Sugilite (luvulite)', 'Rubellite Tourmaline',
+  'Zircon', 'Aquamarine', 'Garnet', 'Black Pearl', 'Peridot', 'Spinel', 'Kunzite', 'Hiddentine', 'Topaz', 'Zoisite (Tanzanite)', 'Black Opal', 'Emerald',
+  'Fire Opal', 'Garnet', 'Opal', 'Oriental Amethyst', 'Oriental Topaz', 'Sapphire', 'Star Ruby', 'Star Sapphire', 'Ammolite', 'Black Sapphire', 'Diamond',
+  'Jacinth', 'Oriental Emerald', 'Ruby'];
+
+const GemRanks = {
+  5: ['Azurite', 'Banded Agate', 'Blue Quartz', 'Eye Agate', 'Hematite', 'Lapis Lazuli', 'Malachite', 'Moss Agate', 'Obsidian', 'Pyrite', 'Rhodochrosite', 'Tiger Eye',
+    'Turquoise', 'Mother of Pearl'],
+  6: ['Amazon Stone', 'Bloodstone', 'Carnelian', 'Chalcedony', 'Chrysoprase', 'Citrine', 'Jasper', 'Moonstone', 'Onyx', 'Rock Crystal', 'Sardonyx', 'Serpentine',
+    'Smoky Quartz', 'Star Rose Quartz', 'Variscite'],
+  7: ['Amber', 'Alamandines', 'Alexandrite', 'Amethyst', 'Chrysoberyl', 'Coral', 'Diopside', 'Garnet', 'Idicolite', 'Jade', 'Jet', 'Morganite', 'Nephrite', 'Pearl',
+    'Spessarite', 'Sugilite (luvulite)', 'Rubellite Tourmaline', 'Zircon'],
+  8: ['Aquamarine', 'Garnet', 'Black Pearl', 'Peridot', 'Spinel', 'Kunzite', 'Hiddentine', 'Topaz', 'Zoisite (Tanzanite)'],
+  9: ['Black Opal', 'Emerald', 'Fire Opal', 'Garnet', 'Opal', 'Oriental Amethyst', 'Oriental Topaz', 'Sapphire', 'Star Ruby', 'Star Sapphire'],
+  10: ['Ammolite', 'Black Sapphire', 'Diamond', 'Jacinth', 'Oriental Emerald', 'Ruby']
+};
+
+const Cut = ['Step', 'Rose', 'Table', 'Cabochon (round)', 'Emerald', 'Brilliant Full', 'Eight', 'Scissors'];
