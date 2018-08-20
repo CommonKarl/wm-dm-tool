@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes, Router } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { WeatherGeneratorComponent } from './weather-generator/weather-generator.component';
@@ -16,9 +17,17 @@ import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
-import {InputSwitchModule} from 'primeng/inputswitch';
-import {SpinnerModule} from 'primeng/spinner';
-import {CheckboxModule} from 'primeng/checkbox';
+import { InputSwitchModule } from 'primeng/inputswitch';
+import { SpinnerModule } from 'primeng/spinner';
+import { CheckboxModule } from 'primeng/checkbox';
+import { TreasureComponent } from './treasure/treasure.component';
+import { HomeComponent } from './home/home.component';
+
+const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'treasure', component: TreasureComponent }
+];
 
 @NgModule({
   declarations: [
@@ -29,7 +38,9 @@ import {CheckboxModule} from 'primeng/checkbox';
     SettingsComponent,
     MapComponent,
     TimeComponent,
-    LunarCycleComponent
+    LunarCycleComponent,
+    TreasureComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +52,8 @@ import {CheckboxModule} from 'primeng/checkbox';
     InputTextModule,
     InputSwitchModule,
     SpinnerModule,
-    CheckboxModule
+    CheckboxModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -27,3 +27,8 @@ button{
 .inline{
     display: inline-block;
 }
+
+.treasureDialog{
+    width: 90%;
+    height: 90%;
+}

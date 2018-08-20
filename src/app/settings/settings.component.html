@@ -2,7 +2,7 @@
     <button pButton type="button" label="Advance Time Period" (click)="advanceTimePeriod()" icon="ui-icon-timer" style="width: 100%"></button>
     <button pButton type="button" label="Set Calendar" (click)="openCalendarTool()" icon="ui-icon-date-range"></button>
     <button pButton type="button" label="Add a Day" (click)="addDay()" icon="ui-icon-today" [disabled]="dateSet == false"></button>
-    <button pButton type="button" label="Generate Treasure" (click)="openTreasure()" icon="ui-icon-today"></button>
+    <button pButton type="button" label="Generate Treasure" routerLink="/treasure" icon="ui-icon-today"></button>
 </div>
 
 <p-dialog header="Set Calendar" [(visible)]="showCalendarTool" [draggable]="false">
@@ -21,29 +21,5 @@
 </p-dialog>
 
 <p-dialog header="Generate Treasure" [(visible)]="showTreasureTool" [draggable]="true" [modal]="true" [dismissableMask]="true">
-    <form (ngSubmit)="generateTreasure()" #treasureForm="ngForm">
-        <div class="flex-col center">
-            <label>Individual Treasure | Treasure Hoard</label>
-            <p-inputSwitch [(ngModel)]="individualOrHoard" name="hoardOption"></p-inputSwitch>
-        </div>
-        <div class="form-section" *ngIf="!individualOrHoard">
-            <label>Monster Challenge Rating:</label>
-            <input type="number" name="EL" min=1 pInputText [(ngModel)]="encounterLevel" required/>
-        </div>
-        <div class="form-section" *ngIf="individualOrHoard">
-            <label>Treasure Hoard Area Level:</label>
-            <input type="number" name="EL" min=1 pInputText [(ngModel)]="encounterLevel" required/>
-            <label>Treasure Unit Value (default: 100gp):</label>
-            <input type="number" class="inline" style="margin-right: 8px;" name="treasureUnitValue" step=25 pInputText [(ngModel)]="treasureUnitValue" required/>
-            <p-checkbox name="rtv" class="inline" [(ngModel)]="randomizeTV" binary="true"></p-checkbox>
-            <label>Hoard Size:</label>
-            <select name="hoard" [(ngModel)]="hoardSelect" required>
-                <option *ngFor="let hoard of hoards" [ngValue]="hoard.value">{{hoard.label}}</option>
-            </select>
-        </div>
-        <button pButton type="submit" label="Generate Treasure"></button>
-        <div style="margin-top: 15px;">
-            {{treasureHoardValue}}
-        </div>
-    </form>
+    
 </p-dialog>
