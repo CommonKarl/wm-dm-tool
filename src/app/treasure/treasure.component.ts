@@ -39,103 +39,58 @@ export class TreasureComponent implements OnInit {
   generateTreasure() {
     // generate treasure!
     this.treasureHoardValue = [];
-    if (!this.individualOrHoard) {
-      const d100 = this.roll(100);
-      if (this.encounterLevel > 0 && this.encounterLevel <= 4) {
-        // CR 0-4
-        if (d100 > 0 && d100 <= 30) {
-          this.treasureHoardValue.push((this.roll(6) + this.roll(6) + this.roll(6) + this.roll(6) + this.roll(6)) + 'cp'); // 5d6 cp
-        } else if (d100 > 30 && d100 <= 60) {
-          this.treasureHoardValue.push((this.roll(6) + this.roll(6) + this.roll(6) + this.roll(6)) + 'sp'); // 4d6 sp
-        } else if (d100 > 60 && d100 <= 95) {
-          this.treasureHoardValue.push((this.roll(6) + this.roll(6) + this.roll(6)) + 'gp'); // 3d6 gp
-        } else if (d100 > 95 && d100 <= 100) {
-          this.treasureHoardValue.push(this.roll(6) + 'pp'); // 1d6 pp
-        } else {
-          console.log('uh...error!');
-        }
-      } else if (this.encounterLevel > 4 && this.encounterLevel <= 10) {
-        // CR 5-10
-        if (d100 > 0 && d100 <= 30) {
-          this.treasureHoardValue.push(((this.roll(6) + this.roll(6) + this.roll(6) + this.roll(6)) * 100) + 'cp; '
-            + (this.roll(3) * 10) + 'gp'); // 4d6x100 cp and 1d3x10 gp
-        } else if (d100 > 30 && d100 <= 60) {
-          this.treasureHoardValue.push(((this.roll(6) + this.roll(6) + this.roll(6) + this.roll(6) + this.roll(6) + this.roll(6)) * 10) + 'sp; '
-            + ((this.roll(6) + this.roll(6)) * 10) + 'gp'); // 6d6x10 sp and 2d6x10 gp
-        } else if (d100 > 60 && d100 <= 95) {
-          this.treasureHoardValue.push(((this.roll(6) + this.roll(6) + this.roll(6) + this.roll(6)) * 10) + 'gp'); // 4d6x10 gp
-        } else if (d100 > 95 && d100 <= 100) {
-          this.treasureHoardValue.push(((this.roll(6) + this.roll(6)) * 10) + 'gp; ' + (this.roll(6) + this.roll(6) + this.roll(6)) + 'pp'); // 2d6x10 gp and 3d6 pp
-        } else {
-          console.log('uh...error!');
-        }
+    // treasure hoard
+    let hoardSize;
+    if (!this.hoardSelect) {
+      // randomize hoard size
+      const d20 = this.roll(20);
+      if (d20 === 1) {
+        hoardSize = 1;
+      } else if (d20 > 1 && d20 <= 3) {
+        hoardSize = 2;
+      } else if (d20 > 3 && d20 <= 7) {
+        hoardSize = 3;
+      } else if (d20 > 7 && d20 <= 13) {
+        hoardSize = 4;
+      } else if (d20 > 13 && d20 <= 16) {
+        hoardSize = 5;
+      } else if (d20 > 16 && d20 <= 18) {
+        hoardSize = 6;
+      } else if (d20 === 19) {
+        hoardSize = 7;
+      } else if (d20 === 20) {
+        hoardSize = 8;
       } else {
-        // CR 11+
-        if (d100 > 0 && d100 <= 30) {
-          this.treasureHoardValue.push(((this.roll(6) + this.roll(6) + this.roll(6) + this.roll(6)) * 100) + 'sp; '
-            + (this.roll(6) * 100) + 'gp'); // 4d6x100 sp and 1d6x100 gp
-        } else if (d100 > 30 && d100 <= 60) {
-          this.treasureHoardValue.push(((this.roll(6) + this.roll(6)) * 100) + 'gp'); // 2d6x100 gp
-        } else if (d100 > 60 && d100 <= 95) {
-          this.treasureHoardValue.push(((this.roll(6) + this.roll(6)) * 100) + 'gp; ' + (this.roll(6) * 10) + 'pp'); // 2d6x100 gp and 1d6x10 pp
-        } else if (d100 > 95 && d100 <= 100) {
-          this.treasureHoardValue.push(((this.roll(6) + this.roll(6)) * 100) + 'gp; ' + ((this.roll(6) + this.roll(6)) * 10) + 'pp'); // 2d6x100 gp and 2d6x10 pp
-        } else {
-          console.log('uh...error!');
-        }
+        console.log('d20 roll error');
       }
     } else {
-      // treasure hoard
-      let hoardSize;
-      if (!this.hoardSelect) {
-        // randomize hoard size
-        const d20 = this.roll(20);
-        if (d20 === 1) {
-          hoardSize = 1;
-        } else if (d20 > 1 && d20 <= 3) {
-          hoardSize = 2;
-        } else if (d20 > 3 && d20 <= 7) {
-          hoardSize = 3;
-        } else if (d20 > 7 && d20 <= 13) {
-          hoardSize = 4;
-        } else if (d20 > 13 && d20 <= 16) {
-          hoardSize = 5;
-        } else if (d20 > 16 && d20 <= 18) {
-          hoardSize = 6;
-        } else if (d20 === 19) {
-          hoardSize = 7;
-        } else if (d20 === 20) {
-          hoardSize = 8;
-        } else {
-          console.log('d20 roll error');
-        }
-      } else {
-        hoardSize = this.hoardSelect;
-      }
+      hoardSize = this.hoardSelect;
+    }
 
-      // roll # treasure unit based on hoard size
-      let numTreasureUnits;
-      switch (hoardSize) {
-        case 1: numTreasureUnits = 1;
-          break;
-        case 2: numTreasureUnits = this.roll(3);
-          break;
-        case 3: numTreasureUnits = this.roll(6) + 1;
-          break;
-        case 4: numTreasureUnits = this.roll(4) + 3;
-          break;
-        case 5: numTreasureUnits = this.roll(4) + 6;
-          break;
-        case 6: numTreasureUnits = this.roll(4) + this.roll(4) + 6;
-          break;
-        case 7: numTreasureUnits = this.roll(4) + this.roll(4) + this.roll(4) + 6;
-          break;
-        case 8: numTreasureUnits = (this.roll(4) + 2) * 4;
-          break;
-        default: console.log('hoard size is unrecognizable!');
-          break;
-      }
+    // roll # treasure unit based on hoard size
+    let numTreasureUnits;
+    switch (hoardSize) {
+      case 1: numTreasureUnits = 1;
+        break;
+      case 2: numTreasureUnits = this.roll(3);
+        break;
+      case 3: numTreasureUnits = this.roll(6) + 1;
+        break;
+      case 4: numTreasureUnits = this.roll(4) + 3;
+        break;
+      case 5: numTreasureUnits = this.roll(4) + 6;
+        break;
+      case 6: numTreasureUnits = this.roll(4) + this.roll(4) + 6;
+        break;
+      case 7: numTreasureUnits = this.roll(4) + this.roll(4) + this.roll(4) + 6;
+        break;
+      case 8: numTreasureUnits = (this.roll(4) + 2) * 4;
+        break;
+      default: console.log('hoard size is unrecognizable!');
+        break;
+    }
 
+    for (let i = 0; i < numTreasureUnits; i++) {
       let hoardBV = 1;
       if (this.randomizeTV) {
         // calculate base value of the hoard
@@ -165,15 +120,9 @@ export class TreasureComponent implements OnInit {
         } else {
           console.log('hoard base value error');
         }
-
       }
-
       const finalTreasureValue = this.treasureUnitValue * hoardBV;
-      for (let i = 0; i < numTreasureUnits; i++) {
-        this.generateIndividualTreasure(finalTreasureValue);
-      }
-
-
+      this.generateIndividualTreasure(finalTreasureValue);
     }
   }
 
@@ -188,7 +137,7 @@ export class TreasureComponent implements OnInit {
         break;
       case (typed20 < 12): treasure = this.generateGood(treasureValue);
         break;
-      case (typed20 < 18): treasure = this.generateCoins(treasureValue);
+      case (typed20 < 918): treasure = this.generateCoins(treasureValue);
         break;
       case (typed20 < 21): treasure = this.generateGems(treasureValue);
         break;
@@ -235,7 +184,7 @@ export class TreasureComponent implements OnInit {
     art += ', Size: ' + this.artSize();
     art += ', Work Quality: ' + this.artWorkQuality();
     art += ', Condition: ' + this.artCondition();
-    art += ', Value Modifier: ' + this.artEndValue(treasureValue);
+    art += ', Value: ' + this.artEndValue(treasureValue);
 
     return art;
   }
@@ -515,7 +464,7 @@ export class TreasureComponent implements OnInit {
 
   generateJeweledItem() {
     let item;
-    item = this.treasureDetails('JeweledItem');
+    item = this.treasureDetails('JeweledItem') + ' (' + this.roll(5) + ' lbs.)';
     return item;
   }
 
@@ -527,19 +476,19 @@ export class TreasureComponent implements OnInit {
         break;
       case (d100 < 13): good = this.treasureDetails('Weapon');
         break;
-      case (d100 < 17): good = 'Bottle(s) of ' + this.treasureDetails('Drink');
+      case (d100 < 17): good = this.generateDrinks(treasureValue);
         break;
-      case (d100 < 21): good = 'Crate(s) of ' + this.treasureDetails('ExoticFruit');
+      case (d100 < 21): good = this.generateFruit(treasureValue);
         break;
-      case (d100 < 31): good = 'Bolt(s) of ' + this.treasureDetails('FancyFabric');
+      case (d100 < 31): good = this.generateFabric(treasureValue);
         break;
       case (d100 < 36): good = this.generateMetalBars(treasureValue);
         break;
-      case (d100 < 42): good = this.treasureDetails('Ivory') + ' Ivory';
+      case (d100 < 42): good = this.generateIvory(treasureValue);
         break;
       case (d100 < 50): good = this.treasureDetails('Perfume');
         break;
-      case (d100 < 64): good = this.treasureDetails('ReligiousArtifacts');
+      case (d100 < 64): good = this.generateReligiousArtifact();
         break;
       case (d100 < 86): good = this.treasureDetails('ScrollsBooks');
         break;
@@ -553,10 +502,57 @@ export class TreasureComponent implements OnInit {
     return good;
   }
 
+  generateDrinks(treasureValue) {
+    const perLb = this.roll(5);
+    const weight = treasureValue / perLb;
+    const numBottles = weight / 2;
+    const liquidContainer = this.treasureDetails('LiquidContainer');
+    return Math.round(numBottles) + ' ' + this.treasureDetails('Drink') + ' in a ' + liquidContainer + ' ' + ' (2 lbs. & ' + (perLb * 2) + ' gp/Unit)';
+  }
+
+  generateFruit(treasureValue) {
+    const perLb = this.roll(10);
+    const weight = treasureValue / perLb;
+    const numCrates = weight / 10;
+    return Math.round(numCrates) + ' Crates of ' + this.treasureDetails('ExoticFruit') + ' (10 lbs. & ' + (perLb * 10) + ' gp/crate)';
+  }
+
   generateMetalBars(treasureValue) {
-    let bars = this.treasureDetails('Metal') + ' Ore/Bars/Ingots';
-    let weight = this.roll(150);
-    return bars + ' (' + weight + ' pounds)';
+    const bars = this.treasureDetails('Metal') + ' Ore/Bars/Ingots';
+    const weight = this.roll(150);
+    return bars + ' (' + weight + ' lbs.)';
+  }
+
+  generateIvory(treasureValue) {
+    const weight = Math.floor(Math.random() * (21)) + 5;
+    const value = Math.round(treasureValue / weight);
+    return weight + ' lbs. of ' + this.treasureDetails('Ivory') + ' Ivory (' + value + 'gp/lb.)';
+  }
+
+  generateFabric(treasureValue) {
+    const value = Math.floor(Math.random() * (21)) + 20;
+    const weight = Math.round(treasureValue / value);
+    const sqYards = weight * 2;
+    return weight + ' lbs. (' + sqYards + ' sq. yards) of ' + this.treasureDetails('FancyFabric') + ' (' + value + 'gp/lb.)';
+  }
+
+  generateReligiousArtifact() {
+    const treasure = this.treasureDetails('ReligiousArtifacts');
+    let weight;
+    if (treasure.includes('Altar') && !treasure.includes('Cloth')) {
+      weight = Math.floor(Math.random() * (1991)) + 10;
+    } else if (treasure.includes('Brazier')) {
+      weight = Math.floor(Math.random() * (196)) + 5;
+    } else if (treasure.includes('Kneeling')) {
+      weight = Math.floor(Math.random() * (18)) + 3;
+    } else if (treasure.includes('Lectern')) {
+      weight = Math.floor(Math.random() * (131)) + 20;
+    } else if (treasure.includes('Reliquary')) {
+      weight = Math.floor(Math.random() * (46)) + 4;
+    } else {
+      weight = this.roll(5);
+    }
+    return treasure + ' (' + weight + ' lbs.)';
   }
 
   generateCoins(value) {
@@ -575,7 +571,18 @@ export class TreasureComponent implements OnInit {
         break;
     }
 
-    coins += " in a " + this.treasureDetails("Container");
+    coins += ' in a ' + this.treasureDetails('Container');
+
+    const trapd20 = this.roll(20);
+    if (trapd20 === 1) {
+      coins += ' trapped with ' + this.treasureDetails('Trap');
+    }
+
+    const conceald20 = this.roll(20);
+    if (conceald20 === 1) {
+      coins += ' hidden by ' + this.treasureDetails('Hidden');
+    }
+
     return coins;
   }
 
@@ -615,7 +622,7 @@ export class TreasureComponent implements OnInit {
         break;
       case (numGems < 12): numGems = this.roll(6) + this.roll(6) + this.roll(6) + 3;
         break;
-      case (numGems < 13): numGems = 100;
+      case (numGems < 13): numGems = Math.floor(Math.random() * (41)) + 80;
         break;
       default: console.log('num gems error');
         break;
@@ -682,26 +689,26 @@ export class TreasureComponent implements OnInit {
     do {
       sized20 = this.roll(20);
       switch (true) {
-        case (sized20 < 2): sizeMod = -3; size = 'Tiny';
+        case (sized20 < 2): sizeMod = -3; size = 'Tiny (0.01 lbs. each [100/lb.])'; // 100 per lb. (.01 lbs.)
           break;
-        case (sized20 < 3): sizeMod = -2; size = 'Very Small';
+        case (sized20 < 3): sizeMod = -2; size = 'Very Small (0.05 lbs. each [20/lb.])'; // 20 per lb. (.05 lbs.)
           break;
-        case (sized20 < 6): sizeMod = -1; size = 'Small';
+        case (sized20 < 6): sizeMod = -1; size = 'Small (0.1 lbs. each [10/lb.])'; // 10 per lb. (.1 lbs.)
           break;
-        case (sized20 < 14): sizeMod = 0; size = 'Average';
+        case (sized20 < 14): sizeMod = 0; size = 'Average (0.5 lbs. each [2/lb.])'; // .5lbs., roughly 2x2x2 inches
           break;
-        case (sized20 < 18): sizeMod = 1; size = 'Large';
+        case (sized20 < 18): sizeMod = 1; size = 'Large (2 lbs. each)'; // fist sized/baseball sized, 2 lb.
           break;
-        case (sized20 < 19): sizeMod = 2; size = 'Very Large';
+        case (sized20 < 19): sizeMod = 2; size = 'Very Large (5 lbs. each)'; // 2 fists, 5 lb.
           break;
-        case (sized20 < 20): sizeMod = 3; size = 'Huge';
+        case (sized20 < 20): sizeMod = 3; size = 'Huge (10 lbs. each)'; // small sized head, 15 lb.
           break;
         case (sized20 < 21):
           sized20 = this.roll(20);
           switch (true) {
-            case (sized20 < 15): sizeMod = 4; size = 'Massive';
+            case (sized20 < 15): sizeMod = 4; size = 'Massive (25 lbs. each)'; // medium creature head size, 50 lb.
               break;
-            case (sized20 < 21): sizeMod = 5; size = 'Gargantuan';
+            case (sized20 < 21): sizeMod = 5; size = 'Gargantuan (100 lbs. each)'; // ~torso, 150 lb.
               break;
             default: console.log('gem size 2 error');
           }
@@ -813,9 +820,19 @@ const Tool = ['Adze', 'Ankus', 'Anvil', 'Auger', 'Awl', 'Balls', 'Bangles', 'Bel
 const MusicalInstrument = ['Flute', 'Harp', 'Bagpipes', 'Chimes', 'Cymbal', 'Horn', 'Drum', 'Dulcimer', 'Fiddle', 'Fife', 'Gong', 'Bell', 'Hurdy-Gurdy', 'Lute',
   'Lyre', 'Mandolin', 'Ocarina', 'Organ', 'Pan Pipes', 'Recorder', 'Tambourine', 'Triangle', 'Trumpet', 'Whistle', 'Xylophone'];
 
-const Weapon = ['Club', 'Dagger', 'Greatclub', 'Handaxe', 'Javelin', 'Light Hammer', 'Mace', 'Quarterstaff', 'Sickle', 'Spear', 'Light Crossbow', 'Dart', 'Shortbow',
-  'Sling', 'Battleaxe', 'Flail', 'Glaive', 'Greataxe', 'Greatsword', 'Halberd', 'Lance', 'Longsword', 'Maul', 'Morningstar', 'Pike', 'Rapier', 'Scimitar', 'Shortsword',
-  'Trident', 'War Pick', 'Warhammer', 'Whip', 'Blowgun', 'Heavy Crossbow', 'Longbow'];
+const Weapon = [{
+  1: ['Random Metal'],
+  2: ['Club', 'Dagger', 'Greatclub', 'Handaxe', 'Javelin', 'Light Hammer', 'Mace', 'Quarterstaff', 'Sickle', 'Spear', 'Light Crossbow', 'Dart', 'Shortbow',
+    'Sling', 'Battleaxe', 'Flail', 'Glaive', 'Greataxe', 'Greatsword', 'Halberd', 'Lance', 'Longsword', 'Maul', 'Morningstar', 'Pike', 'Rapier', 'Scimitar', 'Shortsword',
+    'Trident', 'War Pick', 'Warhammer', 'Whip', 'Blowgun', 'Heavy Crossbow', 'Longbow', 'Crossbow Bolts', 'Arrows'],
+  3: ['with'],
+  4: ['Random Accent'],
+  5: ['in a'],
+  6: ['Random FancyFabric'],
+  7: ['Sheath/Scabbard']
+}];
+
+const Accent = ['Word Engravings', 'Picture Carvings', 'Runes', { 1: ['Random Metal'], 2: ['Inlay'] }, { 1: ['Embedded'], 2: ['Random Gem'] }];
 
 const Armor = ['Random ClothArmor', 'Random MetalArmor'];
 
@@ -925,9 +942,9 @@ const JeweledItem = [{
     'Coffer', 'Comb', 'Coronet', 'Crown', 'Decanter', 'Diadem', 'Earring', 'Fob', 'Goblet', 'Headband', 'Idol', 'Locket', 'Medal', 'Medallion', 'Necklace',
     'Pendant', 'Pin', 'Orb', 'Ring', 'Scepter', 'Seal', 'Statuette', 'Tiara', 'Mask', 'Nose Ring/Stud', 'Circlet', 'Torc', 'Random Tool', 'Chatelaine', 'Cuff Link',
     'Lapel Pin', 'Grill', 'Bangles', 'Body Piercing', 'Prayer Beads', 'Puzzle', 'Aiguillette', 'Cock Ring', 'Pectoral', 'Ornamental Disc', 'Icon (small animal, symbol)',
-    'Egg', 'Random Weapon', 'Random Armor', 'Jar', 'Random MusicalInstrument'],
+    'Egg', 'Random Armor', 'Jar', 'Random MusicalInstrument'],
   2: ['made from'],
-  3: ['Random Metal', 'Random Wood', 'Random Metal', 'Random Metal'],
+  3: ['Random Metal', 'Random Wood', 'Random Metal'],
   4: ['embedded with'],
   5: ['Random Gem']
 }];
@@ -953,15 +970,15 @@ const Ivory = ['Baku', 'Behemoth', 'Catoblepas', 'Elephant', 'Hippoputamus', 'Ho
 
 const ReligiousArtifacts = [{
   1: ['Random FancyFabric', 'Random Metal', 'Random Fabric', 'Random Wood'],
-  2: ['Altar', 'Altar Cloth', 'Bell', 'Brazier', 'Candelabra', 'Candles', 'Candlestick', 'Cassock', 'Censer', 'Chalice', 'Chimes', 'Font', 'Holy Symbol', 'Holy Bones',
-    'Idol', 'Incense', 'Incense Burner', 'Kneeling Bench', 'Lamp', 'Lectern', 'Mosaic', 'Offertory Container', 'Reliquary', 'Snuffing Bell', 'Thurible', 'Vestment',
-    'Whistle']
+  2: ['Altar', 'Altar Cloth', 'Bell', 'Brazier', 'Candelabra', 'Candles', 'Candlestick', 'Cassock', 'Censer', 'Chalice', 'Chimes', 'Font',
+    'Holy Symbol', 'Holy Bones', 'Idol', 'Incense', 'Incense Burner', 'Kneeling Bench', 'Lamp', 'Lectern', 'Mosaic', 'Offertory Container',
+    'Reliquary', 'Snuffing Bell', 'Thurible', 'Vestment', 'Whistle']
 }];
 
 const ScrollsBooks = [{
   1: ['Autobiography', 'Biography', 'Engineering', 'Erotica', 'Historical', 'Legal Text', 'Epic', 'Novel', 'Play', 'Poetry', 'Ornithological', 'Planar', 'Religious',
     'Spellcraft', 'Trade Secrets', 'Warfare', 'Random Race', 'Random Universe'],
-  2: ['Scroll', 'Book'],
+  2: ['Scroll', 'Book (5 lbs.)'],
 }];
 
 const Race = [{
@@ -992,6 +1009,8 @@ const MagicalComponents = ['Adamantine', 'Adders Stomach', 'Agate', 'Amber Rod',
 // Container
 
 const Container = ['Random Bag', 'Barrel', 'Random Coffer', 'Random Chest', 'Random HugeChest', 'Random Urn', 'Random Jar', 'Niche', 'Pile'];
+
+const LiquidContainer = ['Random Urn', 'Random Jar', 'Random Bottle'];
 
 const Bag = [{
   1: ['Random Fabric', 'Random Fabric', 'Random FancyFabric'],
@@ -1026,12 +1045,25 @@ const Jar = [{
   3: ['Random Lid']
 }];
 
+const Bottle = [{
+  1: ['Glass'],
+  2: ['Bottle with'],
+  3: ['Random Lid']
+}];
+
 const Lid = ['no lid', 'a wax seal', 'a stopper', 'a lid'];
 
 const ContainerCeramic = ['Glass', 'Random Wood', 'Random Metal', 'Pottery', 'Ceramic'];
 
 const ContainerMat = ['Bronze', 'Cheap Wooden', 'Carved Wooden', 'Painted Wooden', 'Sturdy Wooden', 'Random Wood', 'Copper', 'Gold', 'Iron', 'Lead', 'Leather',
   'Marble', 'Silver', 'Slate', 'Steel', 'Random Stone', 'Magical Energy'];
+
+const Trap = ['Contact Poison on Treasure', 'Contact Poison on Container', 'Poisoned needles in the lock', 'Poisoned needle in the handle',
+  'Poisoned spring darts in the front', 'Poisoned spring darts on top', 'Poisoned spring darts from inside lid', 'Poisoned spring darts from inside bottom',
+  'Blade scything across top', 'Poisonous vermin', 'Poison Gas', 'Trap Door', 'Stone Block Drops', 'Magic'];
+
+const Hidden = ['Concealment', 'Invisibility', 'Secret space under container', 'Secret Compartment', 'being Disguised to appear as something else',
+  'being under a heap of trash or dung', 'being under a loose stone in the floor or wall', 'a nearby secret or concealed room'];
 
 // Gems
 
@@ -1059,5 +1091,9 @@ const Cut = ['Step', 'Rose', 'Table', 'Cabochon (round)', 'Emerald', 'Brilliant 
 
 // Perfume
 
-const Perfume = ['Perfume Bottle'];
+const Perfume = [{
+  1: ['PerfumeType'],
+  2: ['in a'],
+  3: ['Random LiquidContainer']
+}];
 

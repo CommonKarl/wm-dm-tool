@@ -19,6 +19,7 @@ export class EncounterGeneratorComponent implements OnInit {
   xpAllowanceMed: number;
   xpAllowanceDeadly: number;
   numPC = 5;
+  treasure: any;
 
   constructor(private infoService: InfoService) { }
 
@@ -65,6 +66,7 @@ export class EncounterGeneratorComponent implements OnInit {
       // monster block with multiple types/CRs
     }
 
+    this.generateTreasure(typeof this.currEncounterCR === 'number' ? this.currEncounterCR : this.infoService.locationCR);
 
 
     /*const tempLocation = this.infoService.location;
@@ -79,6 +81,52 @@ export class EncounterGeneratorComponent implements OnInit {
     }
     console.log(this.infoService.locationCR);
     */
+  }
+
+  generateTreasure(encounterLevel) {
+    const d100 = this.roll(100);
+    if (encounterLevel >= 0 && encounterLevel <= 4) {
+      // CR 0-4
+      if (d100 > 0 && d100 <= 30) {
+        this.treasure = this.roll(6) + this.roll(6) + this.roll(6) + this.roll(6) + this.roll(6) + 'cp'; // 5d6 cp
+      } else if (d100 > 30 && d100 <= 60) {
+        this.treasure = this.roll(6) + this.roll(6) + this.roll(6) + this.roll(6) + 'sp'; // 4d6 sp
+      } else if (d100 > 60 && d100 <= 95) {
+        this.treasure = this.roll(6) + this.roll(6) + this.roll(6) + 'gp'; // 3d6 gp
+      } else if (d100 > 95 && d100 <= 100) {
+        this.treasure = this.roll(6) + 'pp'; // 1d6 pp
+      } else {
+        console.log('uh...error!');
+      }
+    } else if (encounterLevel > 4 && encounterLevel <= 10) {
+      // CR 5-10
+      if (d100 > 0 && d100 <= 30) {
+        this.treasure = ((this.roll(6) + this.roll(6) + this.roll(6) + this.roll(6)) * 100) + 'cp; ' + (this.roll(3) * 10) + 'gp'; // 4d6x100 cp and 1d3x10 gp
+      } else if (d100 > 30 && d100 <= 60) {
+        this.treasure = ((this.roll(6) + this.roll(6) + this.roll(6) + this.roll(6) + this.roll(6) + this.roll(6)) * 10) + 'sp; '
+          + ((this.roll(6) + this.roll(6)) * 10) + 'gp'; // 6d6x10 sp and 2d6x10 gp
+      } else if (d100 > 60 && d100 <= 95) {
+        this.treasure = ((this.roll(6) + this.roll(6) + this.roll(6) + this.roll(6)) * 10) + 'gp'; // 4d6x10 gp
+      } else if (d100 > 95 && d100 <= 100) {
+        this.treasure = ((this.roll(6) + this.roll(6)) * 10) + 'gp; ' + (this.roll(6) + this.roll(6) + this.roll(6)) + 'pp'; // 2d6x10 gp and 3d6 pp
+      } else {
+        console.log('uh...error!');
+      }
+    } else {
+      // CR 11+
+      if (d100 > 0 && d100 <= 30) {
+        this.treasure = ((this.roll(6) + this.roll(6) + this.roll(6) + this.roll(6)) * 100) + 'sp; '
+          + (this.roll(6) * 100) + 'gp'; // 4d6x100 sp and 1d6x100 gp
+      } else if (d100 > 30 && d100 <= 60) {
+        this.treasure = ((this.roll(6) + this.roll(6)) * 100) + 'gp'; // 2d6x100 gp
+      } else if (d100 > 60 && d100 <= 95) {
+        this.treasure = ((this.roll(6) + this.roll(6)) * 100) + 'gp; ' + (this.roll(6) * 10) + 'pp'; // 2d6x100 gp and 1d6x10 pp
+      } else if (d100 > 95 && d100 <= 100) {
+        this.treasure = ((this.roll(6) + this.roll(6)) * 100) + 'gp; ' + ((this.roll(6) + this.roll(6)) * 10) + 'pp'; // 2d6x100 gp and 2d6x10 pp
+      } else {
+        console.log('uh...error!');
+      }
+    }
   }
 
   roll(sides) {

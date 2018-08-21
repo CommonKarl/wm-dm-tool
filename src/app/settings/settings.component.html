@@ -2,7 +2,8 @@
     <button pButton type="button" label="Advance Time Period" (click)="advanceTimePeriod()" icon="ui-icon-timer" style="width: 100%"></button>
     <button pButton type="button" label="Set Calendar" (click)="openCalendarTool()" icon="ui-icon-date-range"></button>
     <button pButton type="button" label="Add a Day" (click)="addDay()" icon="ui-icon-today" [disabled]="dateSet == false"></button>
-    <button pButton type="button" label="Generate Treasure" routerLink="/treasure" icon="ui-icon-today"></button>
+    <button pButton type="button" label="Generate Encounter Loot" (click)="openTreasureTool()" icon="ui-icon-attach-money"></button>
+    <button pButton type="button" label="Treasure Horde Generator" routerLink="/treasure" icon="ui-icon-cake"></button>
 </div>
 
 <p-dialog header="Set Calendar" [(visible)]="showCalendarTool" [draggable]="false">
@@ -21,5 +22,14 @@
 </p-dialog>
 
 <p-dialog header="Generate Treasure" [(visible)]="showTreasureTool" [draggable]="true" [modal]="true" [dismissableMask]="true">
-    
+    <form (ngSubmit)="generateTreasure()" #treasureForm="ngForm">
+        <div class="form-section flex-col center">
+            <label>Monster Challenge Rating:</label>
+            <input type="number" name="EL" min=1 pInputText [(ngModel)]="encounterLevel" required/>
+        </div>
+        <button pButton type="submit" label="Generate Treasure" style="width: 100%;"></button>
+    </form>
+    <div style="margin-top: 15px;">
+        {{treasure}}
+    </div>
 </p-dialog>
