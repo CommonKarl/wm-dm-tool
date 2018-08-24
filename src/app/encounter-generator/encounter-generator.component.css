@@ -1,3 +1,13 @@
 li{
     cursor: pointer;
 }
+
+.monster-name{
+    width: 275px;
+    display: inline-block;
+}
+
+.half{
+    display: inline-block;
+    width: 50%;
+}

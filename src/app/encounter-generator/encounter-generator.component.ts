@@ -12,14 +12,22 @@ import * as EP from '../data/encounter-probabilities';
 export class EncounterGeneratorComponent implements OnInit {
 
   encounterInfo: Subscription;
+  objectKeys = Object.keys;
 
   currEncounter: string;
-  currEncounterCR: number;
   xpAllowance: number;
   xpAllowanceMed: number;
   xpAllowanceDeadly: number;
   numPC = 5;
   treasure: any;
+
+  currEncounterEntities: any;
+  currEncounterValue: number;
+  currEncounterNumbers: any;
+  currEncounterCRs: any;
+  totalXP = 0;
+  totalNum = 0;
+  motivation = '';
 
   constructor(private infoService: InfoService) { }
 
@@ -27,6 +35,7 @@ export class EncounterGeneratorComponent implements OnInit {
     this.encounterInfo = this.infoService.encounterObs.subscribe(
       x => {
         if (x === true) {
+          this.clearEncounter();
           this.generateEncounter();
         } else {
           this.clearEncounter();
@@ -38,13 +47,20 @@ export class EncounterGeneratorComponent implements OnInit {
 
   clearEncounter() {
     this.currEncounter = null;
-    this.currEncounterCR = undefined;
+    this.currEncounterEntities = undefined;
+    this.currEncounterNumbers = undefined;
+    this.currEncounterCRs = undefined;
     this.xpAllowance = null;
     this.xpAllowanceDeadly = null;
     this.xpAllowanceMed = null;
+    this.totalXP = 0;
+    this.totalNum = 0;
+    this.motivation = '';
   }
 
   generateEncounter() {
+    this.currEncounterNumbers = Object.assign({}, EmptyEncounter);
+    this.currEncounterCRs = Object.assign({}, EmptyEncounter);
     // roll 2d6 + 1d10 for encounter
     const encounterRoll = this.roll(6) + this.roll(6) + this.roll(10);
     // set encounter tables
@@ -56,31 +72,46 @@ export class EncounterGeneratorComponent implements OnInit {
     this.xpAllowance = xpThresholds[this.infoService.locationCR] * this.numPC;
     this.xpAllowanceMed = xpThresholdsMed[this.infoService.locationCR] * this.numPC;
     this.xpAllowanceDeadly = xpThresholdsDeadly[this.infoService.locationCR] * this.numPC;
-    this.currEncounterCR = tempET[this.currEncounter];
+    this.currEncounterEntities = tempET[this.currEncounter];
 
-    if (typeof (this.currEncounterCR) === "number") {
-      // generate normal encounter by CR
-      const numOfMonsters = this.xpAllowance / monsterXP[this.currEncounterCR];
-      console.log(numOfMonsters);
-    } else {
-      // monster block with multiple types/CRs
+    this.generateTreasure(this.infoService.locationCR);
+
+    this.generateMotivation();
+
+    const el = this;
+    setTimeout(function () {
+      el.currEncounterXP();
+    }, 1, this);
+  }
+
+  adjustEncounter() {
+    this.xpAllowance = xpThresholds[this.infoService.locationCR] * this.numPC;
+    this.xpAllowanceMed = xpThresholdsMed[this.infoService.locationCR] * this.numPC;
+    this.xpAllowanceDeadly = xpThresholdsDeadly[this.infoService.locationCR] * this.numPC;
+  }
+
+  generateMotivation() {
+    this.motivation = '';
+    const d100 = this.roll(100);
+  }
+
+  currEncounterXP() {
+    this.totalXP = 0;
+    this.totalNum = 0;
+    for (let i = 0; i < 10; i++) {
+      // totalXP  = monsterXP[this.currEncounterCRs[i]];
+      // need to populate currEncounterCRs!!!!
+      const elCR: any = document.querySelector('#monsterCR' + i);
+      if (elCR) {
+        this.currEncounterCRs[i] = elCR.value;
+        this.totalXP += monsterXP[this.currEncounterCRs[i]] * this.currEncounterNumbers[i];
+        this.totalNum += this.currEncounterNumbers[i];
+      }
+
     }
-
-    this.generateTreasure(typeof this.currEncounterCR === 'number' ? this.currEncounterCR : this.infoService.locationCR);
-
-
-    /*const tempLocation = this.infoService.location;
-    const tempET = ET[tempLocation];
-    const keys = Object.keys(tempET);
-    const rand = keys.length;
-    this.currEncounter = keys[Math.floor(Math.random() * rand)];
-    if (typeof (tempET[this.currEncounter]) === "number") {
-      // generate normal encounter by CR
-    } else {
-      // monster block with multiple types/CRs
-    }
-    console.log(this.infoService.locationCR);
-    */
+    this.totalNum = (this.totalNum > 15) ? 15 : this.totalNum;
+    console.log(encounterMult[this.totalNum]);
+    this.totalXP = this.totalXP * encounterMult[this.totalNum];
   }
 
   generateTreasure(encounterLevel) {
@@ -133,6 +164,20 @@ export class EncounterGeneratorComponent implements OnInit {
     return Math.floor(Math.random() * sides) + 1;
   }
 }
+
+const EmptyEncounter = {
+  0: 0,
+  1: 0,
+  2: 0,
+  3: 0,
+  4: 0,
+  5: 0,
+  6: 0,
+  7: 0,
+  8: 0,
+  9: 0,
+  10: 0
+};
 
 const monsterXP = {
   0: 10,

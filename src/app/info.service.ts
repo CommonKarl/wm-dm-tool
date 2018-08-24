@@ -44,18 +44,7 @@ export class InfoService {
       this.calendar.month += 1;
       this.calendar.day = 1;
     }
-    /*_.forEach(this.calendar.moon_phase, function (value, index) {
-      // Get moon name and cycle #
-      let moon = index.replace('_', ' ');
-      moon = this.toTitleCase(moon);
-      const cycle = CalendarData.lunar_cyc[moon];
 
-      if (value < cycle) {
-        this.calendar.moon_phase[index] = value + 1;
-      } else {
-        this.calendar.moon_phase[index] = 0;
-      }
-    }.bind(this));*/
     this.calendar.time_period = 1;
     this.rollForEncounter();
     this.updateMoonPhase();

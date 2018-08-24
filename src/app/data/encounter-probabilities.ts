@@ -36,13 +36,13 @@ export const SouthJungle = {
     13: "grung",
     14: "spider",
     15: "snake",
-    16: "velociraptor",
+    16: "dinosaur",
     17: "panther",
     18: "bear",
     19: "kobold",
     20: "ankheg",
     21: "ettercap",
-    22: "pixie"
+    22: "fey"
 };
 
 export const Hills = {
@@ -69,7 +69,7 @@ export const Hills = {
 };
 
 export const WestJungle = {
-    3: "pixie",
+    3: "fey",
     4: "dryad",
     5: "cockatrice",
     6: "quipper",
@@ -278,7 +278,7 @@ export const NorthPlains = {
 export const Mountains = {
     3: "giant",
     4: "chimera",
-    5: "cyclops",
+    5: "archfey",
     6: "troll",
     7: "pteranodon",
     8: "manticore",

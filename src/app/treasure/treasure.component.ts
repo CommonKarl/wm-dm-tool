@@ -958,13 +958,12 @@ const ExoticFruit = ['Plunana', 'Rose Gourd', 'Rain Cawesh', 'Ground Marang', 'C
   'Ocean Rambutan', 'Fire Rambutan', 'Abyss Chicory', 'Eobaco', 'Desert Korlan', 'Night Bramble', 'Star Clementine', 'Sour Mundu', 'Tundra Courgette', 'Pygmy Pomelo',
   'Silver Pear', 'Mammoth Kiwi', 'Slukkuflower', 'Shimmerspud', 'Dragon Lychee', 'Mage Guanabana', 'Grim Bean'];
 
-const FancyFabric = ['Barkcloth', 'Broadcloth', 'Burlap', 'Calico', 'Cambric', 'Canvas', 'Cheesecloth', 'Chiffon', 'Cloth of gold', 'Crape', 'Denim', 'Flannel', 'Gauze',
-  'Haircloth', 'Herringbone', 'Himroo', 'Hodden', 'Khaki', 'Longcloth', 'Moleskin', 'Muslin', 'Oilskin', 'Ottoman', 'Oxford', 'Samite', 'Sateen', 'Satin', 'Scarlet',
-  'Seersucker', 'Silk', 'Tweed', 'Twill', 'Brocade', 'Corduroy', 'Plush', 'Fleece', 'Terrycloth', 'Velvet', 'Velveteen', 'Wadmal', 'Felt', 'Cedar Bark', 'Velour',
-  'Fishnet', 'Lace', 'Aurumvorak Fur', 'Bear Fur', 'Beaver Fur', 'Bunyip Hide', 'Caterwaul Hide', 'Devil Dog Hide', 'Ermine Fur', 'Owlbear Hide', 'Seal Skin',
-  'Snow Leopard Fur', 'Tiger Fur', 'Winter Wolf Hide', 'Yeti Hide', 'Zebra Hide', 'Auroch Hide', 'Behemoth Hide', 'Basilisk Hide', 'Blink Dog Fur',
-  'Random DragonHide', 'Displacer Beast Fur', 'Gorgon Hide', 'Hippopotamus Leather', 'Ki-rin Fur', 'Otyugh Leather', 'Snake Skin', 'Crocodile Hide',
-  'Lizard Hide', 'Turtle Skin', 'Dinosaur Hide'];
+const FancyFabric = ['Barkcloth', 'Broadcloth', 'Burlap', 'Calico', 'Cambric', 'Canvas', 'Cheesecloth', 'Chiffon', 'Cloth of gold', 'Gauze',
+  'Haircloth', 'Himroo', 'Hodden', 'Longcloth', 'Moleskin', 'Muslin', 'Oilskin', 'Ottoman', 'Samite', 'Sateen', 'Satin', 'Scarlet',
+  'Silk', 'Brocade', 'Fleece', 'Velvet', 'Velveteen', 'Wadmal', 'Felt', 'Cedar Bark', 'Velour', 'Fishnet', 'Lace', 'Aurumvorak Fur', 'Bear Fur',
+  'Beaver Fur', 'Bunyip Hide', 'Caterwaul Hide', 'Devil Dog Hide', 'Ermine Fur', 'Owlbear Hide', 'Seal Skin', 'Snow Leopard Fur', 'Tiger Fur', 'Winter Wolf Hide',
+  'Yeti Hide', 'Zebra Hide', 'Auroch Hide', 'Behemoth Hide', 'Basilisk Hide', 'Blink Dog Fur', 'Random DragonHide', 'Displacer Beast Fur', 'Gorgon Hide',
+  'Hippopotamus Leather', 'Ki-rin Fur', 'Otyugh Leather', 'Snake Skin', 'Crocodile Hide', 'Lizard Hide', 'Turtle Skin', 'Dinosaur Hide'];
 
 const Ivory = ['Baku', 'Behemoth', 'Catoblepas', 'Elephant', 'Hippoputamus', 'Hollyphant', 'Mammoth', 'Mastodon', 'Narwhal', 'Oliphant', 'Walrus', 'Giant Walrus'];
 

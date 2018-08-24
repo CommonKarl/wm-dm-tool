@@ -4,5 +4,5 @@ export const CalendarData = {
     weekdays: ["Sunday", "Moonday", "Terday", "Waterday", "Airsday", "Fireday"],
     moons: ["Night Sun", "Blood Moon"],
     lunar_cyc: { "Night Sun": 19, "Blood Moon": 49 },
-    lunar_shf: { "Night Sun": 0, "Blood Moon": 11 },
+    lunar_shf: { "Night Sun": 7, "Blood Moon": 2 },
 };
