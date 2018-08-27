@@ -131,13 +131,13 @@ export class TreasureComponent implements OnInit {
     const typed20 = this.roll(20);
     let treasure = '';
     switch (true) {
-      case (typed20 < 4): treasure = this.generateArt(treasureValue);
+      case (typed20 < 24): treasure = this.generateArt(treasureValue);
         break;
       case (typed20 < 7): treasure = this.generateJeweledItem();
         break;
       case (typed20 < 12): treasure = this.generateGood(treasureValue);
         break;
-      case (typed20 < 918): treasure = this.generateCoins(treasureValue);
+      case (typed20 < 18): treasure = this.generateCoins(treasureValue);
         break;
       case (typed20 < 21): treasure = this.generateGems(treasureValue);
         break;
@@ -178,15 +178,65 @@ export class TreasureComponent implements OnInit {
         break;
     }
 
+    const artType = art;
+    const artSize = this.artSize();
     art += ', Subject: ' + this.artSubject();
     art += ', Material Quality: ' + this.artMaterialQuality();
     art += ', Age: ' + this.artAge();
-    art += ', Size: ' + this.artSize();
+    art += ', Size: ' + artSize;
     art += ', Work Quality: ' + this.artWorkQuality();
     art += ', Condition: ' + this.artCondition();
     art += ', Value: ' + this.artEndValue(treasureValue);
+    art += ', Weight: ' + this.artWeight(artType, artSize);
 
     return art;
+  }
+
+  artWeight(type, size) {
+    let mult = 1;
+    let weight = 0;
+    if (this.isMaterial('Wood', type) || this.isMaterial('Fabric', type) || this.isMaterial('LightArt', type)) {
+      mult = (2 / 3);
+      this.artValueMod -= 1;
+    } else if (this.isMaterial('Stone', type) || this.isMaterial('MedArt', type)) {
+      mult = 3;
+      this.artValueMod += 2;
+    } else if (this.isMaterial('Metal', type)) {
+      mult = 10;
+      this.artValueMod += 4;
+    } else {
+      console.log('art weight mult error');
+    }
+    switch (size) {
+      case 'Tiny': weight = 1;
+        break;
+      case 'Very Small': weight = 3;
+        break;
+      case 'Small': weight = 6;
+        break;
+      case 'Average': weight = 12;
+        break;
+      case 'Large': weight = 30;
+        break;
+      case 'Very Large': weight = 90;
+        break;
+      case 'Huge': weight = 600;
+        break;
+      case 'Massive': weight = 1800;
+        break;
+      case 'Gargantuan': weight = 6000;
+        break;
+      default: console.log('art size weight error');
+        break;
+    }
+
+    return (weight * mult >= 1 ? weight * mult : 1);
+  }
+
+  isMaterial(material, artType) {
+    return eval(material).some(function (arrVal) {
+      return artType.includes(arrVal);
+    });
   }
 
   artEndValue(value) {
@@ -364,9 +414,9 @@ export class TreasureComponent implements OnInit {
     const d20 = this.roll(20);
     let result;
     switch (true) {
-      case (d20 < 2): result = 'Tiny'; this.artValueMod -= 3;
+      case (d20 < 2): result = 'Tiny'; this.artValueMod -= 5;
         break;
-      case (d20 < 3): result = 'Very Small'; this.artValueMod -= 2;
+      case (d20 < 3): result = 'Very Small'; this.artValueMod -= 3;
         break;
       case (d20 < 6): result = 'Small'; this.artValueMod -= 1;
         break;
@@ -374,16 +424,16 @@ export class TreasureComponent implements OnInit {
         break;
       case (d20 < 18): result = 'Large'; this.artValueMod += 1;
         break;
-      case (d20 < 19): result = 'Very Large'; this.artValueMod += 2;
+      case (d20 < 19): result = 'Very Large'; this.artValueMod += 3;
         break;
-      case (d20 < 20): result = 'Huge'; this.artValueMod += 3;
+      case (d20 < 20): result = 'Huge'; this.artValueMod += 5;
         break;
       case (d20 < 21):
         const d20b = this.roll(20);
         switch (true) {
-          case (d20b < 15): result = 'Massive'; this.artValueMod += 4;
+          case (d20b < 15): result = 'Massive'; this.artValueMod += 7;
             break;
-          case (d20b < 21): result = 'Gargantuan'; this.artValueMod += 5;
+          case (d20b < 21): result = 'Gargantuan'; this.artValueMod += 10;
             break;
           default: console.log('art size 2 error');
         }
@@ -526,7 +576,7 @@ export class TreasureComponent implements OnInit {
   generateIvory(treasureValue) {
     const weight = Math.floor(Math.random() * (21)) + 5;
     const value = Math.round(treasureValue / weight);
-    return weight + ' lbs. of ' + this.treasureDetails('Ivory') + ' Ivory (' + value + 'gp/lb.)';
+    return weight + ' lbs. of ' + this.treasureDetails('Ivory') + ' (' + value + 'gp/lb.)';
   }
 
   generateFabric(treasureValue) {
@@ -759,10 +809,30 @@ export class TreasureComponent implements OnInit {
       let moredeets = '';
       for (const key of Object.keys(deets)) {
         let tempdeets = deets[key][Math.floor(Math.random() * deets[key].length)];
-        if (tempdeets.includes('Random') === true) {
-          tempdeets = this.treasureDetailsArr(eval(tempdeets.slice(7)));
+
+        if (typeof (tempdeets) === 'string') {
+          if (tempdeets.includes('Random') === true) {
+            tempdeets = this.treasureDetailsArr(eval(tempdeets.slice(7)));
+          }
+          moredeets += ' ' + tempdeets;
+        } else {
+          // deeper object
+          for (const tempkey of Object.keys(tempdeets)) {
+            let doubletempdeets = tempdeets[tempkey][Math.floor(Math.random() * tempdeets[tempkey].length)];
+
+            if (typeof (doubletempdeets) === 'string') {
+              if (doubletempdeets.includes('Random') === true) {
+                doubletempdeets = this.treasureDetailsArr(eval(doubletempdeets.slice(7)));
+              }
+              moredeets += ' ' + doubletempdeets;
+            } else {
+              // deeper object
+              console.log('double deeper! what the fuuuuuuuuck!!!!!');
+            }
+
+          }
         }
-        moredeets += ' ' + tempdeets;
+
       }
       return moredeets.replace(' ', '');
     }
@@ -854,13 +924,11 @@ const DragonHide = [{
 
 // ART
 
-const PaperArt = ['Pastel', 'Charcoal', 'Colored Pencil', 'Conte', 'Crayon', 'Graphite', 'Ink',
-  {
-    1: ['Calligraphic', 'Printed', 'Illustrated'],
-    2: ['Manuscript', 'Letter', 'Drawing'],
-    3: ['on'],
-    4: ['Paper', 'Canvas', 'Random Wood', 'Plaster', 'Random Metal']
-  }];
+const PaperArt = [{
+  1: ['Pastel', 'Charcoal', 'Colored Pencil', 'Conte', 'Crayon', 'Graphite', 'Ink', { 1: ['Calligraphic', 'Printed', 'Illustrated'], 2: ['Manuscript', 'Letter', 'Drawing'] }],
+  2: ['on'],
+  3: ['Paper', 'Canvas', 'Random Wood', 'Plaster', 'Random Metal']
+}];
 
 const FabricArt = [{
   1: ['Random Fabric'],
@@ -871,13 +939,13 @@ const FabricArt = [{
 const Painting = [{
   1: ['Acrylic Paint', 'Oil Paint', 'Enamel Paint', 'Encaustic (wax)', 'Fresco', 'Gesso', 'Glaze', 'Gouache', 'Ink', 'Sumi', 'Tempera', 'Watercolor'],
   2: ['on'],
-  3: ['a Building/Wall/Ceiling', 'Canvas', 'Clay', 'Cloth', 'Glass', 'Lacquer', 'Random Metal', 'Paper', 'Random Wood', 'Ceramic']
+  3: ['a Structural Object', 'Canvas', 'Clay', 'Random Fabric', 'Glass', { 1: ['Lacquer on'], 2: ['Random Wood'] }, 'Random Metal', 'Paper', 'Random Wood', 'Ceramic']
 }];
 
-const Crafts = ['Bracelets', 'Lace', 'Origami', 'Scrap-booking', 'Egg Decorating', 'Mosaic', { 1: ['Random Wood'], 2: ['Burning'] }];
+const Crafts = [{ 1: ['Glass', 'Random Metal', 'Random Wood'], 2: ['Bracelets'] }, { 1: ['Random Fabric'], 2: ['Lace'] }, 'Paper Origami', 'Ornamental Egg', { 1: ['Glass', 'Ceramic'], 2: ['Mosaic'] }, { 1: ['Random Wood'], 2: ['Burning'] }];
 
 const Carving = [{
-  1: ['Bone', 'Gourd', 'Ice', 'Ivory', 'Scrimshaw', 'Random Stone', 'Random Wood'],
+  1: ['Bone', 'Gourd', 'Random Ivory', 'Random Stone', 'Random Wood'],
   2: ['Carving']
 }];
 
@@ -934,6 +1002,10 @@ const artValue = {
   28: 'Priceless'
 };
 
+const LightArt = ['Paper', 'Canvas', 'Gourd'];
+
+const MedArt = ['Plaster', 'Structural Object', 'Clay', 'Glass', 'Ceramic', 'Bone', 'Egg', 'Ivory'];
+
 //
 
 
@@ -965,7 +1037,10 @@ const FancyFabric = ['Barkcloth', 'Broadcloth', 'Burlap', 'Calico', 'Cambric', '
   'Yeti Hide', 'Zebra Hide', 'Auroch Hide', 'Behemoth Hide', 'Basilisk Hide', 'Blink Dog Fur', 'Random DragonHide', 'Displacer Beast Fur', 'Gorgon Hide',
   'Hippopotamus Leather', 'Ki-rin Fur', 'Otyugh Leather', 'Snake Skin', 'Crocodile Hide', 'Lizard Hide', 'Turtle Skin', 'Dinosaur Hide'];
 
-const Ivory = ['Baku', 'Behemoth', 'Catoblepas', 'Elephant', 'Hippoputamus', 'Hollyphant', 'Mammoth', 'Mastodon', 'Narwhal', 'Oliphant', 'Walrus', 'Giant Walrus'];
+const Ivory = [{
+  1: ['Baku', 'Behemoth', 'Catoblepas', 'Elephant', 'Hippoputamus', 'Hollyphant', 'Mammoth', 'Mastodon', 'Narwhal', 'Oliphant', 'Walrus', 'Giant Walrus'],
+  2: ['Ivory']
+}];
 
 const ReligiousArtifacts = [{
   1: ['Random FancyFabric', 'Random Metal', 'Random Fabric', 'Random Wood'],

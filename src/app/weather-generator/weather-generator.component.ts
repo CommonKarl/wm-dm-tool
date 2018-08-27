@@ -12,4 +12,6 @@ export class WeatherGeneratorComponent implements OnInit {
   ngOnInit() {
   }
 
+  // include next day's forecast as a small tidbit of the next week for any PC's with the Explorer background
+
 }

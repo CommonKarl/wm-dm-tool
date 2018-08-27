@@ -3,6 +3,7 @@ import { InfoService } from '../info.service';
 import { Subscription } from '../../../node_modules/rxjs';
 import * as ET from '../data/encounter-tables';
 import * as EP from '../data/encounter-probabilities';
+import { Motivations } from '../data/motivations';
 
 @Component({
   selector: 'dm-encounter-generator',
@@ -93,6 +94,7 @@ export class EncounterGeneratorComponent implements OnInit {
   generateMotivation() {
     this.motivation = '';
     const d100 = this.roll(100);
+    this.motivation = Motivations[Math.floor(Math.random() * Motivations.length)];
   }
 
   currEncounterXP() {
