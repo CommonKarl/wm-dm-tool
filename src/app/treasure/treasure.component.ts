@@ -131,7 +131,7 @@ export class TreasureComponent implements OnInit {
     const typed20 = this.roll(20);
     let treasure = '';
     switch (true) {
-      case (typed20 < 24): treasure = this.generateArt(treasureValue);
+      case (typed20 < 4): treasure = this.generateArt(treasureValue);
         break;
       case (typed20 < 7): treasure = this.generateJeweledItem();
         break;
