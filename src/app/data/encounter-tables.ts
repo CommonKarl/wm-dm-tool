@@ -787,6 +787,9 @@ export const Desert = {
     ant_lion: {
         ant_lion: 4
     },
+    sand_vampire: {
+        vampire_spawn: 5
+    },
     sand_hag: {
         sand_hag: 5
     },
