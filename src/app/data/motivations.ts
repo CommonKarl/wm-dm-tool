@@ -40,3 +40,13 @@ export const Motivations = [
     'Working the Environment (getting resources; logging, quarrying, mining, foraging, beasts are simply devouring food from the area)',
     'Wounded (obviously; 1/2 HP or so; generate second encounter to determine the reason for the injury)'
 ];
+
+export const BaseMotivations = [
+    'Evil (enjoys killing or causing pain)',
+    'Fear (as afraid of PCs as PCs are of it)',
+    'Glory (defeat worthy opponents and take trophies, if PCs seem unworthy may leave them alone in contempt)',
+    'Hunger',
+    'Pain (wounded and lashing out)',
+    'Rage (killing frenzy! natural state, disease, magic, other reason?)',
+    'Territory (defending/marking territory)'
+];

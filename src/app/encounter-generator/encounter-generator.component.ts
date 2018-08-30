@@ -3,7 +3,7 @@ import { InfoService } from '../info.service';
 import { Subscription } from '../../../node_modules/rxjs';
 import * as ET from '../data/encounter-tables';
 import * as EP from '../data/encounter-probabilities';
-import { Motivations } from '../data/motivations';
+import { Motivations, BaseMotivations } from '../data/motivations';
 
 @Component({
   selector: 'dm-encounter-generator',
@@ -29,6 +29,7 @@ export class EncounterGeneratorComponent implements OnInit {
   totalXP = 0;
   totalNum = 0;
   motivation = '';
+  baseMotivation = '';
 
   constructor(private infoService: InfoService) { }
 
@@ -78,6 +79,7 @@ export class EncounterGeneratorComponent implements OnInit {
     this.generateTreasure(this.infoService.locationCR);
 
     this.generateMotivation();
+    this.generateBaseMotivation();
 
     const el = this;
     setTimeout(function () {
@@ -93,8 +95,12 @@ export class EncounterGeneratorComponent implements OnInit {
 
   generateMotivation() {
     this.motivation = '';
-    const d100 = this.roll(100);
     this.motivation = Motivations[Math.floor(Math.random() * Motivations.length)];
+  }
+
+  generateBaseMotivation() {
+    this.baseMotivation = '';
+    this.baseMotivation = BaseMotivations[Math.floor(Math.random() * BaseMotivations.length)];
   }
 
   currEncounterXP() {

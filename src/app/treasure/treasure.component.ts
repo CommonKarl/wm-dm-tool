@@ -739,15 +739,15 @@ export class TreasureComponent implements OnInit {
     do {
       sized20 = this.roll(20);
       switch (true) {
-        case (sized20 < 2): sizeMod = -3; size = 'Tiny (0.01 lbs. each [100/lb.])'; // 100 per lb. (.01 lbs.)
+        case (sized20 < 2): sizeMod = -3; size = 'Tiny (0.01 lbs. each, [100/lb.])'; // 100 per lb. (.01 lbs.)
           break;
-        case (sized20 < 3): sizeMod = -2; size = 'Very Small (0.05 lbs. each [20/lb.])'; // 20 per lb. (.05 lbs.)
+        case (sized20 < 3): sizeMod = -2; size = 'Very Small (0.05 lbs. each, [20/lb.])'; // 20 per lb. (.05 lbs.)
           break;
-        case (sized20 < 6): sizeMod = -1; size = 'Small (0.1 lbs. each [10/lb.])'; // 10 per lb. (.1 lbs.)
+        case (sized20 < 6): sizeMod = -1; size = 'Small (0.1 lbs. each, [10/lb.])'; // 10 per lb. (.1 lbs.)
           break;
-        case (sized20 < 14): sizeMod = 0; size = 'Average (0.5 lbs. each [2/lb.])'; // .5lbs., roughly 2x2x2 inches
+        case (sized20 < 14): sizeMod = 0; size = 'Average (0.2 lbs. each, [5/lb.])'; // .5lbs., roughly 2x2x2 inches
           break;
-        case (sized20 < 18): sizeMod = 1; size = 'Large (2 lbs. each)'; // fist sized/baseball sized, 2 lb.
+        case (sized20 < 18): sizeMod = 1; size = 'Large (1 lb. each)'; // fist sized/baseball sized, 2 lb.
           break;
         case (sized20 < 19): sizeMod = 2; size = 'Very Large (5 lbs. each)'; // 2 fists, 5 lb.
           break;
@@ -871,7 +871,7 @@ const Wood = ['Pine', 'Cedar', 'Cypress', 'Fir', 'Yew', 'Hemlock', 'Larch', 'Red
   'Ebony', 'Elm', 'Eucalyptus', 'Gum wood', 'Hickory', 'Ironwood', 'Locust wood', 'Maple', 'Oak', 'Poplar', 'Sandalwood', 'Sassafras',
   'Teak', 'Walnut', 'Willow', 'Bluewood', 'Duskwood', 'Shadowtop wood', 'Silverbark', 'Weirwood'];
 
-const Fabric = ['Wool', 'Wollen Wool', 'Worested Wool', 'Goat Hide', 'Alpaca Wool', 'Vicuna Fur', 'Llama Wool', 'Camel Hide', 'Rabbit Hide', 'Wadmal', 'Silk', 'Grass',
+const Fabric = ['Woolen Wool', 'Worested Wool', 'Goat Hide', 'Alpaca Wool', 'Vicuna Fur', 'Llama Wool', 'Camel Hide', 'Rabbit Hide', 'Wadmal', 'Silk', 'Grass',
   'Rush', 'Hemp', 'Sisal', 'Coconut', 'Straw', 'Bamboo', 'Cotton', 'Flax', 'Ramie', 'Jute', 'Linen', 'Velour', 'Lace'];
 
 const Metal = ['Bronze', 'Brass', 'Copper', 'Electrum', 'Gold', 'Iron', 'Lead', 'Platinum', 'Silver', 'Steel', 'Titanium', 'Cobalt', 'Nickel',
@@ -899,7 +899,7 @@ const Weapon = [{
   4: ['Random Accent'],
   5: ['in a'],
   6: ['Random FancyFabric'],
-  7: ['Sheath/Scabbard']
+  7: ['Sheath/Scabbard/Quiver']
 }];
 
 const Accent = ['Word Engravings', 'Picture Carvings', 'Runes', { 1: ['Random Metal'], 2: ['Inlay'] }, { 1: ['Embedded'], 2: ['Random Gem'] }];
@@ -913,7 +913,7 @@ const ClothArmor = [{
 
 const MetalArmor = [{
   1: ['Random Metal'],
-  2: ['Chain Shirt', 'Scale Mail', 'Breastplate', 'Half Plate', 'Ring Mail', 'Chain Mail', 'Splint', 'Plate', 'Shield']
+  2: ['Chain Shirt', 'Scale Mail', 'Breastplate', 'Half Plate', 'Ring Mail', 'Chain Mail', 'Splint', 'Plate Mail', 'Shield']
 }];
 
 const DragonHide = [{
@@ -942,7 +942,10 @@ const Painting = [{
   3: ['a Structural Object', 'Canvas', 'Clay', 'Random Fabric', 'Glass', { 1: ['Lacquer on'], 2: ['Random Wood'] }, 'Random Metal', 'Paper', 'Random Wood', 'Ceramic']
 }];
 
-const Crafts = [{ 1: ['Glass', 'Random Metal', 'Random Wood'], 2: ['Bracelets'] }, { 1: ['Random Fabric'], 2: ['Lace'] }, 'Paper Origami', 'Ornamental Egg', { 1: ['Glass', 'Ceramic'], 2: ['Mosaic'] }, { 1: ['Random Wood'], 2: ['Burning'] }];
+const Crafts = [
+  { 1: ['Glass', 'Random Metal', 'Random Wood'], 2: ['Bracelets'] }, { 1: ['Random Fabric'], 2: ['Lace'] },
+  'Paper Origami', 'Ornamental Egg', { 1: ['Glass', 'Ceramic'], 2: ['Mosaic'] }, { 1: ['Random Wood'], 2: ['Burning'] }
+];
 
 const Carving = [{
   1: ['Bone', 'Gourd', 'Random Ivory', 'Random Stone', 'Random Wood'],
@@ -1166,7 +1169,7 @@ const Cut = ['Step', 'Rose', 'Table', 'Cabochon (round)', 'Emerald', 'Brilliant 
 // Perfume
 
 const Perfume = [{
-  1: ['PerfumeType'],
+  1: ['Perfume'],
   2: ['in a'],
   3: ['Random LiquidContainer']
 }];
