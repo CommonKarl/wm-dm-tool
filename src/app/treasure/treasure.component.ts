@@ -187,7 +187,7 @@ export class TreasureComponent implements OnInit {
     art += ', Work Quality: ' + this.artWorkQuality();
     art += ', Condition: ' + this.artCondition();
     art += ', Value: ' + this.artEndValue(treasureValue);
-    art += ', Weight: ' + this.artWeight(artType, artSize);
+    art += ', Weight: ' + this.artWeight(artType, artSize) + ' lbs.';
 
     return art;
   }
@@ -207,30 +207,31 @@ export class TreasureComponent implements OnInit {
     } else {
       console.log('art weight mult error');
     }
+    // Math.floor(Math.random() * (max - min + 1) ) + min;
     switch (size) {
       case 'Tiny': weight = 1;
         break;
-      case 'Very Small': weight = 3;
+      case 'Very Small': weight = Math.floor(Math.random() * (3) ) + 1;
         break;
-      case 'Small': weight = 6;
+      case 'Small': weight = Math.floor(Math.random() * (3) ) + 4;
         break;
-      case 'Average': weight = 12;
+      case 'Average': weight = Math.floor(Math.random() * (4) ) + 9;
         break;
-      case 'Large': weight = 30;
+      case 'Large': weight = Math.floor(Math.random() * (6) ) + 25;
         break;
-      case 'Very Large': weight = 90;
+      case 'Very Large': weight = Math.floor(Math.random() * (11) ) + 80;
         break;
-      case 'Huge': weight = 600;
+      case 'Huge': weight = Math.floor(Math.random() * (121) ) + 500;
         break;
-      case 'Massive': weight = 1800;
+      case 'Massive': weight = Math.floor(Math.random() * (401) ) + 1500;
         break;
-      case 'Gargantuan': weight = 6000;
+      case 'Gargantuan': weight = Math.floor(Math.random() * (2001) ) + 5000;
         break;
       default: console.log('art size weight error');
         break;
     }
 
-    return (weight * mult >= 1 ? weight * mult : 1);
+    return (weight * mult >= 1 ? Math.floor(weight * mult) : 1);
   }
 
   isMaterial(material, artType) {
