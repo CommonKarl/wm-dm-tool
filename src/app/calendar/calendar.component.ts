@@ -15,15 +15,15 @@ export class CalendarComponent implements OnInit {
   dayS: string;
   month: string;
 
-  constructor(private infoservice: InfoService) { }
+  constructor(private infoService: InfoService) { }
 
   ngOnInit() {
-    this.calendarInfo = this.infoservice.calendarObs.subscribe(
+    this.calendarInfo = this.infoService.calendarObs.subscribe(
       x => {
         this.year = x.year;
         this.day = x.day;
-        this.dayS = this.infoservice.days[x.day % 6];
-        this.month = this.infoservice.months[x.month];
+        this.dayS = this.infoService.days[x.day % 6];
+        this.month = this.infoService.months[x.month];
       },
       err => console.error(err)
     );

@@ -15,3 +15,9 @@ export class WeatherGeneratorComponent implements OnInit {
   // include next day's forecast as a small tidbit of the next week for any PC's with the Explorer background
 
 }
+
+const Firstflow = {
+  1: ['chilly', 'cloudy', 'downpour', 'breezy']
+};
+
+
