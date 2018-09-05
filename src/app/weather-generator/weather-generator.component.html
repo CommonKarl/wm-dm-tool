@@ -1,4 +1,7 @@
-<p>
-  weather-generator works!
-</p>
-<button pButton type="submit" label="Generate Weather" style="width: 100%;"></button>
+<div class="flex-col">
+  <p>
+    <b>Temp:</b> {{currWeather.temp}} <br /> <b>Tags:</b> {{currWeather.tags}} <br /> <b>Magical Weather:</b> {{currWeather.magicalWeather}} <br/>    <b>Meteorological
+    Events:</b> {{currWeather.meteorologicalEvents}}
+  </p>
+  <button pButton type="submit" label="Generate Weather" (click)="newDay()" style="width: 100%;"></button>
+</div>

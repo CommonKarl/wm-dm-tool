@@ -15,8 +15,8 @@ export class SettingsComponent implements OnInit {
 
   calendarInfo: Subscription;
   showCalendarTool = false;
-  chosenDay = 1;
-  chosenMonth = 0;
+  chosenDay = 11;
+  chosenMonth = 1;
   chosenYear = 1;
   months: SelectItem[];
   dateSet = false;

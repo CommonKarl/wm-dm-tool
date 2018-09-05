@@ -41,8 +41,14 @@ export class InfoService {
     if (this.calendar.day < 30) {
       this.calendar.day += 1;
     } else {
-      this.calendar.month += 1;
-      this.calendar.day = 1;
+      if (this.calendar.month === 7) {
+        this.calendar.day = 1;
+        this.calendar.month = 0;
+        this.calendar.year += 1;
+      } else {
+        this.calendar.month += 1;
+        this.calendar.day = 1;
+      }
     }
 
     this.calendar.time_period = 1;
@@ -74,6 +80,10 @@ export class InfoService {
     } else {
       this.updateEncounter(false);
     }
+  }
+
+  roll(sides) {
+    return Math.floor(Math.random() * sides) + 1;
   }
 
   updateInfo() {

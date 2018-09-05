@@ -118,7 +118,6 @@ export class EncounterGeneratorComponent implements OnInit {
 
     }
     this.totalNum = (this.totalNum > 15) ? 15 : this.totalNum;
-    console.log(encounterMult[this.totalNum]);
     this.totalXP = this.totalXP * encounterMult[this.totalNum];
   }
 
