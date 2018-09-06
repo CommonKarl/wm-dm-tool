@@ -46,6 +46,7 @@ export class WeatherGeneratorComponent implements OnInit {
   }
 
   generateWeather() {
+    // tslint:disable-next-line
     let currWeather = new Weather;
     let d10 = this.infoService.roll(10) - 1;
     let tempTemp = eval(this.currMonth)[d10] + locationTempMod[this.infoService.location];
@@ -98,7 +99,7 @@ export class WeatherGeneratorComponent implements OnInit {
       const windd4 = this.infoService.roll(4);
       const sund4 = this.infoService.roll(4);
       if (windd4 < 3) {
-        currWeather.tags.push(wind[windd4 - 1]);
+        currWeather.tags.push(wind[this.infoService.roll(3) - 1]);
         currWeather.tags.push(sun[sund4 - 1]);
       } else if (windd4 === 3) {
         currWeather.tags.push('Hazy (dust, smoke, fog, humidity)');
@@ -119,20 +120,20 @@ export class Weather {
   percipitation: boolean;
   tags: string[];
   magicalWeather: string;
-  meteorologicalEvents: string;
+  celestialEvents: string;
 
   constructor() {
     this.tags = [];
     this.temp = null;
     this.percipitation = false;
     this.magicalWeather = null;
-    this.meteorologicalEvents = null;
+    this.celestialEvents = null;
   }
 }
 
 // weather: Breezy, Clear, Cloudy, Downpour, Drizzle, Foggy, Hail, Hazy, Humid, Overcast, Showers, Snowflakes, Snowy, Stormy, Sunny, Thunderheads, Windy
 //                      0         1       2         3       4      5         6
-const temperature = ['Frigid', 'Cold', 'Chilly', 'Mild', 'Warm', 'Hot', 'Sweltering'];
+const temperature = ['Frigid (Extreme Cold! DMG 110)', 'Cold', 'Chilly', 'Mild', 'Warm', 'Hot', 'Sweltering (Extreme Heat! DMG 110)'];
 
 // 0 - 100 = % to rain per day
 const wetness = [50, 60, 50, 35, 20, 10, 20, 35];
@@ -164,17 +165,17 @@ const locationPercipitationMod = {
   NorthHills: 0,
   SouthPlains: 0,
   Highlands: 0,
-  Desert: -30,
+  Desert: -40,
   NorthPlains: 0,
   Mountains: 10,
   NorthMountains: 10
 };
 
-const rain = ['Drizzle', 'Showers', 'Downpour', 'Thunder Storm'];
-const snow = ['Snowflakes', 'Snowy', 'Snowy', 'Hail Storm'];
+const rain = ['Drizzle', 'Showers', 'Downpour (Heavy Percipitation! DMG 110)', 'Thunder Storm (Heavy Percipitation! DMG 110)'];
+const snow = ['Snowflakes', 'Snowy', 'Snowy (Heavy Percipitation! DMG 110)', 'Hail Storm (Heavy Percipitation! DMG 110)'];
 const sun = ['Clear', 'Overcast', 'Sunny', 'Clear'];
 const sunPercipitation = ['Cloudy', 'Overcast', 'Overcast', 'Thunderheads'];
-const wind = ['Breezy', 'Windy'];
+const wind = ['Breezy', 'Windy', 'Windy (Strong Wind! DMG 110)'];
 
 const Firstflow = [1, 1, 1, 1, 2, 2, 2, 2, 3, 3];
 const Tears = [2, 2, 3, 3, 3, 3, 3, 4, 4, 5];
@@ -184,3 +185,17 @@ const Redleaf = [2, 3, 3, 3, 3, 4, 4, 4, 4, 5];
 const Lowsun = [0, 1, 1, 1, 2, 2, 2, 3, 3, 3];
 const Frostwind = [0, 0, 0, 1, 1, 1, 1, 2, 2, 2];
 const Felnight = [0, 0, 0, 0, 1, 1, 1, 1, 2, 2];
+
+const CelestiallEvents = [
+  'Aurora',
+  'Solar Eclipse',
+  'Shooting Star',
+  'Morning Star',
+  'Meteor Shower',
+  'Evening Star',
+  'Fireball',
+  'Comet Appears',
+  'Celestial Conjunction',
+  'Solar Flare',
+  'Transit (small object passes in front of larger)'
+];

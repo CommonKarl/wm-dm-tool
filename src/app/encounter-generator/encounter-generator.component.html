@@ -3,12 +3,12 @@
   <p-spinner [size]=1 [(ngModel)]="numPC" [min]="1" [max]="8" (onChange)="adjustEncounter()"></p-spinner>
 </div>
 <button pButton type="button" label="Generate Encounter" (click)="generateEncounter()" style="width: 80%; margin-bottom: 10px; margin-left: 10%;"></button>
-<p>Monster: <b>{{currEncounter}}</b></p>
-<p>Xp Allowance (Lower Bounds | Goal | Upper Bounds): {{xpAllowanceMed}} | <b>{{xpAllowance}}</b> | {{xpAllowanceDeadly}}</p>
-<p>Loot: {{treasure}}</p>
 
 <div *ngIf="currEncounterEntities" class="flex">
   <div class="half">
+    <p>Monster: <b>{{currEncounter}}</b></p>
+    <p>Xp Allowance (Lower Bounds | Goal | Upper Bounds): {{xpAllowanceMed}} | <b>{{xpAllowance}}</b> | {{xpAllowanceDeadly}}</p>
+    <p>Loot: {{treasure}}</p>
     <div class="monster-block" *ngFor="let monster of objectKeys(currEncounterEntities); let index = index">
       <span class="monster-name">{{monster + ' (CR ' + currEncounterEntities[monster] + ')'}}</span>
       <input [value]="currEncounterEntities[monster]" id="monsterCR{{index}}" disabled hidden>
@@ -19,6 +19,8 @@
     </h3>
   </div>
   <div class="half">
+    <button pButton type="button" label="Regenerate Twist" (click)="generateTwist()" style="width: 80%; margin-bottom: 10px; margin-left: 10%;"></button>
+    <p>{{twist}}</p>
     <button pButton type="button" label="Regenerate Motivation" (click)="generateMotivation()" style="width: 80%; margin-bottom: 10px; margin-left: 10%;"></button>
     <p>{{motivation}}</p>
     <button pButton type="button" label="Regenerate Base Motivation" (click)="generateBaseMotivation()" style="width: 80%; margin-bottom: 10px; margin-left: 10%;"></button>

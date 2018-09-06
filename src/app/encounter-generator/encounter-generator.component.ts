@@ -3,6 +3,7 @@ import { InfoService } from '../info.service';
 import { Subscription } from '../../../node_modules/rxjs';
 import * as ET from '../data/encounter-tables';
 import * as EP from '../data/encounter-probabilities';
+import * as Complications from '../data/complications';
 import { Motivations, BaseMotivations } from '../data/motivations';
 
 @Component({
@@ -30,6 +31,7 @@ export class EncounterGeneratorComponent implements OnInit {
   totalNum = 0;
   motivation = '';
   baseMotivation = '';
+  twist = '';
 
   constructor(private infoService: InfoService) { }
 
@@ -58,6 +60,8 @@ export class EncounterGeneratorComponent implements OnInit {
     this.totalXP = 0;
     this.totalNum = 0;
     this.motivation = '';
+    this.baseMotivation = '';
+    this.twist = '';
   }
 
   generateEncounter() {
@@ -80,6 +84,7 @@ export class EncounterGeneratorComponent implements OnInit {
 
     this.generateMotivation();
     this.generateBaseMotivation();
+    this.generateTwist();
 
     const el = this;
     setTimeout(function () {
@@ -101,6 +106,25 @@ export class EncounterGeneratorComponent implements OnInit {
   generateBaseMotivation() {
     this.baseMotivation = '';
     this.baseMotivation = BaseMotivations[Math.floor(Math.random() * BaseMotivations.length)];
+  }
+
+  generateTwist() {
+    // generates a piece of interest: complication, environment hazard, weird locale, etc.
+    // setback, dangerous, deadly
+    const severity = this.roll(3);
+    let twistType;
+    switch (this.roll(3)) {
+      case 1: twistType = 'Hazard';
+        break;
+      case 2: twistType = 'Locale';
+        break;
+      case 3: twistType = 'Trap';
+        break;
+      default: console.log('Complication error!');
+        break;
+    }
+    const tempArr = Complications.Complication[twistType][severity];
+    this.twist = twistType + ': ' + tempArr[Math.floor(Math.random() * tempArr.length)];
   }
 
   currEncounterXP() {
