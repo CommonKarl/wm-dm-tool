@@ -18,13 +18,11 @@ export class WeatherGeneratorComponent implements OnInit {
   currDay: number;
 
   currWeather: Weather;
-  comingForecast: Weather[];
 
   constructor(private infoService: InfoService) { }
 
   ngOnInit() {
     this.currWeather = new Weather;
-    this.comingForecast = [];
     this.calendarInfo = this.infoService.calendarObs.subscribe(
       x => {
         if (this.currDay !== x.day || this.currMonth !== CalendarData.months[x.month]) {
@@ -40,8 +38,6 @@ export class WeatherGeneratorComponent implements OnInit {
 
   newDay() {
     this.currWeather = this.generateWeather();
-    this.comingForecast = [];
-    // determine temperature
 
   }
 
@@ -49,6 +45,7 @@ export class WeatherGeneratorComponent implements OnInit {
     // tslint:disable-next-line
     let currWeather = new Weather;
     let d10 = this.infoService.roll(10) - 1;
+    // determine temperature
     let tempTemp = eval(this.currMonth)[d10] + locationTempMod[this.infoService.location];
     tempTemp = (tempTemp < 0 ? 0 : tempTemp);
     tempTemp = (tempTemp > 6 ? 6 : tempTemp);
@@ -108,10 +105,27 @@ export class WeatherGeneratorComponent implements OnInit {
         currWeather.tags.push(sun[sund4 - 1]);
       }
     }
+
+    // celestial events 3 out of 20 chance
+    let eventsd20 = this.infoService.roll(20);
+    if (eventsd20 <= 3) {
+      currWeather.celestialEvents = this.celestialEvent();
+    }
+    // magical weather 1 in 20 chance
+    eventsd20 = this.infoService.roll(20);
+    if (eventsd20 === 1) {
+      currWeather.magicalWeather = this.magicalWeather();
+    }
     return currWeather;
   }
 
-  // include next day's forecast as a small tidbit of the next week for any PC's with the Explorer background
+  celestialEvent() {
+    return CelestiallEvents[Math.floor(Math.random() * CelestiallEvents.length)];
+  }
+
+  magicalWeather() {
+    return MagicalWeather[Math.floor(Math.random() * MagicalWeather.length)];
+  }
 
 }
 
@@ -197,5 +211,20 @@ const CelestiallEvents = [
   'Comet Appears',
   'Celestial Conjunction',
   'Solar Flare',
-  'Transit (small object passes in front of larger)'
+  'Transit (small object passes in front of larger)',
+  'Wanderers Gather (cluster of planets)'
 ];
+
+const MagicalWeather = [
+  `Skyquake - Violent shockwaves tear throught the sky, rending it and causing clouds to tear apart & scatter. Roll d100 for severity: 1-20 weak, 21-70 medium,
+  71-90 strong, 91-100 massive; Con save 8/10/15/18 or be deafened for 1/2/3/4 time periods.`,
+  'Dragon\'s Breath - Gusts of hot air that are accompanied by wisps of flame.',
+  'Arcane Tempest - Thunderstorm with powerful magical aura. All spells and spell-like abilities are empowered (reroll # of damage dice up to your spellcasting ability mod)',
+  'Luminous Clouds - These clouds cast a light that allows all creatures to see normally during the night.',
+  'Clockwork Clouds - Clouds shaped like gears spin overhead slowly, sometimes interlocking with other clouds to form complex clockworks.',
+  'Empyrean Sky - Golden and rose colored skies. Good aligned characters gain a +1 morale bonus to ability checks.',
+  'Celestial Clarity - Perfect azure blue sky, colors appear to be more vibrant and detail appear sharper. Creatures receive +2 bonus to investigate and perception checks while outside and are immune to any fear effects',
+  'Expeditious Tailwind - Fey zephyrs follow creatures, pushing them along more swiftly. These tailwinds grant a creature a 30ft. enhancement to walking speed.',
+  'Aberrant Sky - Twisting and wrong, the sky is filled with an unearthly shade of clouds in impossible and monstrous shapes. Evil beings gain +1 hitpoint/HD'
+];
+

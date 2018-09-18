@@ -9,6 +9,7 @@ import { InfoService } from '../info.service';
 export class MapComponent implements OnInit {
 
   DZ: boolean;
+  exploring: boolean;
 
   constructor(private infoService: InfoService) { }
 
@@ -23,6 +24,10 @@ export class MapComponent implements OnInit {
 
   dangerZone() {
     this.infoService.dangerZone = this.DZ;
+  }
+
+  explore() {
+    this.infoService.exploring = this.exploring;
   }
 
 }

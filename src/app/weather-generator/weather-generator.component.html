@@ -1,7 +1,15 @@
 <div class="flex-col">
-  <p>
-    <b>Temp:</b> {{currWeather.temp}} <br /> <b>Tags:</b> {{currWeather.tags}} <br /> <b>Magical Weather:</b> {{currWeather.magicalWeather}} <br/>    <b>Celestial
-    Events:</b> {{currWeather.celestialEvents}}
-  </p>
   <button pButton type="submit" label="Generate Weather" (click)="newDay()" style="width: 100%;"></button>
+  <p>
+    <b>Temp:</b> {{currWeather.temp}}
+  </p>
+  <p>
+    <b>Tags:</b> {{currWeather.tags}}
+  </p>
+  <p>
+    <b>Magical Weather:</b> {{currWeather.magicalWeather}}
+  </p>
+  <p>
+    <b>Celestial Events:</b> {{currWeather.celestialEvents}}
+  </p>
 </div>

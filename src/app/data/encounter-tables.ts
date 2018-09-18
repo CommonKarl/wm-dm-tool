@@ -327,7 +327,8 @@ export const EastJungle = {
         baboon: 0
     },
     witch_grass: {
-        witch_grass: 0
+        witch_grass: 0,
+        tri_flower_frond: .5
     },
     snake: {
         flying_snake: .125,
@@ -368,9 +369,6 @@ export const EastJungle = {
         allosaurus: 2,
         ankylosaurus: 3,
     },
-    tri_flower_frond: {
-        tri_flower_frond: .5
-    },
     eblis: {
         eblis: .5
     },
@@ -382,6 +380,9 @@ export const EastJungle = {
     },
     crimson_drake: {
         crimson_drake: 1
+    },
+    hippopotamus: {
+        rhinoceros: 2
     },
     ankheg: {
         ankheg: 2
@@ -743,6 +744,9 @@ export const Highlands = {
     firebird: {
         firebird: 4
     },
+    gorgon: {
+        gorgon: 5
+    },
     galeb_duhr: {
         galeb_duhr: 6
     },
@@ -756,7 +760,7 @@ export const Highlands = {
 
 export const Desert = {
     environmental_hazard: {
-        environmental_hazard: 0
+        sandstorm: 0
     },
     vulture: {
         vulture: 0,
@@ -850,6 +854,9 @@ export const NorthPlains = {
         mud_mephit: .25,
         dust_mephit: .5
     },
+    zebra: {
+        riding_horse: .25
+    },
     cockatrice: {
         cockatrice: .5
     },
@@ -910,6 +917,11 @@ export const Mountains = {
     },
     saber_toothed_tiger: {
         saber_toothed_tiger: 2
+    },
+    wolf: {
+        wolf: .25,
+        dire_wolf: 1,
+        winter_wolf: 3
     },
     ogre: {
         half_ogre: 1,
@@ -984,14 +996,16 @@ export const NorthMountains = {
         ogre_howdah: 2,
         ogre_chain_brute: 3
     },
+    wolf: {
+        wolf: .25,
+        dire_wolf: 1,
+        winter_wolf: 3
+    },
     manitcore: {
         manticore: 3
     },
     yeti: {
         yeti: 3
-    },
-    manticore: {
-        manticore: 3
     },
     red_dragon_wyrmling: {
         red_dragon_wyrmling: 4

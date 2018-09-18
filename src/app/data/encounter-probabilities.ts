@@ -88,7 +88,7 @@ export const WestJungle = {
     19: "owlbear",
     20: "basilisk",
     21: "stegocentipede",
-    22: "shamblin_mound"
+    22: "shambling_mound"
 };
 
 export const UpperWestJungle = {
@@ -129,7 +129,7 @@ export const EastJungle = {
     14: "dinosaur",
     15: "orc",
     16: "crocodile",
-    17: "tri_flower_frond",
+    17: "hippopotamus",
     18: "igniguana",
     19: "crimson_drake",
     20: "elemental",
@@ -156,7 +156,7 @@ export const Swamp = {
     18: "banshee",
     19: "troll",
     20: "ghost",
-    21: "catobelpas",
+    21: "catoblepas",
     22: "snail_lord"
 };
 
@@ -209,8 +209,8 @@ export const SouthPlains = {
 export const Highlands = {
     3: "hydra",
     4: "ettin",
-    5: "owlbear",
-    6: "manticore",
+    5: "gorgon",
+    6: "owlbear",
     7: "death_dog",
     8: "giant_horsefly",
     9: "boar",
@@ -257,7 +257,7 @@ export const NorthPlains = {
     4: "clay_golem",
     5: "elemental",
     6: "chimera",
-    7: "elemental",
+    7: "zebra",
     8: "giant_lizard",
     9: "death_dog",
     10: "cockatrice",
@@ -276,14 +276,14 @@ export const NorthPlains = {
 };
 
 export const Mountains = {
-    3: "giant",
-    4: "chimera",
-    5: "archfey",
-    6: "troll",
-    7: "pteranodon",
-    8: "manticore",
-    9: "ice_mephit",
-    10: "hippogriff",
+    3: "chimera",
+    4: "archfey",
+    5: "troll",
+    6: "pteranodon",
+    7: "manticore",
+    8: "ice_mephit",
+    9: "hippogriff",
+    10: "wolf",
     11: "harpy",
     12: "bugbear",
     13: "snotling",
@@ -305,7 +305,7 @@ export const NorthMountains = {
     6: "wyvern",
     7: "remorhaz",
     8: "elemental",
-    9: "manticore",
+    9: "wolf",
     10: "yeti",
     11: "ice_mephit",
     12: "ogre",

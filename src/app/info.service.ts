@@ -13,6 +13,7 @@ export class InfoService {
   locationCR = 1;
   locationDL = 1; // Danger Level (1-6; roll 1d6 on # or lower = encounter in that time period)
   dangerZone = false; // if true then Danger Level should increase by 1
+  exploring = false;
   calendarObs: Subject<Calendar>;
   encounterObs: Subject<boolean>;
   calendar: Calendar = {
@@ -74,7 +75,10 @@ export class InfoService {
   }
 
   rollForEncounter() {
-    if ((Math.floor(Math.random() * 6) + 1) <= (this.dangerZone ? this.locationDL + 1 : this.locationDL)) {
+    let dangerLevel = this.locationDL;
+    dangerLevel += (this.dangerZone ? 1 : 0);
+    dangerLevel += (this.exploring ? 1 : 0);
+    if ((Math.floor(Math.random() * 6) + 1) <= dangerLevel) {
       // encounter happens!
       this.updateEncounter(true);
     } else {

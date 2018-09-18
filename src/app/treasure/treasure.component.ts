@@ -133,7 +133,7 @@ export class TreasureComponent implements OnInit {
     switch (true) {
       case (typed20 < 4): treasure = this.generateArt(treasureValue);
         break;
-      case (typed20 < 7): treasure = this.generateJeweledItem();
+      case (typed20 < 7): treasure = this.generateJeweledItem(treasureValue);
         break;
       case (typed20 < 12): treasure = this.generateGood(treasureValue);
         break;
@@ -211,21 +211,21 @@ export class TreasureComponent implements OnInit {
     switch (size) {
       case 'Tiny': weight = 1;
         break;
-      case 'Very Small': weight = Math.floor(Math.random() * (3) ) + 1;
+      case 'Very Small': weight = Math.floor(Math.random() * (3)) + 1;
         break;
-      case 'Small': weight = Math.floor(Math.random() * (3) ) + 4;
+      case 'Small': weight = Math.floor(Math.random() * (3)) + 4;
         break;
-      case 'Average': weight = Math.floor(Math.random() * (4) ) + 9;
+      case 'Average': weight = Math.floor(Math.random() * (4)) + 9;
         break;
-      case 'Large': weight = Math.floor(Math.random() * (6) ) + 25;
+      case 'Large': weight = Math.floor(Math.random() * (6)) + 25;
         break;
-      case 'Very Large': weight = Math.floor(Math.random() * (11) ) + 80;
+      case 'Very Large': weight = Math.floor(Math.random() * (11)) + 80;
         break;
-      case 'Huge': weight = Math.floor(Math.random() * (121) ) + 500;
+      case 'Huge': weight = Math.floor(Math.random() * (121)) + 500;
         break;
-      case 'Massive': weight = Math.floor(Math.random() * (401) ) + 1500;
+      case 'Massive': weight = Math.floor(Math.random() * (401)) + 1500;
         break;
-      case 'Gargantuan': weight = Math.floor(Math.random() * (2001) ) + 5000;
+      case 'Gargantuan': weight = Math.floor(Math.random() * (2001)) + 5000;
         break;
       default: console.log('art size weight error');
         break;
@@ -513,9 +513,9 @@ export class TreasureComponent implements OnInit {
     return result;
   }
 
-  generateJeweledItem() {
+  generateJeweledItem(value) {
     let item;
-    item = this.treasureDetails('JeweledItem') + ' (' + this.roll(5) + ' lbs.)';
+    item = this.treasureDetails('JeweledItem') + ' (' + value + 'gp, ' + this.roll(5) + ' lbs.)';
     return item;
   }
 
@@ -523,9 +523,9 @@ export class TreasureComponent implements OnInit {
     let good;
     const d100 = this.roll(100);
     switch (true) {
-      case (d100 < 7): good = this.treasureDetails('Armor');
+      case (d100 < 7): good = this.treasureDetails('Armor') + ' (' + treasureValue + 'gp)';
         break;
-      case (d100 < 13): good = this.treasureDetails('Weapon');
+      case (d100 < 13): good = this.treasureDetails('Weapon') + ' (' + treasureValue + 'gp)';
         break;
       case (d100 < 17): good = this.generateDrinks(treasureValue);
         break;
@@ -537,15 +537,15 @@ export class TreasureComponent implements OnInit {
         break;
       case (d100 < 42): good = this.generateIvory(treasureValue);
         break;
-      case (d100 < 50): good = this.treasureDetails('Perfume');
+      case (d100 < 50): good = this.treasureDetails('Perfume') + ' (' + treasureValue + 'gp)';
         break;
-      case (d100 < 64): good = this.generateReligiousArtifact();
+      case (d100 < 64): good = this.generateReligiousArtifact(treasureValue);
         break;
-      case (d100 < 86): good = this.treasureDetails('ScrollsBooks');
+      case (d100 < 86): good = this.treasureDetails('ScrollsBooks') + ' (' + treasureValue + 'gp)';
         break;
-      case (d100 < 91): good = this.treasureDetails('LabItems');
+      case (d100 < 91): good = this.treasureDetails('LabItems') + ' (' + treasureValue + 'gp)';
         break;
-      case (d100 < 101): good = this.treasureDetails('MagicalComponents') + ' (magical component)';
+      case (d100 < 101): good = this.treasureDetails('MagicalComponents') + ' (magical component, ' + treasureValue + 'gp)';
         break;
       default: console.log('good type error');
         break;
@@ -571,7 +571,7 @@ export class TreasureComponent implements OnInit {
   generateMetalBars(treasureValue) {
     const bars = this.treasureDetails('Metal') + ' Ore/Bars/Ingots';
     const weight = this.roll(150);
-    return bars + ' (' + weight + ' lbs.)';
+    return bars + ' (' + treasureValue + 'gp, ' + weight + ' lbs.)';
   }
 
   generateIvory(treasureValue) {
@@ -587,7 +587,7 @@ export class TreasureComponent implements OnInit {
     return weight + ' lbs. (' + sqYards + ' sq. yards) of ' + this.treasureDetails('FancyFabric') + ' (' + value + 'gp/lb.)';
   }
 
-  generateReligiousArtifact() {
+  generateReligiousArtifact(treasureValue) {
     const treasure = this.treasureDetails('ReligiousArtifacts');
     let weight;
     if (treasure.includes('Altar') && !treasure.includes('Cloth')) {
@@ -603,7 +603,7 @@ export class TreasureComponent implements OnInit {
     } else {
       weight = this.roll(5);
     }
-    return treasure + ' (' + weight + ' lbs.)';
+    return treasure + ' (' + treasureValue + ', ' + weight + ' lbs.)';
   }
 
   generateCoins(value) {
@@ -893,7 +893,7 @@ const MusicalInstrument = ['Flute', 'Harp', 'Bagpipes', 'Chimes', 'Cymbal', 'Hor
 
 const Weapon = [{
   1: ['Random Metal'],
-  2: ['Club', 'Dagger', 'Greatclub', 'Handaxe', 'Javelin', 'Light Hammer', 'Mace', 'Quarterstaff', 'Sickle', 'Spear', 'Light Crossbow', 'Dart', 'Shortbow',
+  2: ['Club', 'Ball Game Club', 'Dagger', 'Greatclub', 'Handaxe', 'Javelin', 'Light Hammer', 'Mace', 'Quarterstaff', 'Sickle', 'Spear', 'Light Crossbow', 'Dart', 'Shortbow',
     'Sling', 'Battleaxe', 'Flail', 'Glaive', 'Greataxe', 'Greatsword', 'Halberd', 'Lance', 'Longsword', 'Maul', 'Morningstar', 'Pike', 'Rapier', 'Scimitar', 'Shortsword',
     'Trident', 'War Pick', 'Warhammer', 'Whip', 'Blowgun', 'Heavy Crossbow', 'Longbow', 'Crossbow Bolts', 'Arrows'],
   3: ['with'],
@@ -945,7 +945,8 @@ const Painting = [{
 
 const Crafts = [
   { 1: ['Glass', 'Random Metal', 'Random Wood'], 2: ['Bracelets'] }, { 1: ['Random Fabric'], 2: ['Lace'] },
-  'Paper Origami', 'Ornamental Egg', { 1: ['Glass', 'Ceramic'], 2: ['Mosaic'] }, { 1: ['Random Wood'], 2: ['Burning'] }
+  'Paper Origami', 'Ornamental Egg', { 1: ['Glass', 'Ceramic'], 2: ['Mosaic'] }, { 1: ['Random Wood'], 2: ['Burning'] },
+  { 1: ['Random FancyFabric'], 2: 'covered', 3: 'Ball Game Ball' }
 ];
 
 const Carving = [{
@@ -1014,7 +1015,7 @@ const MedArt = ['Plaster', 'Structural Object', 'Clay', 'Glass', 'Ceramic', 'Bon
 
 
 const JeweledItem = [{
-  1: ['Anklet', 'Armband', 'Belt', 'Small Box', 'Coffer', 'Braclet', 'Brooch', 'Buckle', 'Chain', 'Chalice', 'Choker', 'Clasp', 'Collar',
+  1: ['Anklet', 'Armband', 'Belt', 'Ball Game Ball', 'Ball Game Bat', 'Ball Game Trophy', 'Small Box', 'Coffer', 'Braclet', 'Brooch', 'Buckle', 'Chain', 'Chalice', 'Choker', 'Clasp', 'Collar',
     'Coffer', 'Comb', 'Coronet', 'Crown', 'Decanter', 'Diadem', 'Earring', 'Fob', 'Goblet', 'Headband', 'Idol', 'Locket', 'Medal', 'Medallion', 'Necklace',
     'Pendant', 'Pin', 'Orb', 'Ring', 'Scepter', 'Seal', 'Statuette', 'Tiara', 'Mask', 'Nose Ring/Stud', 'Circlet', 'Torc', 'Random Tool', 'Chatelaine', 'Cuff Link',
     'Lapel Pin', 'Grill', 'Bangles', 'Body Piercing', 'Prayer Beads', 'Puzzle', 'Aiguillette', 'Cock Ring', 'Pectoral', 'Ornamental Disc', 'Icon (small animal, symbol)',
@@ -1036,14 +1037,15 @@ const ExoticFruit = ['Plunana', 'Rose Gourd', 'Rain Cawesh', 'Ground Marang', 'C
 
 const FancyFabric = ['Barkcloth', 'Broadcloth', 'Burlap', 'Calico', 'Cambric', 'Canvas', 'Cheesecloth', 'Chiffon', 'Cloth of gold', 'Gauze',
   'Haircloth', 'Himroo', 'Hodden', 'Longcloth', 'Moleskin', 'Muslin', 'Oilskin', 'Ottoman', 'Samite', 'Sateen', 'Satin', 'Scarlet',
-  'Silk', 'Brocade', 'Fleece', 'Velvet', 'Velveteen', 'Wadmal', 'Felt', 'Cedar Bark', 'Velour', 'Fishnet', 'Lace', 'Aurumvorak Fur', 'Bear Fur',
-  'Beaver Fur', 'Bunyip Hide', 'Caterwaul Hide', 'Devil Dog Hide', 'Ermine Fur', 'Owlbear Hide', 'Seal Skin', 'Snow Leopard Fur', 'Tiger Fur', 'Winter Wolf Hide',
-  'Yeti Hide', 'Zebra Hide', 'Auroch Hide', 'Behemoth Hide', 'Basilisk Hide', 'Blink Dog Fur', 'Random DragonHide', 'Displacer Beast Fur', 'Gorgon Hide',
-  'Hippopotamus Leather', 'Ki-rin Fur', 'Otyugh Leather', 'Snake Skin', 'Crocodile Hide', 'Lizard Hide', 'Turtle Skin', 'Dinosaur Hide'];
+  'Silk', 'Brocade', 'Fleece', 'Velvet', 'Velveteen', 'Wadmal', 'Felt', 'Cedar Bark', 'Velour', 'Fishnet', 'Lace', 'Bear Fur',
+  'Beaver Fur', 'Bunyip Hide', 'Death Dog Hide', 'Ermine Fur', 'Owlbear Hide', 'Seal Skin', 'Snow Leopard Fur', 'Panther Fur', 'Tiger Fur', 'Lion Fur', 'Winter Wolf Hide',
+  'Yeti Hide', 'Zebra Hide', 'Auroch Hide', 'Basilisk Hide', 'Random DragonHide', 'Displacer Beast Fur', 'Gorgon Hide',
+  'Hippopotamus Leather', 'Ki-rin Fur', 'Otyugh Leather', 'Snake Skin', 'Crocodile Hide', 'Lizard Hide', 'Turtle Skin', 'Dinosaur Hide', 'Pegasus Hide', 'Dryad Bark', 'Manticore Hide',
+  'Griffon Hide', 'Worg Fur', 'Troll Hide', 'Hydra Leather', 'Rhino Leather', 'Chimera Hide'];
 
 const Ivory = [{
-  1: ['Baku', 'Behemoth', 'Catoblepas', 'Elephant', 'Hippoputamus', 'Hollyphant', 'Mammoth', 'Mastodon', 'Narwhal', 'Oliphant', 'Walrus', 'Giant Walrus'],
-  2: ['Ivory']
+  1: ['Baku', 'Behemoth', 'Catoblepas', 'Hippopotamus', 'Hollyphant', 'Mammoth', 'Mastodon', 'Narwhal', 'Oliphant', 'Walrus', 'Giant Walrus', 'Minotaur'],
+  2: ['Ivory', { 1: 'Random Subject', 2: 'Scrimshaw' }]
 }];
 
 const ReligiousArtifacts = [{
@@ -1165,8 +1167,6 @@ const GemRanks = {
   10: ['Ammolite', 'Black Sapphire', 'Diamond', 'Jacinth', 'Oriental Emerald', 'Ruby']
 };
 
-const Cut = ['Step', 'Rose', 'Table', 'Cabochon (round)', 'Emerald', 'Brilliant Full', 'Eight', 'Scissors'];
-
 // Perfume
 
 const Perfume = [{
@@ -1174,4 +1174,6 @@ const Perfume = [{
   2: ['in a'],
   3: ['Random LiquidContainer']
 }];
+
+const ArtSubject = ['Abstract', 'Monster', 'Humanoid', 'Supernatural', 'Local', 'Historical', 'Religious', 'Wealthy/Noble', 'Royalty'];
 
