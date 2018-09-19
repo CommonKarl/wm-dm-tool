@@ -16,7 +16,9 @@ export class TreasureComponent implements OnInit {
   treasureUnitValue = 100;
   artValueMod = 0;
   hoardSelect: any;
+  treasureTypeSelect: any;
   hoards: SelectItem[];
+  treasureTypes: SelectItem[];
   treasureHoardValue: any;
   randomizeTV = false;
 
@@ -33,6 +35,37 @@ export class TreasureComponent implements OnInit {
       { label: 'Huge Hoard', value: 6 },
       { label: 'Massive Hoard', value: 7 },
       { label: 'Gargantuan Hoard', value: 8 }
+    ];
+
+    this.treasureTypes = [
+      { label: 'Random Type', value: 0 },
+      { label: 'Art - Any', value: 1 },
+      { label: 'Art - Paper Art', value: 11 },
+      { label: 'Art - Fabric Art', value: 12 },
+      { label: 'Art - Painting', value: 13 },
+      { label: 'Art - Crafts', value: 14 },
+      { label: 'Art - Carving', value: 15 },
+      { label: 'Art - Ceramics', value: 16 },
+      { label: 'Art - Glasswork', value: 17 },
+      { label: 'Art - Stonework', value: 18 },
+      { label: 'Art - Metalwork', value: 19 },
+      { label: 'Art - Carving', value: 110 },
+      { label: 'Jeweled Item', value: 2 },
+      { label: 'Good - Any', value: 3 },
+      { label: 'Good - Armor', value: 31 },
+      { label: 'Good - Weapon', value: 32 },
+      { label: 'Good - Drinks', value: 33 },
+      { label: 'Good - Fruit', value: 34 },
+      { label: 'Good - Fabric', value: 35 },
+      { label: 'Good - Metal Bars', value: 36 },
+      { label: 'Good - Ivory', value: 37 },
+      { label: 'Good - Perfume', value: 38 },
+      { label: 'Good - Religious Artifact', value: 39 },
+      { label: 'Good - Scrolls/Books', value: 310 },
+      { label: 'Good - Lab Items', value: 311 },
+      { label: 'Good - Magical Components', value: 312 },
+      { label: 'Coins', value: 4 },
+      { label: 'Gems', value: 5 }
     ];
   }
 
@@ -130,26 +163,87 @@ export class TreasureComponent implements OnInit {
     // determine type of treasure
     const typed20 = this.roll(20);
     let treasure = '';
-    switch (true) {
-      case (typed20 < 4): treasure = this.generateArt(treasureValue);
-        break;
-      case (typed20 < 7): treasure = this.generateJeweledItem(treasureValue);
-        break;
-      case (typed20 < 12): treasure = this.generateGood(treasureValue);
-        break;
-      case (typed20 < 18): treasure = this.generateCoins(treasureValue);
-        break;
-      case (typed20 < 21): treasure = this.generateGems(treasureValue);
-        break;
-      default:
-        console.log('type of treasure failed');
-        break;
+    if (!this.treasureTypeSelect) {
+      switch (true) {
+        case (typed20 < 4): treasure = this.generateArt(treasureValue);
+          break;
+        case (typed20 < 7): treasure = this.generateJeweledItem(treasureValue);
+          break;
+        case (typed20 < 12): treasure = this.generateGood(treasureValue);
+          break;
+        case (typed20 < 18): treasure = this.generateCoins(treasureValue);
+          break;
+        case (typed20 < 21): treasure = this.generateGems(treasureValue);
+          break;
+        default:
+          console.log('type of treasure failed');
+          break;
+      }
+    } else {
+      switch (this.treasureTypeSelect) {
+        case 1: treasure = this.generateArt(treasureValue);
+          break;
+        case 11: treasure = this.generateArt(treasureValue, 1);
+          break;
+        case 12: treasure = this.generateArt(treasureValue, 4);
+          break;
+        case 13: treasure = this.generateArt(treasureValue, 6);
+          break;
+        case 14: treasure = this.generateArt(treasureValue, 8);
+          break;
+        case 15: treasure = this.generateArt(treasureValue, 10);
+          break;
+        case 16: treasure = this.generateArt(treasureValue, 12);
+          break;
+        case 17: treasure = this.generateArt(treasureValue, 14);
+          break;
+        case 18: treasure = this.generateArt(treasureValue, 17);
+          break;
+        case 19: treasure = this.generateArt(treasureValue, 19);
+          break;
+        case 110: treasure = this.generateArt(treasureValue, 20);
+          break;
+        case 2: treasure = this.generateJeweledItem(treasureValue);
+          break;
+        case 3: treasure = this.generateGood(treasureValue);
+          break;
+        case 31: treasure = this.generateGood(treasureValue, 6);
+          break;
+        case 32: treasure = this.generateGood(treasureValue, 12);
+          break;
+        case 33: treasure = this.generateGood(treasureValue, 16);
+          break;
+        case 34: treasure = this.generateGood(treasureValue, 20);
+          break;
+        case 35: treasure = this.generateGood(treasureValue, 30);
+          break;
+        case 36: treasure = this.generateGood(treasureValue, 35);
+          break;
+        case 37: treasure = this.generateGood(treasureValue, 41);
+          break;
+        case 38: treasure = this.generateGood(treasureValue, 49);
+          break;
+        case 39: treasure = this.generateGood(treasureValue, 63);
+          break;
+        case 310: treasure = this.generateGood(treasureValue, 85);
+          break;
+        case 311: treasure = this.generateGood(treasureValue, 90);
+          break;
+        case 312: treasure = this.generateGood(treasureValue, 100);
+          break;
+        case 4: treasure = this.generateCoins(treasureValue);
+          break;
+        case 5: treasure = this.generateGems(treasureValue);
+          break;
+        default: console.log('treasure type error!');
+          break;
+      }
     }
     this.treasureHoardValue.push(treasure);
   }
 
-  generateArt(treasureValue) {
-    const d20 = this.roll(20);
+  generateArt(treasureValue, force = 0) {
+    const d20 = (force > 0 ? force : this.roll(20));
     let art;
     this.artValueMod = 0;
     switch (true) {
@@ -519,9 +613,9 @@ export class TreasureComponent implements OnInit {
     return item;
   }
 
-  generateGood(treasureValue) {
+  generateGood(treasureValue, force = 0) {
     let good;
-    const d100 = this.roll(100);
+    const d100 = (force > 0 ? force : this.roll(100));
     switch (true) {
       case (d100 < 7): good = this.treasureDetails('Armor') + ' (' + treasureValue + 'gp)';
         break;
@@ -646,12 +740,12 @@ export class TreasureComponent implements OnInit {
     }
     return foc;
   }
-
+ 
   generateFurnishing() {
     let furnishing;
     return furnishing;
   }
-
+ 
   generateClothing() {
     let clothing;
     return clothing;

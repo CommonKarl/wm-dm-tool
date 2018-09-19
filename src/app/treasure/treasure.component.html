@@ -11,6 +11,10 @@
       <select name="hoard" [(ngModel)]="hoardSelect" required>
         <option *ngFor="let hoard of hoards" [ngValue]="hoard.value">{{hoard.label}}</option>
       </select>
+      <label>Treasure Type:</label>
+      <select name="treasureType" [(ngModel)]="treasureTypeSelect" required>
+        <option *ngFor="let type of treasureTypes" [ngValue]="type.value">{{type.label}}</option>
+      </select>
     </div>
     <button pButton type="submit" label="Generate Treasure" style="width: 100%;"></button>
   </div>
