@@ -11,3 +11,8 @@ li{
     display: inline-block;
     width: 50%;
 }
+
+.disc{
+    border: 1px solid grey;
+    background: antiquewhite;
+}

@@ -32,6 +32,7 @@ export class EncounterGeneratorComponent implements OnInit {
   motivation = '';
   baseMotivation = '';
   twist = '';
+  discovery = false;
 
   constructor(private infoService: InfoService) { }
 
@@ -39,7 +40,6 @@ export class EncounterGeneratorComponent implements OnInit {
     this.encounterInfo = this.infoService.encounterObs.subscribe(
       x => {
         if (x === true) {
-          this.clearEncounter();
           this.generateEncounter();
         } else {
           this.clearEncounter();
@@ -62,9 +62,11 @@ export class EncounterGeneratorComponent implements OnInit {
     this.motivation = '';
     this.baseMotivation = '';
     this.twist = '';
+    this.discovery = false;
   }
 
   generateEncounter() {
+    this.clearEncounter();
     this.currEncounterNumbers = Object.assign({}, EmptyEncounter);
     this.currEncounterCRs = Object.assign({}, EmptyEncounter);
     // roll 2d6 + 1d10 for encounter
@@ -85,6 +87,7 @@ export class EncounterGeneratorComponent implements OnInit {
     this.generateMotivation();
     this.generateBaseMotivation();
     this.generateTwist();
+    this.generateDiscovery();
 
     const el = this;
     setTimeout(function () {
@@ -125,6 +128,16 @@ export class EncounterGeneratorComponent implements OnInit {
     }
     const tempArr = Complications.Complication[twistType][severity];
     this.twist = twistType + ': ' + tempArr[Math.floor(Math.random() * tempArr.length)];
+  }
+
+  generateDiscovery() {
+    // 1% for danger zone, +5% for exploring to have encounter lead to discovery of location of interest
+    let prob = 0;
+    prob += (this.infoService.dangerZone ? (this.infoService.exploring ? 6 : 1) : 0);
+    const d100 = this.roll(100);
+    if (d100 <= prob) {
+      this.discovery = true;
+    }
   }
 
   currEncounterXP() {

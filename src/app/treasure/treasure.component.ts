@@ -740,12 +740,12 @@ export class TreasureComponent implements OnInit {
     }
     return foc;
   }
- 
+
   generateFurnishing() {
     let furnishing;
     return furnishing;
   }
- 
+
   generateClothing() {
     let clothing;
     return clothing;
