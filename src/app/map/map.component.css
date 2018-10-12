@@ -1,6 +1,5 @@
 .blockWrap{
-    display: inline-block;
-    margin-left: 5px;
+    text-align: center;
 }
 
 h2{
@@ -9,6 +8,8 @@ h2{
 
 ul{
     list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 li{

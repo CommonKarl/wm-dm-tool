@@ -14,12 +14,14 @@ import * as _ from 'lodash';
 export class SettingsComponent implements OnInit {
 
   calendarInfo: Subscription;
+  encounterInfo: Subscription;
   showCalendarTool = false;
   chosenDay = 11;
   chosenMonth = 1;
   chosenYear = 1;
   months: SelectItem[];
   dateSet = false;
+  atp = true;
 
   constructor(private infoService: InfoService) {
     this.months = [
@@ -44,7 +46,26 @@ export class SettingsComponent implements OnInit {
       err => console.error(err)
     );
 
+    this.encounterInfo = this.infoService.encounterObs.subscribe(
+      x => {
+        if (x === true) {
+          this.disableATP();
+        } else {
+          this.enableATP();
+        }
+      },
+      err => console.error(err)
+    );
+
     this.setCalendar();
+  }
+  
+  disableATP(){
+    this.atp = false;
+  }
+
+  enableATP(){
+    this.atp = true;
   }
 
   openCalendarTool() {

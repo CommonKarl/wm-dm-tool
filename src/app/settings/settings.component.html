@@ -1,5 +1,5 @@
 <div class="settingsWrap">
-    <button pButton type="button" label="Advance Time Period" (click)="advanceTimePeriod()" icon="ui-icon-timer" style="width: 100%"></button>
+    <div style="width: 90%" (mouseout)="enableATP()"><button pButton type="button" label="Advance Time Period" (click)="advanceTimePeriod()" style="width: 100%" icon="ui-icon-timer" [disabled]="!atp"></button></div>
     <button pButton type="button" label="Set Calendar" (click)="openCalendarTool()" icon="ui-icon-date-range"></button>
     <button pButton type="button" label="Add a Day" (click)="addDay()" icon="ui-icon-today" [disabled]="dateSet == false"></button>
     <button pButton type="button" label="Treasure Horde Generator" routerLink="/treasure" icon="ui-icon-cake"></button>
