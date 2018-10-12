@@ -22,6 +22,7 @@ import { SpinnerModule } from 'primeng/spinner';
 import { CheckboxModule } from 'primeng/checkbox';
 import { TreasureComponent } from './treasure/treasure.component';
 import { HomeComponent } from './home/home.component';
+import {SelectButtonModule} from 'primeng/selectbutton';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -53,6 +54,7 @@ const routes: Routes = [
     InputSwitchModule,
     SpinnerModule,
     CheckboxModule,
+    SelectButtonModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],

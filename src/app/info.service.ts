@@ -12,7 +12,7 @@ export class InfoService {
   location = "SouthJungle";
   locationCR = 1;
   locationDL = 1; // Danger Level (1-6; roll 1d6 on # or lower = encounter in that time period)
-  dangerZone = false; // if true then Danger Level should increase by 1
+  dangerZone = 0; // if true then Danger Level should increase by 1
   exploring = false;
   calendarObs: Subject<Calendar>;
   encounterObs: Subject<boolean>;

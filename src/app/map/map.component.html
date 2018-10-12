@@ -25,7 +25,8 @@
   <h2>Current Location: {{this.infoService.location}}</h2>
   <br />
   <h2>Danger Zone</h2>
-  <p-inputSwitch [(ngModel)]="DZ" (onChange)="dangerZone()"></p-inputSwitch>
+  <p-selectButton [options]="dzOptions" [(ngModel)]="DZ" (onChange)="dangerZone()"></p-selectButton>
+  <br />
   <h2>Exploring</h2>
   <p-inputSwitch [(ngModel)]="exploring" (onChange)="explore()"></p-inputSwitch>
 </div>

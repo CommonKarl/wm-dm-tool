@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { InfoService } from '../info.service';
+import { SelectItem } from 'primeng/api';
 
 @Component({
   selector: 'dm-map',
@@ -8,10 +9,18 @@ import { InfoService } from '../info.service';
 })
 export class MapComponent implements OnInit {
 
-  DZ: boolean;
+  DZ: number;
   exploring: boolean;
+  dzOptions: SelectItem[];
 
-  constructor(private infoService: InfoService) { }
+  constructor(private infoService: InfoService) {
+    this.DZ = 0;
+    this.dzOptions = [
+      {label: 'None', value: 0},
+      {label: 'Danger Zone', value: 1},
+      {label: 'Easy to Find', value: 2},
+    ];
+  }
 
   ngOnInit() {
   }

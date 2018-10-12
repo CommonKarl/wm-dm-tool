@@ -136,3 +136,12 @@ dm-time{
 dm-menu{
     grid-area: settings;
 }
+
+p-selectbutton div.ui-button {
+    background-color: #bbbbbb;
+    color: black;
+}
+
+p-selectbutton div.ui-button:hover{
+    color: white;
+}

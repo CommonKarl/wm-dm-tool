@@ -127,13 +127,24 @@ export class EncounterGeneratorComponent implements OnInit {
         break;
     }
     const tempArr = Complications.Complication[twistType][severity];
-    this.twist = twistType + ': ' + tempArr[Math.floor(Math.random() * tempArr.length)];
+    this.twist = twistType + ' (severity ' + severity + '): ' + tempArr[Math.floor(Math.random() * tempArr.length)];
   }
 
   generateDiscovery() {
-    // 1% for danger zone, +5% for exploring to have encounter lead to discovery of location of interest
+    // 1% for danger zone/5% for easy to find; +5% for exploring to have encounter lead to discovery of location of interest
     let prob = 0;
-    prob += (this.infoService.dangerZone ? (this.infoService.exploring ? 6 : 1) : 0);
+    switch (this.infoService.dangerZone) {
+      case 0:
+        break;
+      case 1: prob += 1;
+        break;
+      case 2: prob += 5;
+        break;
+      default: console.log('error in generate discovery!');
+        break;
+    }
+    prob += (this.infoService.exploring && this.infoService.dangerZone ? 5 : 0);
+    console.log(prob);
     const d100 = this.roll(100);
     if (d100 <= prob) {
       this.discovery = true;

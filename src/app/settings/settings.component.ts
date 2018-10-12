@@ -61,6 +61,7 @@ export class SettingsComponent implements OnInit {
     } else {
       // console.log("submitting...");
       this.showCalendarTool = false;
+      this.infoService.calendar.time_period = 1;
       this.infoService.calendar.day = this.chosenDay;
       this.infoService.calendar.month = this.chosenMonth;
       this.infoService.calendar.year = this.chosenYear;
