@@ -19,8 +19,10 @@
 <div class="blockWrap">
   <h2>Current Location: {{this.infoService.location}}</h2>
   <br />
+  <br />
   <h2>Danger Zone</h2>
   <p-selectButton [options]="dzOptions" [(ngModel)]="DZ" (onChange)="dangerZone()"></p-selectButton>
+  <br />
   <br />
   <h2>Exploring</h2>
   <p-inputSwitch [(ngModel)]="exploring" (onChange)="explore()"></p-inputSwitch>
