@@ -1,3 +1,7 @@
+<dm-map></dm-map>
+<br />
+<hr />
+<br />
 <div style="margin-bottom: 5px; text-align: center">
   <label>Number of PCs: </label>
   <p-spinner [size]=1 [(ngModel)]="numPC" [min]="1" [max]="8" (onChange)="adjustEncounter()"></p-spinner>
@@ -8,18 +12,22 @@
   <div class="half">
     <h2 *ngIf="discovery" class="disc center-text">Encounter May Lead to Discovery!</h2>
     <p>Monster: <b>{{currEncounter}}</b></p>
-    <p>Xp Allowance (Lower Bounds | Goal | Upper Bounds): {{xpAllowanceMed}} | <b>{{xpAllowance}}</b> | {{xpAllowanceDeadly}}</p>
+    <p>Xp Allowance (Lower Bounds | Goal | Upper Bounds): {{xpAllowanceMed}} | <b>{{xpAllowance}}</b> |
+      {{xpAllowanceDeadly}}</p>
     <p>Loot: {{treasure}}</p>
     <div class="monster-block" *ngFor="let monster of objectKeys(currEncounterEntities); let index = index">
       <span class="monster-name">{{monster + ' (CR ' + currEncounterEntities[monster] + ')'}}</span>
       <input [value]="currEncounterEntities[monster]" id="monsterCR{{index}}" disabled hidden>
-      <p-spinner [min]=0 (onChange)="currEncounterXP()" [(ngModel)]="currEncounterNumbers[index]" [size]=1 [inputStyleClass]="xp-input"></p-spinner>
+      <p-spinner [min]=0 (onChange)="currEncounterXP()" [(ngModel)]="currEncounterNumbers[index]" [size]=1
+        [inputStyleClass]="xp-input"></p-spinner>
     </div>
     <h3 *ngIf="totalXP">
       <span class="monster-name">Total XP:</span>{{totalXP}}
     </h3>
   </div>
   <div class="half">
+    <button pButton type="button" label="Regenerate Terrain" (click)="generateTerrain()" style="width: 80%; margin-bottom: 10px; margin-left: 10%;"></button>
+    <p>{{terrain}}</p>
     <button pButton type="button" label="Regenerate Twist" (click)="generateTwist()" style="width: 80%; margin-bottom: 10px; margin-left: 10%;"></button>
     <p>{{twist}}</p>
     <button pButton type="button" label="Regenerate Motivation" (click)="generateMotivation()" style="width: 80%; margin-bottom: 10px; margin-left: 10%;"></button>

@@ -3,6 +3,7 @@ import { InfoService } from '../info.service';
 import { Subscription } from '../../../node_modules/rxjs';
 import * as ET from '../data/encounter-tables';
 import * as EP from '../data/encounter-probabilities';
+import * as TER from '../data/terrain';
 import * as Complications from '../data/complications';
 import { Motivations, BaseMotivations } from '../data/motivations';
 
@@ -33,6 +34,7 @@ export class EncounterGeneratorComponent implements OnInit {
   baseMotivation = '';
   twist = '';
   discovery = false;
+  terrain = '';
 
   constructor(private infoService: InfoService) { }
 
@@ -63,6 +65,7 @@ export class EncounterGeneratorComponent implements OnInit {
     this.baseMotivation = '';
     this.twist = '';
     this.discovery = false;
+    this.terrain = '';
   }
 
   generateEncounter() {
@@ -88,6 +91,7 @@ export class EncounterGeneratorComponent implements OnInit {
     this.generateBaseMotivation();
     this.generateTwist();
     this.generateDiscovery();
+    this.generateTerrain();
 
     const el = this;
     setTimeout(function () {
@@ -149,6 +153,11 @@ export class EncounterGeneratorComponent implements OnInit {
     if (d100 <= prob) {
       this.discovery = true;
     }
+  }
+
+  generateTerrain() {
+    const currTerrain = TER[this.infoService.location];
+    this.terrain = currTerrain[Math.floor(Math.random() * currTerrain.length)];
   }
 
   currEncounterXP() {

@@ -103,8 +103,8 @@ html, body, #app-container, #app-container>*{
     grid-template-columns: 25% 50% 25%;
     grid-template-rows: 25% 25% 25% 25%;
     grid-template-areas:
-        "weather map calendar"
-        "weather map time"
+        "weather encounter calendar"
+        "weather encounter time"
         "lunar encounter time"
         "lunar encounter settings";
 }
