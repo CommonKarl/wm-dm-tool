@@ -913,7 +913,8 @@ export const Mountains = {
         harpy: 1
     },
     bugbear: {
-        bugbear: 1
+        bugbear: 1,
+        druid: 2
     },
     saber_toothed_tiger: {
         saber_toothed_tiger: 2
@@ -929,9 +930,6 @@ export const Mountains = {
         ogre_bolt_launcher: 2,
         ogre_howdah: 2,
         ogre_chain_brute: 3
-    },
-    druid: {
-        druid: 2
     },
     basilisk: {
         basilisk: 3
