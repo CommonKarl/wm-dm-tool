@@ -9,7 +9,8 @@ export const Complication = {
             'Natural Gas Pockets (flame spells cause explosions: 40% on caster, 40% on target, 20% on both)',
             'Poison Gas (vents release gas randomly, every round each vent 1 in 4 chance to expel gas at init 0 [DC 15 CON save; 2d10 poison to all adjacent targets])'],
         3: ['Cave-In/Sinkhole (DC 15 Dex; [4/8d6 for sinkhole/cave-in] + 1d6 per minute buried; 5x5x5 area = 1 ton; 1 minute to clear 100x STR score, doubled with proper tools)',
-            'Gas Spore (MM 138) Grounds', 'Poison Gas (vents release gas randomly, every round each vent 1 in 4 chance to expel gas at init 0 [DC 20 CON save; 4d10 poison to all adjacent targets])']
+            'Gas Spore (MM 138) Grounds', 'Poison Gas (vents release gas randomly, every round each vent 1 in 4 chance to expel gas at init 0 [DC 20 CON save; 4d10 poison to all adjacent targets])',
+            'Poisoned Water - Unless the characters have a way to purify water, they are unable to drink and refill their water supplies for the day']
     },
     Locale: {
         1: ['Giant Crystal Shard', 'Floating Earth Mote(s)', 'Ancient Ruins', 'Desecrated Ground (DMG 110)', 'Fairy Ring', 'Menhir', 'Faces/Statues carved into the Rock'],
