@@ -6,10 +6,10 @@
   <p>
     <b>Tags:</b> {{currWeather.tags}}
   </p>
-  <p>
+  <p *ngIf="currWeather.magicalWeather">
     <b>Magical Weather:</b> {{currWeather.magicalWeather}}
   </p>
-  <p>
+  <p *ngIf="currWeather.celestialEvents">
     <b>Celestial Events:</b> {{currWeather.celestialEvents}}
   </p>
 </div>
