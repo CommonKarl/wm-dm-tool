@@ -148,7 +148,7 @@ export class EncounterGeneratorComponent implements OnInit {
         break;
     }
     prob += (this.infoService.exploring && this.infoService.dangerZone ? 5 : 0);
-    console.log(prob);
+    // console.log(prob);
     const d100 = this.roll(100);
     if (d100 <= prob) {
       this.discovery = true;

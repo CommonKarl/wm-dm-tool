@@ -76,7 +76,7 @@ export class InfoService {
 
   rollForEncounter() {
     let dangerLevel = this.locationDL;
-    dangerLevel += (this.dangerZone ? 1 : 0);
+    dangerLevel += (this.dangerZone === 1 ? 1 : 0);
     dangerLevel += (this.exploring ? 1 : 0);
     if ((Math.floor(Math.random() * 6) + 1) <= dangerLevel) {
       // encounter happens!
