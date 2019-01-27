@@ -28,3 +28,5 @@ export const NorthPlains = [];
 export const Mountains = [];
 
 export const NorthMountains = [];
+
+export const Caves = [];

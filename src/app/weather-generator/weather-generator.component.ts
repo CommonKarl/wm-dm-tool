@@ -165,7 +165,8 @@ const locationTempMod = {
   Desert: 0,
   NorthPlains: 0,
   Mountains: -2,
-  NorthMountains: -2
+  NorthMountains: -2,
+  Caves: 0
 };
 
 const locationPercipitationMod = {
@@ -182,7 +183,8 @@ const locationPercipitationMod = {
   Desert: -40,
   NorthPlains: 0,
   Mountains: 10,
-  NorthMountains: 10
+  NorthMountains: 10,
+  Caves: -40
 };
 
 const rain = ['Drizzle', 'Showers', 'Downpour (Heavy Percipitation! DMG 110)', 'Thunder Storm (Heavy Percipitation! DMG 110)'];

@@ -307,3 +307,25 @@ export const NorthMountains = {
     19: "hobgoblin",
     20: "roc"
 };
+
+export const Caves = {
+    2: "beholder",
+    3: "spectator",
+    4: "giant_fire_beetle",
+    5: "ooze",
+    6: "umber_hulk",
+    7: "bulette",
+    8: "fungi",
+    9: "grimlock",
+    10: "spider",
+    11: "grick",
+    12: "carrion_crawler",
+    13: "mephit",
+    14: "grimlock",
+    15: "darkmantle",
+    16: "elemental",
+    17: "galeb_duhr",
+    18: "cyclops",
+    19: "hydra",
+    20: "cloaker"
+};

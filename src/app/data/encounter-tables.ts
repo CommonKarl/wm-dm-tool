@@ -1037,3 +1037,77 @@ export const NorthMountains = {
         roc: 11
     }
 };
+
+export const Caves = {
+    giant_fire_beetle: {
+        giant_fire_beetle: 0,
+    },
+    fungi: {
+        shrieker: 0,
+        violet_fungus: .25,
+        gas_spore: .5
+    },
+    grimlock: {
+        grimlock: .25,
+        cult_fanatic: 2
+    },
+    darkmantle: {
+        darkmantle: .5
+    },
+    mephit: {
+        mud_mephit: .25,
+        smoke_mephit: .25,
+        steam_mephit: .25,
+        dust_mephit: .5,
+        magma_mephit: .5
+    },
+    spider: {
+        ettercap: 2,
+        spider: 0,
+        giant_wolf_spider: .25,
+        giant_spider: 1
+    },
+    carrion_crawler: {
+        carrion_crawler: 2
+    },
+    grick: {
+        grick: 2,
+        grick_alpha: 7
+    },
+    spectator: {
+        spectator: 3
+    },
+    ooze: {
+        gray_ooze: .5,
+        gelatinous_cube: 2,
+        ochre_jelly: 2,
+        slithering_tracker: 3,
+        black_pudding: 4,
+        mustard_jelly: 5,
+        magma_ooze: 5
+    },
+    elemental: {
+        earth_elemental: 5
+    },
+    bulette: {
+        bulette: 5
+    },
+    umber_hulk: {
+        umber_hulk: 5
+    },
+    galeb_duhr: {
+        galeb_duhr: 6
+    },
+    cyclops: {
+        cyclops: 6
+    },
+    cloaker: {
+        cloaker: 8
+    },
+    hydra: {
+        hydra: 8
+    },
+    beholder: {
+        beholder: 13
+    }
+};
