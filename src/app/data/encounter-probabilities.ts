@@ -244,7 +244,7 @@ export const Desert = {
 
 export const NorthPlains = {
     2: "mephit",
-    3: "clay_golem",
+    3: "ooze",
     4: "elemental",
     5: "chimera",
     6: "zebra",
@@ -261,7 +261,7 @@ export const NorthPlains = {
     17: "gnome_svirfneblin",
     18: "vrock",
     19: "tunnel_worm",
-    20: "ooze"
+    20: "zaratan"
 };
 
 export const Mountains = {

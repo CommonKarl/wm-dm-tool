@@ -886,8 +886,8 @@ export const NorthPlains = {
     tunnel_worm: {
         tunnel_worm: 8
     },
-    clay_golem: {
-        clay_golem: 9
+    zaratan: {
+        zaratan: 9
     }
 };
 
