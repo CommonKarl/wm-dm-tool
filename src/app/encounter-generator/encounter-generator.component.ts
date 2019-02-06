@@ -77,9 +77,6 @@ export class EncounterGeneratorComponent implements OnInit {
     // get name of encounter
     this.currEncounter = tempEP[encounterRoll];
 
-    console.log(this.currEncounter);
-    console.log(encounterRoll);
-
     this.xpAllowance = xpThresholds[this.infoService.locationCR] * this.numPC;
     this.xpAllowanceMed = xpThresholdsMed[this.infoService.locationCR] * this.numPC;
     this.xpAllowanceDeadly = xpThresholdsDeadly[this.infoService.locationCR] * this.numPC;
