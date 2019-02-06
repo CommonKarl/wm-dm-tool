@@ -3,7 +3,6 @@ import { InfoService } from '../info.service';
 import { Subscription } from '../../../node_modules/rxjs';
 import * as ET from '../data/encounter-tables';
 import * as EP from '../data/encounter-probabilities';
-import * as TER from '../data/terrain';
 import * as Complications from '../data/complications';
 import { Motivations, BaseMotivations } from '../data/motivations';
 
@@ -34,7 +33,6 @@ export class EncounterGeneratorComponent implements OnInit {
   baseMotivation = '';
   twist = '';
   discovery = false;
-  terrain = '';
 
   constructor(private infoService: InfoService) { }
 
@@ -65,20 +63,22 @@ export class EncounterGeneratorComponent implements OnInit {
     this.baseMotivation = '';
     this.twist = '';
     this.discovery = false;
-    this.terrain = '';
   }
 
   generateEncounter() {
     this.clearEncounter();
     this.currEncounterNumbers = Object.assign({}, EmptyEncounter);
     this.currEncounterCRs = Object.assign({}, EmptyEncounter);
-    // roll 2d6 + 1d10 for encounter
-    const encounterRoll = this.roll(6) + this.roll(6) + this.roll(10);
+    // roll 1d8 + 1d12 for encounter
+    const encounterRoll = this.roll(8) + this.roll(12);
     // set encounter tables
     const tempET = ET[this.infoService.location];
     const tempEP = EP[this.infoService.location];
     // get name of encounter
     this.currEncounter = tempEP[encounterRoll];
+
+    console.log(this.currEncounter);
+    console.log(encounterRoll);
 
     this.xpAllowance = xpThresholds[this.infoService.locationCR] * this.numPC;
     this.xpAllowanceMed = xpThresholdsMed[this.infoService.locationCR] * this.numPC;
@@ -91,7 +91,6 @@ export class EncounterGeneratorComponent implements OnInit {
     this.generateBaseMotivation();
     this.generateTwist();
     this.generateDiscovery();
-    this.generateTerrain();
 
     const el = this;
     setTimeout(function () {
@@ -153,11 +152,6 @@ export class EncounterGeneratorComponent implements OnInit {
     if (d100 <= prob) {
       this.discovery = true;
     }
-  }
-
-  generateTerrain() {
-    const currTerrain = TER[this.infoService.location];
-    this.terrain = currTerrain[Math.floor(Math.random() * currTerrain.length)];
   }
 
   currEncounterXP() {

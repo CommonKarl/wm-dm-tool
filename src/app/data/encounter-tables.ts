@@ -999,7 +999,7 @@ export const NorthMountains = {
         dire_wolf: 1,
         winter_wolf: 3
     },
-    manitcore: {
+    manticore: {
         manticore: 3
     },
     yeti: {
