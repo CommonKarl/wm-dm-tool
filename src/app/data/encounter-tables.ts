@@ -370,7 +370,10 @@ export const EastJungle = {
         ankylosaurus: 3,
     },
     eblis: {
-        eblis: .5
+        commoner: 0,
+        eblis: .5,
+        kobold_scale_sorcerer: 1,
+        warlock_of_the_great_old_one: 6
     },
     crocodile: {
         crocodile: .5
