@@ -776,9 +776,6 @@ export const Desert = {
     skeleton: {
         skeleton: .25
     },
-    wampus_cat: {
-        wampus_cat: 1
-    },
     thri_kreen: {
         thri_kreen: 1
     },
@@ -895,6 +892,9 @@ export const NorthPlains = {
 };
 
 export const Mountains = {
+    environmental_hazard: {
+        blizzard: 0
+    },
     snotling: {
         xvart: .125,
         xvart_speaker: .125,
@@ -943,9 +943,6 @@ export const Mountains = {
     yeti: {
         yeti: 3
     },
-    red_dragon_wyrmling: {
-        red_dragon_wyrmling: 4
-    },
     elemental: {
         air_elemental: 5,
         earth_elemental: 5,
@@ -974,6 +971,9 @@ export const Mountains = {
 };
 
 export const NorthMountains = {
+    environmental_hazard: {
+        blizzard: 0
+    },
     ice_mephit: {
         ice_mephit: .5
     },
@@ -1007,9 +1007,6 @@ export const NorthMountains = {
     },
     yeti: {
         yeti: 3
-    },
-    red_dragon_wyrmling: {
-        red_dragon_wyrmling: 4
     },
     elemental: {
         air_elemental: 5,
