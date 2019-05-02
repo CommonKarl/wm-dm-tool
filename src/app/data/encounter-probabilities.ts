@@ -177,7 +177,7 @@ export const NorthHills = {
 };
 
 export const SouthPlains = {
-    2: "djinni",
+    2: "tyrannosaurus_rex",
     3: "wolf_spirit_swarm",
     4: "rhinoceros",
     5: "auroch",
@@ -191,7 +191,7 @@ export const SouthPlains = {
     13: "hyena",
     14: "centaur",
     15: "giant_wasp",
-    16: "orc",
+    16: "death_dog",
     17: "lion",
     18: "giant_ant",
     19: "bulette",

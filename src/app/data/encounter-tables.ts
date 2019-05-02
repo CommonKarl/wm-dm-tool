@@ -630,11 +630,8 @@ export const SouthPlains = {
     giant_wasp: {
         giant_wasp: .5
     },
-    orc: {
-        orc: .5,
-        orc_eye_of_gruumsh: 2,
-        orog: 2,
-        orc_war_chief: 4
+    death_dog: {
+        death_dog: 1
     },
     lion: {
         lion: 1
@@ -668,8 +665,8 @@ export const SouthPlains = {
     wolf_spirit_swarm: {
         wolf_spirit_swarm: 6
     },
-    djinni: {
-        djinni: 11
+    tyrannosaurus_rex: {
+        tyrannosaurus_rex: 8
     }
 };
 
