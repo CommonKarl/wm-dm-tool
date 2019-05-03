@@ -1039,10 +1039,8 @@ export const Caves = {
     giant_fire_beetle: {
         giant_fire_beetle: 0,
     },
-    fungi: {
-        shrieker: 0,
-        violet_fungus: .25,
-        gas_spore: .5
+    flumph: {
+        flumph: .125
     },
     grimlock: {
         grimlock: .25,
