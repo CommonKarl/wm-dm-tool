@@ -220,7 +220,7 @@ export const Highlands = {
     20: "galeb-duhr"
 };
 
-export const Desert = {
+export const SouthDesert = {
     2: "dune_mimic",
     3: "sandwyrm",
     4: "rotting_wind",
@@ -240,6 +240,28 @@ export const Desert = {
     18: "sand_silhouette",
     19: "sand_spider",
     20: "vesiculosa"
+};
+
+export const NorthDesert = {
+    2: "dune_mimic",
+    3: "sandwyrm",
+    4: "rotting_wind",
+    5: "ant_lion",
+    6: "",
+    7: "vulture",
+    8: "winter_wolf",
+    9: "skeleton",
+    10: "scorpion",
+    11: "environmental_hazard",
+    12: "sandling",
+    13: "environmental_hazard",
+    14: "thri_kreen",
+    15: "death_worm",
+    16: "elemental",
+    17: "",
+    18: "sand_silhouette",
+    19: "sand_spider",
+    20: "frost_salamander"
 };
 
 export const NorthPlains = {

@@ -758,7 +758,7 @@ export const Highlands = {
     }
 };
 
-export const Desert = {
+export const SouthDesert = {
     environmental_hazard: {
         sandstorm: 0
     },
@@ -816,6 +816,60 @@ export const Desert = {
     },
     vesiculosa: {
         vesiculosa: 11
+    }
+};
+
+export const NorthDesert = {
+    environmental_hazard: {
+        sandstorm: 0
+    },
+    vulture: {
+        vulture: 0,
+        giant_vulture: 1
+    },
+    scorpion: {
+        scorpion: 0,
+        giant_scorpion: 3
+    },
+    skeleton: {
+        skeleton: .25
+    },
+    thri_kreen: {
+        thri_kreen: 1
+    },
+    sandling: {
+        sandling: 1
+    },
+    death_worm: {
+        death_worm: 3
+    },
+    winter_wolf: {
+        winter_wolf: 3
+    },
+    ant_lion: {
+        ant_lion: 4
+    },
+    elemental: {
+        air_elemental: 5,
+        earth_elemental: 5
+    },
+    rotting_wind: {
+        rotting_wind: 6
+    },
+    sand_silhouette: {
+        sand_silhouette: 6
+    },
+    sandwyrm: {
+        sandwyrm: 6
+    },
+    sand_spider: {
+        sand_spider: 7
+    },
+    dune_mimic: {
+        dune_mimic: 8
+    },
+    frost_salamander: {
+        frost_salamander: 9
     }
 };
 
