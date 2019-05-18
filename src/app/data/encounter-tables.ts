@@ -347,7 +347,8 @@ export const EastJungle = {
     },
     goblin: {
         goblin: .25,
-        goblin_boss: 1
+        goblin_boss: 1,
+        ogre_howdah: 2
     },
     swarm: {
         swarm_of_rats: .25,
@@ -529,7 +530,8 @@ export const NorthHills = {
     },
     goblin: {
         goblin: .25,
-        goblin_boss: 1
+        goblin_boss: 1,
+        ogre_howdah: 2
     },
     lizardfolk: {
         lizardfolk: .5,
@@ -954,7 +956,8 @@ export const Mountains = {
     pteranodon: {
         pteranodon: .25
     },
-    giant_goat: {
+    goat: {
+        goat: 0,
         giant_goat: .5
     },
     ice_mephit: {
@@ -981,8 +984,6 @@ export const Mountains = {
     ogre: {
         half_ogre: 1,
         ogre: 2,
-        ogre_bolt_launcher: 2,
-        ogre_howdah: 2,
         ogre_chain_brute: 3
     },
     basilisk: {
@@ -990,9 +991,6 @@ export const Mountains = {
     },
     manticore: {
         manticore: 3
-    },
-    yeti: {
-        yeti: 3
     },
     elemental: {
         air_elemental: 5,
@@ -1012,10 +1010,6 @@ export const Mountains = {
     chimera: {
         chimera: 6
     },
-    giant: {
-        stone_giant: 7,
-        frost_giant: 8,
-    },
     roc: {
         roc: 11
     }
@@ -1025,15 +1019,24 @@ export const NorthMountains = {
     environmental_hazard: {
         blizzard: 0
     },
+    goat: {
+        goat: 0,
+        giant_goat: .5
+    },
     ice_mephit: {
         ice_mephit: .5
     },
     hobgoblin: {
         hobgoblin: .5,
+        priest: 2,
         hobgoblin_iron_shadow: 2,
         hobgoblin_captain: 3,
         hobgoblin_devastator: 4,
-        hobgoblin_warlord: 6
+        hobgoblin_warlord: 6,
+        ogre: 2,
+        ogre_bolt_launcher: 2,
+        ogre_battering_ram: 4,
+        worg: .5
     },
     ice_drake: {
         ice_drake: 1
@@ -1044,8 +1047,6 @@ export const NorthMountains = {
     ogre: {
         half_ogre: 1,
         ogre: 2,
-        ogre_bolt_launcher: 2,
-        ogre_howdah: 2,
         ogre_chain_brute: 3
     },
     wolf: {
@@ -1079,10 +1080,6 @@ export const NorthMountains = {
     },
     cyclops: {
         cyclops: 6
-    },
-    giant: {
-        stone_giant: 7,
-        frost_giat: 8
     },
     roc: {
         roc: 11

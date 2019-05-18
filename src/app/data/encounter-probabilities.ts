@@ -302,14 +302,14 @@ export const Mountains = {
     14: "ogre",
     15: "saber_toothed_tiger",
     16: "basilisk",
-    17: "yeti",
+    17: "goat",
     18: "elemental",
     19: "wyvern",
     20: "roc"
 };
 
 export const NorthMountains = {
-    2: "giant",
+    2: "environmental_hazard",
     3: "hobgoblin",
     4: "troll",
     5: "wyvern",
@@ -325,7 +325,7 @@ export const NorthMountains = {
     15: "saber_toothed_tiger",
     16: "manticore",
     17: "chimera",
-    18: "cyclops",
+    18: "goat",
     19: "hobgoblin",
     20: "roc"
 };
