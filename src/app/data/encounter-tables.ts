@@ -358,12 +358,6 @@ export const EastJungle = {
         swarm_of_poisonous_snakes: 2,
         death_butterfly_swarm: 4
     },
-    orc: {
-        orc: .5,
-        orc_eye_of_gruumsh: 2,
-        orog: 2,
-        orc_war_chief: 4
-    },
     dinosaur: {
         velociraptor: .25,
         deinonychus: 1,
@@ -527,6 +521,12 @@ export const NorthHills = {
         allosaurus: 2,
         ankylosaurus: 3,
         young_spinosaurus: 5
+    },
+    orc: {
+        orc: .5,
+        orc_eye_of_gruumsh: 2,
+        orog: 2,
+        orc_war_chief: 4
     },
     goblin: {
         goblin: .25,
