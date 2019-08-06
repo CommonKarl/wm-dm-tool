@@ -523,6 +523,8 @@ export const NorthHills = {
         young_spinosaurus: 5
     },
     orc: {
+        quipper_fetish: 0,
+        scarecrow_fetish: 1,
         orc: .5,
         orc_eye_of_gruumsh: 2,
         orog: 2,
