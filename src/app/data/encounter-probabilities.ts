@@ -44,7 +44,7 @@ export const SouthJungle = {
 };
 
 export const Hills = {
-    2: "troll",
+    2: "owlbear",
     3: "manticore",
     4: "peryton",
     5: "midnight_peddler",

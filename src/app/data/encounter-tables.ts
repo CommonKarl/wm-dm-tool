@@ -149,11 +149,8 @@ export const Hills = {
     manticore: {
         manticore: 3
     },
-    troll: {
-        troll: 5
-    },
-    cyclops: {
-        cyclops: 6
+    owlbear: {
+        owlbear: 3
     }
 };
 
