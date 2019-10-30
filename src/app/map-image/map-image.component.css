@@ -1,0 +1,5 @@
+div {
+    background: url('../../assets/images/themap.jpg') no-repeat center;
+    height: 100%;
+    background-size: contain;
+}

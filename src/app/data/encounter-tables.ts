@@ -1156,3 +1156,19 @@ export const Caves = {
         beholder: 13
     }
 };
+
+export const OozeGarden = {
+    ooze: {
+        gray_ooze: .5,
+        gelatinous_cube: 2,
+        ochre_jelly: 2,
+        slithering_tracker: 3,
+        black_pudding: 4,
+        mustard_jelly: 5,
+        magma_ooze: 5
+    },
+};
+
+export const GreatCloudSea = {
+
+};

@@ -23,11 +23,13 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { TreasureComponent } from './treasure/treasure.component';
 import { HomeComponent } from './home/home.component';
 import {SelectButtonModule} from 'primeng/selectbutton';
+import { MapImageComponent } from './map-image/map-image.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'treasure', component: TreasureComponent }
+  { path: 'treasure', component: TreasureComponent },
+  { path: 'map', component: MapImageComponent }
 ];
 
 @NgModule({
@@ -41,7 +43,8 @@ const routes: Routes = [
     TimeComponent,
     LunarCycleComponent,
     TreasureComponent,
-    HomeComponent
+    HomeComponent,
+    MapImageComponent
   ],
   imports: [
     BrowserModule,
