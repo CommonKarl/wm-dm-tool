@@ -127,7 +127,7 @@ export class TreasureComponent implements OnInit {
       let hoardBV = 1;
       if (this.randomizeTV) {
         // calculate base value of the hoard
-        const d100 = this.roll(100);
+        let d100 = this.roll(100);
         if (d100 === 1) {
           hoardBV = .01;
         } else if (d100 > 1 && d100 <= 3) {
@@ -154,8 +154,9 @@ export class TreasureComponent implements OnInit {
           console.log('hoard base value error');
         }
       }
-      const finalTreasureValue = this.treasureUnitValue * hoardBV;
-      this.generateIndividualTreasure(finalTreasureValue);
+      let finalTreasureValue = this.treasureUnitValue * hoardBV;
+      let randomizer = finalTreasureValue * .2;
+      this.generateIndividualTreasure(Math.floor(finalTreasureValue + (Math.random() * (randomizer + randomizer) -randomizer)));
     }
   }
 
