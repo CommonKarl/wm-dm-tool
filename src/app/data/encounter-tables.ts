@@ -733,7 +733,7 @@ export const Highlands = {
     meenlock: {
         meenlock: 2
     },
-    manitcore: {
+    manticore: {
         manticore: 3
     },
     owlbear: {
@@ -761,7 +761,8 @@ export const Highlands = {
 
 export const SouthDesert = {
     environmental_hazard: {
-        sandstorm: 0
+        sandstorm: 0,
+        searing_heat: 0
     },
     vulture: {
         vulture: 0,
@@ -822,7 +823,8 @@ export const SouthDesert = {
 
 export const NorthDesert = {
     environmental_hazard: {
-        sandstorm: 0
+        sandstorm: 0,
+        searing_heat: 0
     },
     vulture: {
         vulture: 0,
@@ -1167,8 +1169,126 @@ export const OozeGarden = {
         mustard_jelly: 5,
         magma_ooze: 5
     },
+    fungi: {
+        shrieker: 0,
+        violet_fungus: .25,
+        gas_spore: .5
+    },
+    corpse_flower: {
+        corpse_flower: 8
+    },
+    otyugh: {
+        otyugh: 5
+    },
+    elemental: {
+        mud_mephit: .25,
+        earth_elemental: 5,
+        water_elemental: 5
+    },
+    wood_woad: {
+        wood_woad: 5
+    },
+    zombie: {
+        yellow_musk_zombie: .25,
+        zombie: .25,
+        ogre_zombie: 2
+    },
+    myconid: {
+        sprout: 0,
+        adult: .5,
+        spore_servant: 1,
+        sovereign: 2
+    },
+    vegepygmy: {
+        vegepygmy: .25,
+        chief: 2
+    },
+    witch_grass: {
+        witch_grass: 0,
+        tri_flower_frond: .5
+    },
+    swarm: {
+        swarm_of_rats: .25,
+        swarm_of_insects: .25,
+        death_butterfly_swarm: 4
+    },
+    giant_fire_beetle: {
+        giant_fire_beetle: 0
+    },
+    gibbering_mouther: {
+        gibbering_mouther: 2
+    },
+    shambling_mound: {
+        shambling_mound: 5
+    },
+    treant: {
+        treant: 9
+    },
+    ettercap: {
+        ettercap: 2,
+        spider: 0,
+        giant_wolf_spider: .25,
+        giant_spider: 1
+    },
 };
 
 export const GreatCloudSea = {
-
+    dragon_eel: {
+        dragon_eel: 12
+    },
+    elemental: {
+        air_elemental: 5,
+        lightning_elemental: 5
+    },
+    mephit: {
+        smoke_mephit: .25,
+        steam_mephit: .25,
+        dust_mephit: .5
+    },
+    invisible_stalker: {
+        invisible_stalker: 6
+    },
+    blood_hawk: {
+        blood_hawk: .125
+    },
+    environmental_hazard: {
+        lightning_storm: 0
+    },
+    elder_tempest: {
+        elder_tempest: 23
+    },
+    giant_eagle: {
+        giant_eagle: 1
+    },
+    chimera: {
+        chimera: 6
+    },
+    manticore: {
+        manticore: 3
+    },
+    cockatrice: {
+        cockatrice: .5
+    },
+    fungi: {
+        gas_spore: .5
+    },
+    wyvern: {
+        wyvern: 6
+    },
+    pegasus: {
+        pegasus: 2
+    },
+    harpy: {
+        harpy: 1,
+        owl_harpy: 5
+    },
+    griffon: {
+        griffon: 2
+    },
+    peryton: {
+        peryton: 2
+    },
+    hippogriff: {
+        hippogriff: 1
+    }
 };

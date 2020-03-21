@@ -100,4 +100,12 @@ export class SettingsComponent implements OnInit {
     return Math.floor(Math.random() * sides) + 1;
   }
 
+  goToMap(){
+    window.open('http://localhost:4200/map', "_blank");
+  }
+
+  goToTreasure(){
+    window.open('http://localhost:4200/treasure', "_blank");
+  }
+
 }

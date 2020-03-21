@@ -13,14 +13,23 @@ export class TreasureComponent implements OnInit {
 
   individualOrHoard = false;
   encounterLevel = 1;
-  treasureUnitValue = 100;
+  treasureUnitValue = 20;
   artValueMod = 0;
-  hoardSelect: any;
+  hoardSelect = 8;
   treasureTypeSelect: any;
   hoards: SelectItem[];
   treasureTypes: SelectItem[];
   treasureHoardValue: any;
   randomizeTV = false;
+  encounterLevelOptions = [
+    {label:'1', value:1},
+    {label:'2', value:2},
+    {label:'3', value:3},
+    {label:'4', value:4},
+    {label:'5', value:5},
+    {label:'6', value:6},
+    {label:'7', value:7},
+  ];
 
   constructor() { }
 
@@ -154,7 +163,7 @@ export class TreasureComponent implements OnInit {
           console.log('hoard base value error');
         }
       }
-      let finalTreasureValue = this.treasureUnitValue * hoardBV;
+      let finalTreasureValue = this.encounterLevel / 2 * this.encounterLevel * this.treasureUnitValue * hoardBV;
       let randomizer = finalTreasureValue * .2;
       this.generateIndividualTreasure(Math.floor(finalTreasureValue + (Math.random() * (randomizer + randomizer) -randomizer)));
     }

@@ -2,11 +2,12 @@
   <div class="flex-col center" class="treasure-wrap">
     <div class="form-section flex-col center">
       <label>Treasure Hoard Area Level:</label>
-      <input type="number" name="EL" min=1 pInputText [(ngModel)]="encounterLevel" required/>
-      <label>Treasure Unit Value (default: 100gp):</label>
+      <!--<input type="number" name="EL" min=1 pInputText [(ngModel)]="encounterLevel" required/>-->
+      <p-selectButton [options]="encounterLevelOptions" name="EL" [(ngModel)]="encounterLevel"></p-selectButton>
+      <!--<label>Treasure Unit Value (default: 100gp):</label>
       <input type="number" class="inline" style="margin-right: 8px;" name="treasureUnitValue" step=25 pInputText [(ngModel)]="treasureUnitValue"
         required/>
-      <p-checkbox name="rtv" class="inline" [(ngModel)]="randomizeTV" binary="true" label="Randomize Value?"></p-checkbox>
+      <p-checkbox name="rtv" class="inline" [(ngModel)]="randomizeTV" binary="true" label="Randomize Value?"></p-checkbox>-->
       <label>Hoard Size:</label>
       <select name="hoard" [(ngModel)]="hoardSelect" required>
         <option *ngFor="let hoard of hoards" [ngValue]="hoard.value">{{hoard.label}}</option>
