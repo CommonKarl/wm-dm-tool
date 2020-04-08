@@ -146,7 +146,7 @@ export class Weather {
 }
 
 // weather: Breezy, Clear, Cloudy, Downpour, Drizzle, Foggy, Hail, Hazy, Humid, Overcast, Showers, Snowflakes, Snowy, Stormy, Sunny, Thunderheads, Windy
-//                      0         1       2         3       4      5         6
+//                      0                                 1       2         3       4      5         6
 const temperature = ['Frigid (Extreme Cold! DMG 110)', 'Cold', 'Chilly', 'Mild', 'Warm', 'Hot', 'Sweltering (Extreme Heat! DMG 110)'];
 
 // 0 - 100 = % to rain per day
@@ -162,11 +162,14 @@ const locationTempMod = {
   NorthHills: 0,
   SouthPlains: 0,
   Highlands: 0,
-  Desert: 0,
+  SouthDesert: 2,
+  NorthDesert: -2,
   NorthPlains: 0,
   Mountains: -2,
   NorthMountains: -2,
-  Caves: 0
+  EasyCaves: 0,
+  Caves: 0,
+  GreatCloudSea: 0
 };
 
 const locationPercipitationMod = {
@@ -180,11 +183,14 @@ const locationPercipitationMod = {
   NorthHills: 0,
   SouthPlains: 0,
   Highlands: 0,
-  Desert: -40,
+  SouthDesert: -40,
+  NorthDesert: -40,
   NorthPlains: 0,
   Mountains: 10,
   NorthMountains: 10,
-  Caves: -40
+  EasyCaves: -40,
+  Caves: -40,
+  GreatCloudSea: 10
 };
 
 const rain = ['Drizzle', 'Showers', 'Downpour (Heavy Percipitation! DMG 110)', 'Thunder Storm (Heavy Percipitation! DMG 110)'];

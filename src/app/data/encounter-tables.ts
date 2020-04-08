@@ -1,1294 +1,1312 @@
 export const SouthJungle = {
     baboon: {
-        baboon: 0
+        'baboon (MM 318)': 0
     },
     rat: {
-        rat: 0,
-        giant_rat: .125,
-        swarm_of_rats: .25
+        'rat (MM 335)': 0,
+        'giant rat (MM 327)': .125,
+        'swarm of rats (MM 339)': .25
     },
     spider: {
-        spider: 0,
-        giant_wolf_spider: .25,
-        giant_spider: 1
+        'spider (MM 337)': 0,
+        'giant wolf spider (MM 330)': .25,
+        'giant spider (MM 328)': 1
     },
     quipper: {
-        quipper: 0,
-        swarm_of_quippers: 1
+        'quipper (MM 335)': 0,
+        'swarm of quippers (MM 338)': 1
     },
     snake: {
-        flying_snake: .125,
-        poisonous_snake: .125,
-        constrictor_snake: .25,
-        giant_poisonous_snake: .25,
-        giant_constrictor_snake: 2,
-        swarm_of_poisonous_snakes: 2
+        'flying snake (MM 332)': .125,
+        'poisonous snake (MM 334)': .125,
+        'constrictor snake (MM 320)': .25,
+        'giant poisonous snake  (MM 327)': .25,
+        'giant constrictor snake  (MM 324)': 2,
+        'swarm of poisonous snakes  (MM 338)': 2
     },
     stirge: {
-        strige: .125
+        'stirge (MM 284)': .125
     },
     kobold: {
-        kobold: .125,
-        kobold_inventor: .25,
-        winged_kobold: .25,
-        kobold_dragonshield: 1,
-        kobold_scale_sorcerer: 1
+        'kobold (MM 195)': .125,
+        'kobold inventor (VOLO 166)': .25,
+        'winged kobold (MM 195)': .25,
+        'kobold dragonshield (VOLO 165)': 1,
+        'kobold scale sorcerer (VOLO 167)': 1
     },
     panther: {
-        panther: .25
+        'panther (MM 333)': .25
     },
     fey: {
-        pixie: .25,
-        sprite: .25,
-        satyr: .5
+        'pixie (MM 253)': .25,
+        'sprite (MM 283)': .25,
+        'satyr (MM 267)': .5
     },
     dinosaur: {
-        velociraptor: .25,
-        deinonychus: 1,
-        allosaurus: 2,
-        ankylosaurus: 3,
+        'velociraptor (VOLO 140)': .25,
+        'deinonychus (VOLO 139)': 1,
+        'allosaurus (MM 79)': 2,
+        'ankylosaurus (MM 79)': 3,
     },
     grung: {
-        grung: .25,
-        grung_wildling: 1,
-        grung_elite_warrior: 2
+        'grung (VOLO 156)': .25,
+        'grung wildling (VOLO 157)': 1,
+        'grung elite warrior (VOLO 157)': 2
     },
     wolf: {
-        wolf: .25,
-        dire_wolf: 1
+        'wolf (MM 341)': .25,
+        'dire wolf (MM 321)': 1
     },
     bear: {
-        black_bear: .5,
-        brown_bear: 1,
+        'black bear (MM 318)': .5,
+        'brown bear (MM 319)': 1,
     },
     ettercap: {
-        ettercap: 2,
-        spider: 0,
-        giant_wolf_spider: .25,
-        giant_spider: 1
+        'ettercap (MM 131)': 2,
+        'spider (MM 337)': 0,
+        'giant wolf spider (MM 330)': .25,
+        'giant spider (MM 328)': 1
     },
     ankheg: {
-        ankheg: 2
+        'ankheg (MM 21)': 2
     },
     pegasus: {
-        pegasus: 2
+        'pegasus (MM 250)': 2
     },
     ogre: {
-        half_ogre: 1,
-        ogre: 2,
-        ogre_bolt_launcher: 2,
-        ogre_howdah: 2,
-        ogre_chain_brute: 3
+        'half ogre (MM 238)': 1,
+        'ogre (MM 237)': 2,
+        'ogre chain brute (MORD 221)': 3
     },
     owlbear: {
-        owlbear: 3
+        'owlbear (MM 249)': 3
     },
     Oehoeboeroe: {
-        warlock_of_the_archfey: 5
+        'Oehoeboeroe (see OneNote)': 5
     }
 };
 
 export const Hills = {
     giant_fire_beetle: {
-        giant_fire_beetle: 0,
+        'giant fire beetle (MM 325)': 0,
     },
     stirge: {
-        stirge: .125
+        'stirge (MM 284)': .125
     },
     blood_hawk: {
-        blood_hawk: .125
+        'blood hawk (MM 319)': .125
     },
     tribal_warrior: {
-        tribal_warrior: .125
+        'tribal warrior (MM 350)': .125
     },
     panther: {
-        panther: .25
+        'panther (MM 333)': .25
     },
     wolf: {
-        wolf: .25,
-        dire_wolf: 1
+        'wolf (MM 341)': .25,
+        'dire wolf (MM 321)': 1
     },
     spider: {
-        spider: 0,
-        giant_wolf_spider: .25
+        'spider (MM 337)': 0,
+        'giant wolf spider (MM 330)': .25
     },
     bear: {
-        black_bear: .5,
-        brown_bear: 1,
+        'black bear (MM 318)': .5,
+        'brown bear (MM 319)': 1,
     },
     midnight_peddler: {
-        midnight_peddler: .5
+        'midnight peddler (FEF 170)': .5
     },
     worg: {
-        worg: .5
+        'worg (MM 341)': .5
     },
     swarm: {
-        swarm_of_rats: .25,
-        swarm_of_bats: .25,
-        swarm_of_insects: .25,
-        swarm_of_quippers: 1,
-        swarm_of_poisonous_snakes: 2,
-        death_butterfly_swarm: 4
+        'swarm of rats (MM 339)': .25,
+        'swarm of bats (MM 337)': .25,
+        'swarm of insects (MM 338)': .25,
+        'swarm of quippers (MM 338)': 1,
+        'swarm of poisonous snakes (MM 338)': 2
     },
     harpy: {
-        harpy: 1
+        'harpy (MM 181)': 1
     },
     ogre: {
-        half_ogre: 1,
-        ogre: 2,
-        ogre_bolt_launcher: 2,
-        ogre_howdah: 2,
-        ogre_chain_brute: 3
+        'half ogre (MM 238)': 1,
+        'ogre (MM 237)': 2,
+        'ogre chain brute (MORD 221)': 3
     },
     griffon: {
-        griffon: 2
+        'griffon (MM 174)': 2
     },
     peryton: {
-        peryton: 2
+        'peryton (MM 251)': 2
     },
     manticore: {
-        manticore: 3
+        'manticore (MM 213)': 3
     },
     owlbear: {
-        owlbear: 3
-    }
+        'owlbear (MM 249)': 3
+    },
 };
 
 export const WestJungle = {
     baboon: {
-        baboon: 0
+        'baboon (MM 318)': 0
     },
     quipper: {
-        quipper: 0,
-        swarm_of_quippers: 1
+        'quipper (MM 335)': 0,
+        'swarm of quippers (MM 338)': 1
     },
     rat: {
-        rat: 0,
-        giant_rat: .125,
-        swarm_of_rats: .25
+        'rat (MM 335)': 0,
+        'giant rat (MM 327)': .125,
+        'swarm of rats (MM 339)': .25
     },
     spider: {
-        spider: 0,
-        giant_wolf_spider: .25,
-        giant_spider: 1
+        'spider (MM 337)': 0,
+        'giant wolf spider (MM 330)': .25,
+        'giant spider (MM 328)': 1
     },
     blight: {
-        twig_blight: .125,
-        needle_blight: .25,
-        vine_blight: .5
+        'twig blight (MM 32)': .125,
+        'needle blight (MM 32)': .25,
+        'vine blight (MM 32)': .5
     },
     snake: {
-        flying_snake: .125,
-        poisonous_snake: .125,
-        constrictor_snake: .25,
-        giant_poisonous_snake: .25,
-        giant_constrictor_snake: 2,
-        swarm_of_poisonous_snakes: 2
+        'flying snake (MM 332)': .125,
+        'poisonous snake (MM 334)': .125,
+        'constrictor snake (MM 320)': .25,
+        'giant poisonous snake  (MM 327)': .25,
+        'giant constrictor snake  (MM 324)': 2,
+        'swarm of poisonous snakes  (MM 338)': 2
     },
     giant_frog: {
-        giant_frog: .25
+        'giant frog (MM 325)': .25
     },
     fey: {
-        pixie: .25,
-        sprite: .25,
-        satyr: .5
+        'pixie (MM 253)': .25,
+        'sprite (MM 283)': .25,
+        'satyr (MM 267)': .5
     },
     swarm: {
-        swarm_of_rats: .25,
-        swarm_of_bats: .25,
-        swarm_of_insects: .25,
-        swarm_of_quippers: 1,
-        swarm_of_poisonous_snakes: 2,
-        death_butterfly_swarm: 4
+        'swarm of rats (MM 339)': .25,
+        'swarm of bats (MM 337)': .25,
+        'swarm of insects (MM 338)': .25,
+        'swarm of quippers (MM 338)': 1,
+        'swarm of poisonous snakes (MM 338)': 2
     },
     cockatrice: {
-        cockatrice: .5
+        'cockatrice (MM 42)': .5
     },
     dryad: {
-        dryad: 1
+        'dryad (MM 121)': 1
     },
     faerie_dragon: {
-        orange: 1,
-        red: 1,
-        yellow: 1,
-        blue: 2,
-        green: 2,
-        indigo: 2,
-        violet: 2
+        'orange (MM 133)': 1,
+        'red (MM 133)': 1,
+        'yellow (MM 133)': 1,
+        'blue (MM 133)': 2,
+        'green (MM 133)': 2,
+        'indigo (MM 133)': 2,
+        'violet (MM 133)': 2
     },
     ettercap: {
-        ettercap: 2,
-        spider: 0,
-        giant_wolf_spider: .25,
-        giant_spider: 1
+        'spider (MM 337)': 0,
+        'giant wolf spider (MM 330)': .25,
+        'giant spider (MM 328)': 1,
+        'ettercap (MM 131)': 2
     },
     green_dragon_wyrmling: {
-        green_dragon_wyrmling: 2
+        'green dragon wyrmling (MM 95)': 2
     },
     basilisk: {
-        basilisk: 3
+        'basilisk (MM 24)': 3
     },
     owlbear: {
-        owlbear: 3
+        'owlbear (MM 249)': 3
     },
     stegocentipede: {
-        stegocentipede: 4
+        'stegocentipede (FEF 217)': 4
     },
     shambling_mound: {
-        shambling_mount: 5
+        'shambling mound (M 270)': 5
     }
 };
 
 export const UpperWestJungle = {
     stirge: {
-        stirge: .125
+        'stirge (MM 284)': .125
     },
     blight: {
-        twig_blight: .125,
-        needle_blight: .25,
-        vine_blight: .5
+        'twig blight (MM 32)': .125,
+        'needle blight (MM 32)': .25,
+        'vine blight (MM 32)': .5
     },
     swarm: {
-        swarm_of_rats: .25,
-        swarm_of_bats: .25,
-        swarm_of_insects: .25,
-        swarm_of_quippers: 1,
-        swarm_of_poisonous_snakes: 2,
-        death_butterfly_swarm: 4
+        'swarm of rats (MM 339)': .25,
+        'swarm of bats (MM 337)': .25,
+        'swarm of insects (MM 338)': .25,
+        'swarm of quippers (MM 338)': 1,
+        'swarm of poisonous snakes (MM 338)': 2
     },
     panther: {
-        panther: .25
+        'panther (MM 333)': .25
     },
     spider: {
-        spider: 0,
-        giant_wolf_spider: .25,
-        giant_spider: 1
+        'spider (MM 337)': 0,
+        'giant wolf spider (MM 330)': .25,
+        'giant spider (MM 328)': 1
     },
     mephit: {
-        mud_mephit: .25,
-        steam_mephit: .25
+        'mud mephit (MM 216)': .25,
+        'steam mephit (MM 217)': .25
     },
     snake: {
-        flying_snake: .125,
-        poisonous_snake: .125,
-        constrictor_snake: .25,
-        giant_poisonous_snake: .25,
-        giant_constrictor_snake: 2,
-        swarm_of_poisonous_snakes: 2
+        'flying snake (MM 332)': .125,
+        'poisonous snake (MM 334)': .125,
+        'constrictor snake (MM 320)': .25,
+        'giant poisonous snake  (MM 327)': .25,
+        'giant constrictor snake  (MM 324)': 2,
+        'swarm of poisonous snakes  (MM 338)': 2
     },
     giant_centipede: {
-        giant_centipede: .25
+        'giant centipede (MM 323)': .25
     },
     bullywug: {
-        bullywug: .25,
-        thug: .5
+        'bullywug (MM 35)': .25,
+        'thug (MM 350)': .5
     },
     harpy: {
-        harpy: 1
+        'harpy (MM 181)': 1
     },
     hippogriff: {
-        hippogriff: 1
+        'hippogriff (MM 184)': 1
     },
     faerie_dragon: {
-        orange: 1,
-        red: 1,
-        yellow: 1,
-        blue: 2,
-        green: 2,
-        indigo: 2,
-        violet: 2
+        'orange (MM 133)': 1,
+        'red (MM 133)': 1,
+        'yellow (MM 133)': 1,
+        'blue (MM 133)': 2,
+        'green (MM 133)': 2,
+        'indigo (MM 133)': 2,
+        'violet (MM 133)': 2
     },
     ogre: {
-        half_ogre: 1,
-        ogre: 2,
-        ogre_bolt_launcher: 2,
-        ogre_howdah: 2,
-        ogre_chain_brute: 3
+        'half ogre (MM 238)': 1,
+        'ogre (MM 237)': 2,
+        'ogre chain brute (MORD 221)': 3
     },
     saber_toothed_tiger: {
-        saber_toothed_tiger: 2
+        'saber toothed tiger (MM 336)': 2
     },
     manticore: {
-        manticore: 3
+        'manticore (MM 213)': 3
     },
     troll: {
-        troll: 5
+        'troll (MM 291)': 5
     },
     froghemoth: {
-        froghemoth: 10
+        'froghemoth (VOLO 145)': 10
     }
 };
 
 export const EastJungle = {
     baboon: {
-        baboon: 0
+        'baboon (MM 318)': 0
     },
     witch_grass: {
-        witch_grass: 0,
-        tri_flower_frond: .5
+        'witch grass (FEF 248)': 0,
+        'tri flower frond (FEF 232)': .5
     },
     snake: {
-        flying_snake: .125,
-        poisonous_snake: .125,
-        constrictor_snake: .25,
-        giant_poisonous_snake: .25,
-        giant_constrictor_snake: 2,
-        swarm_of_poisonous_snakes: 2
+        'flying snake (MM 332)': .125,
+        'poisonous snake (MM 334)': .125,
+        'constrictor snake (MM 320)': .25,
+        'giant poisonous snake  (MM 327)': .25,
+        'giant constrictor snake  (MM 324)': 2,
+        'swarm of poisonous snakes  (MM 338)': 2
     },
     tribal_warrior: {
-        tribal_warrior: .125
+        'tribal warrior (MM 350)': .125
     },
     mephit: {
-        mud_mephit: .25,
-        steam_mephit: .25
+        'mud mephit (MM 216)': .25,
+        'steam mephit (MM 217)': .25
     },
     goblin: {
-        goblin: .25,
-        goblin_boss: 1,
-        ogre_howdah: 2
+        'goblin (MM 166)': .25,
+        'goblin boss (MM 166)': 1,
+        'ogre howdah (MORD 221)': 2
     },
     swarm: {
-        swarm_of_rats: .25,
-        swarm_of_bats: .25,
-        swarm_of_insects: .25,
-        swarm_of_quippers: 1,
-        swarm_of_poisonous_snakes: 2,
-        death_butterfly_swarm: 4
+        'swarm of rats (MM 339)': .25,
+        'swarm of bats (MM 337)': .25,
+        'swarm of insects (MM 338)': .25,
+        'swarm of quippers (MM 338)': 1,
+        'swarm of poisonous snakes (MM 338)': 2
     },
     dinosaur: {
-        velociraptor: .25,
-        deinonychus: 1,
-        allosaurus: 2,
-        ankylosaurus: 3,
+        'velociraptor (VOLO 140)': .25,
+        'deinonychus (VOLO 139)': 1,
+        'allosaurus (MM 79)': 2,
+        'ankylosaurus (MM 79)': 3,
     },
     eblis: {
-        commoner: 0,
-        eblis: .5,
-        kobold_scale_sorcerer: 1,
-        warlock_of_the_great_old_one: 6
+        'commoner (MM 345)': 0,
+        'eblis (FEF 89)': .5,
+        'kobold scale sorcerer (VOLO 167)': 1,
+        'warlock of the great old one (VOLO 220)': 6
     },
     crocodile: {
-        crocodile: .5
+        'crocodile (MM 320)': .5
     },
     igniguana: {
-        igniguana: 1
+        'igniguana (FEF 148)': 1
     },
     crimson_drake: {
-        crimson_drake: 1
+        'crimson drake (ToB 151)': 1
     },
     hippopotamus: {
-        rhinoceros: 2
+        'rhinoceros (MM 336)': 2
     },
     ankheg: {
-        ankheg: 2
+        'ankheg (MM 21)': 2
     },
     owlbear: {
-        owlbear: 3
+        'owlbear (MM 249)': 3
     },
     wood_woad: {
-        wood_woad: 5
+        'wood woad (VOLO 198)': 5
     },
     elemental: {
-        earth_elemental: 5,
-        water_elemental: 5
+        'earth elemental (MM 124)': 5,
+        'water elemental (MM 125)': 5
     },
     drakon: {
-        drakon: 5
+        'drakon (ToB 157)': 5
     }
 };
 
 export const Swamp = {
     swarm: {
-        swarm_of_rats: .25,
-        swarm_of_bats: .25,
-        swarm_of_insects: .25,
-        swarm_of_quippers: 1,
-        swarm_of_poisonous_snakes: 2,
-        death_butterfly_swarm: 4
+        'swarm of rats (MM 339)': .25,
+        'swarm of bats (MM 337)': .25,
+        'swarm of insects (MM 338)': .25,
+        'swarm of quippers (MM 338)': 1,
+        'swarm of poisonous snakes (MM 338)': 2
     },
     snake: {
-        flying_snake: .125,
-        poisonous_snake: .125,
-        constrictor_snake: .25,
-        giant_poisonous_snake: .25,
-        swamp_adder: .25,
-        giant_constrictor_snake: 2,
-        swarm_of_poisonous_snakes: 2
+        'flying snake (MM 332)': .125,
+        'poisonous snake (MM 334)': .125,
+        'constrictor snake (MM 320)': .25,
+        'giant poisonous snake  (MM 327)': .25,
+        'giant constrictor snake  (MM 324)': 2,
+        'swarm of poisonous snakes  (MM 338)': 2
     },
     snail_slaves: {
-        commoner: 0,
-        tribal_warrior: .125,
-        scout: .5,
-        crabman: 1,
-        cult_fanatic: 2
+        'commoner (MM 345)': 0,
+        'tribal warrior (MM 350)': .125,
+        'scout (MM 349)': .5,
+        'crabman (FEF 69)': 1,
+        'cult fanatic (MM 345)': 2
     },
     mephit: {
-        mud_mephit: .25,
-        steam_mephit: .25
+        'mud mephit (MM 216)': .25,
+        'steam mephit (MM 217)': .25
     },
     giant_frog: {
-        giant_frog: .25
+        'giant frog (MM 325)': .25
     },
     skeleton: {
-        skeleton: .25
+        'skeleton (MM 272)': .25
     },
     zombie: {
-        zombie: .25,
-        ogre_zombie: 2,
-        beholder_zombie: 5
+        'zombie (MM 316)': .25,
+        'ogre zombie (MM 316)': 2,
+        'beholder zombie (MM 316)': 5
     },
     crocodile: {
-        crocodile: .5,
-        giant_crocodile: 5
+        'crocodile (MM 320)': .5,
+        'giant crocodile (MM 324)': 5
     },
     giant_water_beetle: {
-        giant_water_beetle: .5
+        'giant water beetle (FEF 25)': .5
     },
     ghoul: {
-        ghould: 1,
-        ghast: 2
+        'ghoul (MM 148)': 1,
+        'ghast (MM 148)': 2
     },
     moss_lurker: {
-        moss_lurker: 1
+        'moss lurker (ToB 298)': 1
     },
     black_dragon_wyrmling: {
-        black_dragon_wyrmling: 2
+        'black dragon wyrmling (MM 88)': 2
     },
     wight: {
-        wight: 3
+        'deathlock wight (MORD 129)': 3,
+        'wight (MM 300)': 3
     },
     flail_snail: {
-        flail_snail: 3
+        'flail snail (VOLO 144)': 3
     },
     ghost: {
-        ghost: 4
+        'ghost (MM 147)': 4
     },
     banshee: {
-        banshee: 4
+        'banshee (MM 23)': 4
     },
     troll: {
-        troll: 5
+        'troll (MM 291)': 5
     },
     catoblepas: {
-        catoblepas: 5
+        'catoblepas (VOLO 129)': 5
     },
     water_elemental: {
-        water_elemental: 5
+        'water elemental (MM 125)': 5
     },
     hydra: {
-        hydra: 8
+        'hydra (MM 190)': 8
     },
     snail_lord: {
-        commoner: 0,
-        tribal_warrior: .125,
-        scout: .5,
-        crabman: 1,
-        cult_fanatic: 2,
-        snail_lord: 7,
-        ancient_snail_lord: 8
+        'commoner (MM 345)': 0,
+        'tribal warrior (MM 350)': .125,
+        'scout (MM 349)': .5,
+        'crabman (FEF 69)': 1,
+        'cult fanatic (MM 345)': 2,
+        'snail lord (Mind Flayer MM 222)': 7,
+        'ancient snail lord (Mind Flayer Arcanist MM 222)': 8
     }
 };
 
 export const NorthHills = {
     swarm: {
-        swarm_of_rats: .25,
-        swarm_of_bats: .25,
-        swarm_of_insects: .25,
-        swarm_of_quippers: 1,
-        swarm_of_poisonous_snakes: 2,
-        death_butterfly_swarm: 4
+        'swarm of rats (MM 339)': .25,
+        'swarm of bats (MM 337)': .25,
+        'swarm of insects (MM 338)': .25,
+        'swarm of quippers (MM 338)': 1,
+        'swarm of poisonous snakes (MM 338)': 2
     },
     snake: {
-        flying_snake: .125,
-        poisonous_snake: .125,
-        constrictor_snake: .25,
-        giant_poisonous_snake: .25,
-        swamp_adder: .25,
-        giant_constrictor_snake: 2,
-        swarm_of_poisonous_snakes: 2
+        'flying snake (MM 332)': .125,
+        'poisonous snake (MM 334)': .125,
+        'constrictor snake (MM 320)': .25,
+        'giant poisonous snake  (MM 327)': .25,
+        'giant constrictor snake  (MM 324)': 2,
+        'swarm of poisonous snakes  (MM 338)': 2
     },
     blight: {
-        twig_blight: .125,
-        needle_blight: .25,
-        vine_blight: .5
+        'twig blight (MM 32)': .125,
+        'needle blight (MM 32)': .25,
+        'vine blight (MM 32)': .5
     },
     dinosaur: {
-        velociraptor: .25,
-        deinonychus: 1,
-        allosaurus: 2,
-        ankylosaurus: 3,
-        young_spinosaurus: 5
+        'velociraptor (VOLO 140)': .25,
+        'deinonychus (VOLO 139)': 1,
+        'allosaurus (MM 79)': 2,
+        'ankylosaurus (MM 79)': 3,
+        'young spinosaurus (ToB 117)': 5
     },
     orc: {
-        quipper_fetish: 0,
-        scarecrow_fetish: 1,
-        orc: .5,
-        orc_eye_of_gruumsh: 2,
-        orog: 2,
-        orc_war_chief: 4
+        'quipper fetish (MM 335)': 0,
+        'scarecrow fetish (MM 268)': 1,
+        'orc (MM 246)': .5,
+        'orc eye of gruumsh (MM 247)': 2,
+        'orog (MM 247)': 2,
+        'orc war chief (MM 246)': 4
     },
     goblin: {
-        goblin: .25,
-        goblin_boss: 1,
-        ogre_howdah: 2
+        'goblin (MM 166)': .25,
+        'goblin boss (MM 166)': 1,
+        'ogre howdah (MORD 221)': 2
     },
     lizardfolk: {
-        lizardfolk: .5,
-        lizardfolk_shaman: 2,
-        lizardfolk_queen: 4
+        'lizardfolk (MM 204)': .5,
+        'lizardfolk shaman (MM 205)': 2,
+        'lizardfolk queen (MM 205)': 4
     },
     harpy: {
-        harpy: 1,
-        owl_harpy: 5
+        'harpy (MM 181)': 1,
+        'owl harpy (ToB 246)': 5
     },
     ettercap: {
-        ettercap: 2,
-        spider: 0,
-        giant_wolf_spider: .25,
-        giant_spider: 1
+        'ettercap (MM 131)': 2,
+        'spider (MM 337)': 0,
+        'giant wolf spider (MM 330)': .25,
+        'giant spider (MM 328)': 1
     },
     ogre: {
-        half_ogre: 1,
-        ogre: 2,
-        ogre_bolt_launcher: 2,
-        ogre_howdah: 2,
-        ogre_chain_brute: 3
+        'half ogre (MM 238)': 1,
+        'ogre (MM 237)': 2,
+        'ogre chain brute (MORD 221)': 3
     },
     peryton: {
-        peryton: 2
+        'peryton (MM 251)': 2
     },
     manticore: {
-        manticore: 3
+        'manticore (MM 213)': 3
     },
     minotaur: {
-        minotaur: 3
+        'minotaur (MM 223)': 3
     },
     basilisk: {
-        basilisk: 3
+        'basilisk (MM 24)': 3
     },
     displacer_beast: {
-        displacer_beast: 3
+        'displacer beast (MM 81)': 3
     },
     crimson_basilisk: {
-        crimson_basilisk: 3
+        'crimson basilisk (FEF 21)': 3
     },
     roper: {
-        roper: 5
+        'roper (MM 261)': 5
     },
     earth_elemental: {
-        earth_elemental: 5
+        'earth elemental (MM 124)': 5
     },
     hill_giant: {
-        hill_giant: 5
+        'hill giant (MM 155)': 5
     },
     wyvern: {
-        wyvern: 6
+        'wyvern (MM 303)': 6
     },
     hydra: {
-        hydra: 8
+        'hydra (MM 190)': 8
     }
 };
 
 export const SouthPlains = {
     hyena: {
-        hyena: 0,
-        giant_hyena: 1
+        'hyena (MM 331)': 0,
+        'giant hyena (MM 326)': 1
     },
     vulture: {
-        vulture: 0,
-        giant_vulture: 1
+        'vulture (MM 339)': 0,
+        'giant vulture (MM 329)': 1
     },
-    bloodhawk: {
-        bloodhawk: .125
+    blood_hawk: {
+        'blood hawk (MM 319)': .125
     },
     axe_beak: {
-        axe_beak: .5
+        'axe beak (MM 317)': .5
     },
     undead: {
-        skeleton: .25,
-        zombie: .25,
-        warhorse_skeleton: .5,
-        shadow: .5,
-        specter: 1,
-        ghoul: 1,
-        ghast: 2,
-        wight: 3,
-        ghost: 4,
-        banshee: 4
+        'skeleton (MM 272)': .25,
+        'zombie (MM 316)': .25,
+        'warhorse skeleton (MM 273)': .5,
+        'shadow (MM 269)': .5,
+        'specter (MM 279)': 1,
+        'ghoul (MM 148)': 1,
+        'ghast (MM 148)': 2,
+        'wight (MM 300)': 3,
+        'deathlock wight (MORD 129)': 3,
+        'ghost (MM 147)': 4,
+        'banshee (MM 23)': 4
     },
     gnoll: {
-        gnoll_witherling: .25,
-        gnoll: .5,
-        gnoll_hunter: .5,
-        gnoll_flesh_gnawer: 1,
-        gnoll_pack_lord: 2,
-        gnoll_fang_of_yeenoghu: 4,
-        flind: 9
+        'gnoll witherling (VOLO 155)': .25,
+        'gnoll (MM 163)': .5,
+        'gnoll hunter (VOLO 154)': .5,
+        'gnoll flesh gnawer (VOLO 154)': 1,
+        'gnoll pack lord (MM 163)': 2,
+        'gnoll fang of yeenoghu (MM 163)': 4,
+        'flind (MM 153)': 9
     },
     burrowling: {
-        burrowling: .5
+        'burrowling (ToB 49)': .5
     },
     giant_wasp: {
-        giant_wasp: .5
+        'giant wasp (MM 329)': .5
     },
     death_dog: {
-        death_dog: 1
+        'death dog (MM 321)': 1
     },
     lion: {
-        lion: 1
+        'lion (MM 331)': 1
     },
     ankheg: {
-        ankheg: 2
+        'ankheg (MM 21)': 2
     },
     centaur: {
-        centaur: 2
+        'centaur (MM 38)': 2
     },
     auroch: {
-        auroch: 2
+        'auroch (MM 207)': 2
     },
     rhinoceros: {
-        rhinoceros: 2
+        'rhinoceros (MM 336)': 2
     },
     giant_ant: {
-        giant_ant: 2,
-        giant_ant_queen: 4
+        'giant ant (ToB 23)': 2,
+        'giant ant queen (ToB 23)': 4
     },
     bulette: {
-        bulette: 5
+        'bulette (MM 34)': 5
     },
     elemental: {
-        air_elemental: 5,
-        fire_elemental: 5
+        'air elemental (MM 124)': 5,
+        'fire elemental (MM 125)': 5
     },
     chimera: {
-        chimera: 6
+        'chimera (MM 39)': 6
     },
     wolf_spirit_swarm: {
-        wolf_spirit_swarm: 6
+        'wolf spirit swarm (ToB 377)': 6
     },
     tyrannosaurus_rex: {
-        tyrannosaurus_rex: 8
+        'tyrannosaurus rex (MM 80)': 8
     }
 };
 
 export const Highlands = {
     hyena: {
-        hyena: 0,
-        giant_hyena: 1
+        'hyena (MM 331)': 0,
+        'giant hyena (MM 326)': 1
     },
     blood_hawk: {
-        blood_hawk: .125
+        'blood hawk (MM 319)': .125
     },
     undead: {
-        skeleton: .25,
-        zombie: .25,
-        warhorse_skeleton: .5,
-        shadow: .5,
-        specter: 1,
-        ghoul: 1,
-        ghast: 2,
-        wight: 3,
-        ghost: 4,
-        banshee: 4
+        'skeleton (MM 272)': .25,
+        'zombie (MM 316)': .25,
+        'warhorse skeleton (MM 273)': .5,
+        'shadow (MM 269)': .5,
+        'specter (MM 279)': 1,
+        'ghoul (MM 148)': 1,
+        'ghast (MM 148)': 2,
+        'wight (MM 300)': 3,
+        'deathlock wight (MORD 129)': 3,
+        'ghost (MM 147)': 4,
+        'banshee (MM 23)': 4
     },
     boar: {
-        boar: .25,
-        giant_boar: 2
+        'boar (MM 319)': .25,
+        'giant boar (MM 232)': 2
     },
     gnoll: {
-        gnoll_witherling: .25,
-        gnoll: .5,
-        gnoll_hunter: .5,
-        gnoll_flesh_gnawer: 1,
-        gnoll_pack_lord: 2,
-        gnoll_fang_of_yeenoghu: 4,
-        flind: 9
+        'gnoll witherling (VOLO 155)': .25,
+        'gnoll (MM 163)': .5,
+        'gnoll hunter (VOLO 154)': .5,
+        'gnoll flesh gnawer (VOLO 154)': 1,
+        'gnoll pack lord (MM 163)': 2,
+        'gnoll fang of yeenoghu (MM 163)': 4,
+        'flind (MM 153)': 9
     },
     giant_horsefly: {
-        giant_horsefly: .5
+        'giant horsefly (FEF 146)': .5
     },
     rust_monster: {
-        rust_monster: .5
+        'rust monster (MM 262)': .5
     },
     death_dog: {
-        death_dog: 1
+        'death dog (MM 321)': 1
     },
     hippogriff: {
-        hippogriff: 1
+        'hippogriff (MM 184)': 1
     },
     harpy: {
-        harpy: 1,
-        owl_harpy: 5
+        'harpy (MM 181)': 1,
+        'owl harpy (ToB 246)': 5
     },
     nothic: {
-        nothic: 2
+        'nothic (MM 236)': 2
     },
     ogre: {
-        half_ogre: 1,
-        ogre: 2,
-        ogre_bolt_launcher: 2,
-        ogre_howdah: 2,
-        ogre_chain_brute: 3
+        'half ogre (MM 238)': 1,
+        'ogre (MM 237)': 2,
+        'ogre chain brute (MORD 221)': 3
     },
     meenlock: {
-        meenlock: 2
+        'meenlock (VOLO 170)': 2
     },
     manticore: {
-        manticore: 3
+        'manticore (MM 213)': 3
     },
     owlbear: {
-        owlbear: 3
+        'owlbear (MM 249)': 3
     },
     ettin: {
-        ettin: 4
+        'ettin (MM 132)': 4
     },
     firebird: {
-        firebird: 4
+        'firebird (ToB 201)': 4
     },
     gorgon: {
-        gorgon: 5
+        'gorgon (MM 171)': 5
     },
     galeb_duhr: {
-        galeb_duhr: 6
+        'galeb duhr (MM 139)': 6
     },
     fomorian: {
-        fomorian: 8
+        'fomorian (MM 136)': 8
     },
     hydra: {
-        hydra: 8
+        'hydra (MM 190)': 8
     }
 };
 
 export const SouthDesert = {
     environmental_hazard: {
-        sandstorm: 0,
-        searing_heat: 0
+        'sandstorm/strong wing (DMG 110)': 0,
+        'extreme heat (DMG 110)': 0
     },
     vulture: {
-        vulture: 0,
-        giant_vulture: 1
+        'vulture (MM 339)': 0,
+        'giant vulture (MM 329)': 1
     },
     scorpion: {
-        scorpion: 0,
-        giant_scorpion: 3
+        'scorpion (MM 337)': 0,
+        'giant scorpion (MM 327)': 3
     },
     skeleton: {
-        skeleton: .25
+        'skeleton (MM 272)': .25
     },
     thri_kreen: {
-        thri_kreen: 1
+        'thri kreen (MM 288)': 1
     },
     sandling: {
-        sandling: 1
+        'sandling (FEF 196)': 1
     },
     death_worm: {
-        death_worm: 3
+        'death worm (FEF 78)': 3
     },
     mummy: {
-        mummy: 3
+        'mummy (228)': 3
     },
     ant_lion: {
-        ant_lion: 4
+        'ant lion (FEF 11)': 4
     },
     sand_vampire: {
-        vampire_spawn: 5
+        'vampire spawn (MM 298)': 5
     },
     sand_hag: {
-        sand_hag: 5
+        'sand hag (ToB 245)': 5
     },
     elemental: {
-        air_elemental: 5,
-        fire_elemental: 5,
-        earth_elemental: 5
+        'air elemental (MM 124)': 5,
+        'fire elemental (MM 125)': 5,
+        'earth elemental (MM 124)': 5
     },
     rotting_wind: {
-        rotting_wind: 6
+        'rotting wind (ToB 330)': 6
     },
     sand_silhouette: {
-        sand_silhouette: 6
+        'sand silhouette (ToB 332)': 6
     },
     sandwyrm: {
-        sandwyrm: 6
+        'sandwyrm (ToB 334)': 6
     },
     sand_spider: {
-        sand_spider: 7
+        'sand spider (ToB 364)': 7
     },
     dune_mimic: {
-        dune_mimic: 8
+        'dune mimic (ToB 162)': 8
     },
     vesiculosa: {
-        vesiculosa: 11
+        'vesiculosa (ToB 399)': 11
     }
 };
 
 export const NorthDesert = {
+    camel: {
+        'camel (MM 320)': .125
+    },
+    wight: {
+        'deathlock wight (MORD 129)': 3,
+        'wight (MM 300)': 3
+    },
     environmental_hazard: {
-        sandstorm: 0,
-        searing_heat: 0
+        'sandstorm/strong wind (DMG 110)': 0,
+        'extreme cold (DMG 110)': 0
     },
     vulture: {
-        vulture: 0,
-        giant_vulture: 1
+        'vulture (MM 339)': 0,
+        'giant vulture (MM 329)': 1
     },
     scorpion: {
-        scorpion: 0,
-        giant_scorpion: 3
+        'scorpion (MM 337)': 0,
+        'giant scorpion (MM 327)': 3
     },
     skeleton: {
-        skeleton: .25
+        'skeleton (MM 272)': .25
     },
     thri_kreen: {
-        thri_kreen: 1
+        'thri kreen (MM 288)': 1
     },
     sandling: {
-        sandling: 1
+        'sandling (FEF 196)': 1
     },
     death_worm: {
-        death_worm: 3
+        'death worm (FEF 78)': 3
     },
     winter_wolf: {
-        winter_wolf: 3
+        'winter wolf (MM 340)': 3
     },
     ant_lion: {
-        ant_lion: 4
+        'ant lion (FEF 11)': 4
     },
     elemental: {
-        air_elemental: 5,
-        earth_elemental: 5
+        'air elemental (MM 124)': 5,
+        'earth elemental (MM 124)': 5
     },
     rotting_wind: {
-        rotting_wind: 6
+        'rotting wind (ToB 330)': 6
     },
     sand_silhouette: {
-        sand_silhouette: 6
+        'sand silhouette (ToB 332)': 6
     },
     sandwyrm: {
-        sandwyrm: 6
+        'sandwyrm (ToB 334)': 6
     },
     sand_spider: {
-        sand_spider: 7
+        'sand spider (ToB 364)': 7
     },
     dune_mimic: {
-        dune_mimic: 8
+        'dune mimic (ToB 162)': 8
     },
     frost_salamander: {
-        frost_salamander: 9
+        'BOSS frost salamander (MORD 223)': 9
     }
 };
 
 export const NorthPlains = {
     vulture: {
-        vulture: 0,
-        giant_vulture: 1
+        'vulture (MM 339)': 0,
+        'giant vulture (MM 329)': 1
     },
     scorpion: {
-        scorpion: 0,
-        giant_scorpion: 3
+        'scorpion (MM 337)': 0,
+        'giant scorpion (MM 327)': 3
     },
     giant_lizard: {
-        giant_lizard: .25
+        'giant lizard (MM 326)': .25
     },
-    spider: {
-        spider: 0,
-        giant_wolf_spider: .25,
-        giant_spider: 1
+    kruthik: {
+        'young kruthik (MORD 211)': .125,
+        'adult kruthik (MORD 212)': 2,
+        'kruthik hive lord (MORD 212)': 5
     },
     swarm: {
-        swarm_of_rats: .25,
-        swarm_of_bats: .25,
-        swarm_of_insects: .25,
-        swarm_of_quippers: 1,
-        swarm_of_poisonous_snakes: 2,
-        death_butterfly_swarm: 4
+        'swarm of rats (MM 339)': .25,
+        'swarm of bats (MM 337)': .25,
+        'swarm of insects (MM 338)': .25,
+        'swarm of quippers (MM 338)': 1,
+        'swarm of poisonous snakes (MM 338)': 2,
+        'death butterfly swarm (ToB 71)': 4
     },
     gnome_svirfneblin: {
-        gnome_svirfneblin: .5
+        'gnome svirfneblin (MM 164)': .5
     },
     mephit: {
-        mud_mephit: .25,
-        dust_mephit: .5
+        'mud mephit (MM 216)': .25,
+        'dust mephit (MM 215)': .25
     },
     zebra: {
-        riding_horse: .25
+        'riding horse (MM 336)': .25
     },
     cockatrice: {
-        cockatrice: .5
+        'cockatrice (MM 42)': .5
     },
     ooze: {
-        gray_ooze: .5,
-        gelatinous_cube: 2,
-        ochre_jelly: 2,
-        slithering_tracker: 3,
-        black_pudding: 4,
-        mustard_jelly: 5,
-        magma_ooze: 5
+        'gray ooze (MM 243)': .5,
+        'gelatinous cube (MM 242)': 2,
+        'ochre jelly (MM 243)': 2,
+        'slithering tracker (VOLO 191)': 3,
+        'black pudding (MM 241)': 4,
+        'mustard jelly (FEF 151)': 5,
+        'magma ooze (FEF 179)': 5
     },
     death_dog: {
-        death_dog: 1
+        'death dog (MM 321)': 1
     },
     elemental: {
-        air_elemental: 5,
-        fire_elemental: 5,
-        lightning_elemental: 5
+        'air elemental (MM 124)': 5,
+        'fire elemental (MM 125)': 5,
+        'lightning elemental (air)': 5
     },
     chimera: {
-        chimera: 6
+        'chimera (MM 39)': 6
     },
     vrock: {
-        vrock: 6
+        'vrock (MM 64)': 6
     },
     tunnel_worm: {
-        tunnel_worm: 8
+        'tunnel worm (FEF 237)': 8
     },
     zaratan: {
-        zaratan: 9
+        'zaratan (MORD 201)': 9
     }
 };
 
 export const Mountains = {
     environmental_hazard: {
-        blizzard: 0
+        'blizzard/extreme cold/strong wind (DMG 110)': 0
     },
     snotling: {
-        xvart: .125,
-        xvart_speaker: .125,
-        xvart_warlock: 1
+        'xvart (VOLO 200)': .125,
+        'xvart speaker (VOLO 200)': .125,
+        'xvart warlock (VOLO 200)': 1
     },
     pteranodon: {
-        pteranodon: .25
+        'pteranodon (MM 80)': .25
     },
-    goat: {
-        goat: 0,
-        giant_goat: .5
+    hobgoblin: {
+        'hobgoblin (MM 186)': .5,
+        'priest (MM 348)': 2,
+        'hobgoblin iron shadow (VOLO 162)': 2,
+        'hobgoblin captain (MM 186)': 3,
+        'hobgoblin devastator (MM 161)': 4,
+        'hobgoblin warlord (MM 187)': 6,
+        'ogre (MM 237)': 2,
+        'ogre bolt launcher (MORD 220)': 2,
+        'ogre battering ram (MORD 220)': 4,
+        'worg (MM 341)': .5
     },
     ice_mephit: {
-        ice_mephit: .5
+        'ice mephit (MM 215)': .5
     },
     hippogriff: {
-        hippogriff: 1
+        'hippogriff (MM 184)': 1
     },
     harpy: {
-        harpy: 1
+        'harpy (MM 181)': 1
     },
     bugbear: {
-        bugbear: 1,
-        druid: 2
+        'bugbear (MM 33)': 1,
+        'druid (MM 346)': 2
     },
     saber_toothed_tiger: {
-        saber_toothed_tiger: 2
+        'saber toothed tiger (MM 336)': 2
     },
     wolf: {
-        wolf: .25,
-        dire_wolf: 1,
-        winter_wolf: 3
+        'wolf (MM 341)': .25,
+        'dire wolf (MM 321)': 1,
+        'winter wolf (MM 340)': 3
     },
     ogre: {
-        half_ogre: 1,
-        ogre: 2,
-        ogre_chain_brute: 3
+        'half ogre (MM 238)': 1,
+        'ogre (MM 237)': 2,
+        'ogre chain brute (MORD 221)': 3
     },
     basilisk: {
-        basilisk: 3
+        'basilisk (MM 24)': 3
     },
     manticore: {
-        manticore: 3
+        'manticore (MM 213)': 3
     },
     elemental: {
-        air_elemental: 5,
-        earth_elemental: 5,
-        ice_elemental: 5
+        'air elemental (MM 124)': 5,
+        'ice elemental (earth)': 5,
+        'earth elemental (MM 124)': 5
     },
     troll: {
-        troll: 5
+        'troll (MM 291)': 5
     },
     wyvern: {
-        wyvern: 6
+        'wyvern (MM 303)': 6
     },
     archfey: {
-        mistress_of_frost: 6,
-        druid: 2
+        'mistress of frost (ice maiden ToB 254)': 6,
+        'druid (MM 346)': 2
     },
     chimera: {
-        chimera: 6
+        'chimera (MM 39)': 6
     },
     roc: {
-        roc: 11
+        'roc (MM 260)': 11
     }
 };
 
 export const NorthMountains = {
     environmental_hazard: {
-        blizzard: 0
+        'blizzard/extreme cold/strong wind (DMG 110)': 0
     },
     goat: {
-        goat: 0,
-        giant_goat: .5
+        'goat (MM 330)': 0,
+        'giant goat (MM 326)': .5
     },
     ice_mephit: {
-        ice_mephit: .5
+        'ice mephit (MM 215)': .5
     },
     hobgoblin: {
-        hobgoblin: .5,
-        priest: 2,
-        hobgoblin_iron_shadow: 2,
-        hobgoblin_captain: 3,
-        hobgoblin_devastator: 4,
-        hobgoblin_warlord: 6,
-        ogre: 2,
-        ogre_bolt_launcher: 2,
-        ogre_battering_ram: 4,
-        worg: .5
+        'hobgoblin (MM 186)': .5,
+        'priest (MM 348)': 2,
+        'hobgoblin iron shadow (VOLO 162)': 2,
+        'hobgoblin captain (MM 186)': 3,
+        'hobgoblin devastator (MM 161)': 4,
+        'hobgoblin warlord (MM 187)': 6,
+        'ogre (MM 237)': 2,
+        'ogre bolt launcher (MORD 220)': 2,
+        'ogre battering ram (MORD 220)': 4,
+        'worg (MM 341)': .5
     },
     ice_drake: {
-        ice_drake: 1
+        'ice drake (FEF 87)': 1
     },
     saber_toothed_tiger: {
-        saber_toothed_tiger: 2
+        'saber toothed tiger (MM 336)': 2
     },
     ogre: {
-        half_ogre: 1,
-        ogre: 2,
-        ogre_chain_brute: 3
+        'half ogre (MM 238)': 1,
+        'ogre (MM 237)': 2,
+        'ogre chain brute (MORD 221)': 3
     },
     wolf: {
-        wolf: .25,
-        dire_wolf: 1,
-        winter_wolf: 3
+        'wolf (MM 341)': .25,
+        'dire wolf (MM 321)': 1,
+        'winter wolf (MM 340)': 3
     },
     manticore: {
-        manticore: 3
+        'manticore (MM 213)': 3
     },
     yeti: {
-        yeti: 3
+        'yeti (MM 305)': 3
     },
     elemental: {
-        air_elemental: 5,
-        earth_elemental: 5,
-        ice_elemental: 5
+        'air elemental (MM 124)': 5,
+        'ice elemental (earth)': 5,
+        'earth elemental (MM 124)': 5
     },
     remorhaz: {
-        young_remorhaz: 5,
-        remorhaz: 11
+        'young remorhaz (MM 258)': 5,
+        'remorhaz (MM 258)': 11
     },
     troll: {
-        troll: 5
+        'troll (MM 291)': 5
     },
     chimera: {
-        chimera: 6
+        'chimera (MM 39)': 6
     },
     wyvern: {
-        wyvern: 6
+        'wyvern (MM 303)': 6
     },
     cyclops: {
-        cyclops: 6
+        'cyclops (MM 45)': 6
     },
     roc: {
-        roc: 11
+        'roc (MM 260)': 11
     }
 };
 
 export const Caves = {
     giant_fire_beetle: {
-        giant_fire_beetle: 0,
+        'giant fire beetle (MM 325)': 0,
     },
     flumph: {
-        flumph: .125
+        'flumph (MM 135)': .125
     },
     grimlock: {
-        grimlock: .25,
-        cult_fanatic: 2
+        'grimlock (MM 175)': .25,
+        'cult fanatic (MM 345)': 2
+    },
+    tribal_warrior: {
+        'tribal warrior (MM 350)': .125
     },
     darkmantle: {
-        darkmantle: .5
+        'darkmantle (MM 46)': .5
     },
     mephit: {
-        mud_mephit: .25,
-        smoke_mephit: .25,
-        steam_mephit: .25,
-        dust_mephit: .5,
-        magma_mephit: .5
+        'mud mephit (MM 216)': .25,
+        'steam mephit (MM 217)': .25,
+        'smoke mephit (MM 217)': .25,
+        'dust mephit (MM 215)': .5,
+        'magma mephit (MM 216)': .5
     },
     spider: {
-        ettercap: 2,
-        spider: 0,
-        giant_wolf_spider: .25,
-        giant_spider: 1
+        'spider (MM 337)': 0,
+        'giant wolf spider (MM 330)': .25,
+        'giant spider (MM 328)': 1,
+        'ettercap (MM 131)': 2
     },
     carrion_crawler: {
-        carrion_crawler: 2
+        'carrion crawler (MM 37)': 2
     },
     grick: {
-        grick: 2,
-        grick_alpha: 7
-    },
-    spectator: {
-        spectator: 3
+        'grick (MM 173)': 2,
+        'grick alpha (MM 173)': 7
     },
     ooze: {
-        gray_ooze: .5,
-        gelatinous_cube: 2,
-        ochre_jelly: 2,
-        slithering_tracker: 3,
-        black_pudding: 4,
-        mustard_jelly: 5,
-        magma_ooze: 5
+        'gray ooze (MM 243)': .5,
+        'gelatinous cube (MM 242)': 2,
+        'ochre jelly (MM 243)': 2,
+        'slithering tracker (VOLO 191)': 3,
+        'black pudding (MM 241)': 4,
+        'mustard jelly (FEF 151)': 5,
+        'magma ooze (FEF 179)': 5
     },
     elemental: {
-        earth_elemental: 5
+        'earth elemental (MM 124)': 5
     },
     bulette: {
-        bulette: 5
+        'bulette (MM 34)': 5
     },
     umber_hulk: {
-        umber_hulk: 5
+        'umber hulk (MM 292)': 5
     },
     galeb_duhr: {
-        galeb_duhr: 6
+        'galeb duhr (MM 139)': 6
     },
     cyclops: {
-        cyclops: 6
+        'cyclops (MM 45)': 6
     },
     cloaker: {
-        cloaker: 8
+        'cloaker (MM 41)': 8
     },
     hydra: {
-        hydra: 8
+        'hydra (MM 190)': 8
     },
     beholder: {
-        beholder: 13
+        'gazer (VOLO 126)': .5,
+        'spectator (MM 30)': 3,
+        'gauth (VOLO 125)': 6,
+        'death kiss (VOLO 124)': 10,
+        'beholder (MM 28)': 13,
+        'death tyrant (MM 29)': 14
+    },
+    undead: {
+        'skeleton (MM 272)': .25,
+        'zombie (MM 316)': .25,
+        'warhorse skeleton (MM 273)': .5,
+        'shadow (MM 269)': .5,
+        'specter (MM 279)': 1,
+        'ghoul (MM 148)': 1,
+        'ghast (MM 148)': 2,
+        'wight (MM 300)': 3,
+        'deathlock wight (MORD 129)': 3,
+        'ghost (MM 147)': 4,
+        'banshee (MM 23)': 4
     }
 };
 
 export const OozeGarden = {
     ooze: {
-        gray_ooze: .5,
-        gelatinous_cube: 2,
-        ochre_jelly: 2,
-        slithering_tracker: 3,
-        black_pudding: 4,
-        mustard_jelly: 5,
-        magma_ooze: 5
+        'gray ooze (MM 243)': .5,
+        'gelatinous cube (MM 242)': 2,
+        'ochre jelly (MM 243)': 2,
+        'slithering tracker (VOLO 191)': 3,
+        'black pudding (MM 241)': 4,
+        'mustard jelly (FEF 151)': 5,
+        'magma ooze (FEF 179)': 5
     },
     fungi: {
-        shrieker: 0,
-        violet_fungus: .25,
-        gas_spore: .5
+        'shrieker (MM 138)': 0,
+        'violet fungus (MM 138)': .25,
+        'gas spore (MM 138)': .5
     },
     corpse_flower: {
-        corpse_flower: 8
+        'corpse flower (MORD 127)': 8
     },
     otyugh: {
-        otyugh: 5
+        'otyugh (MM 248)': 5
     },
     elemental: {
-        mud_mephit: .25,
-        earth_elemental: 5,
-        water_elemental: 5
+        'mud mephit (MM 216)': .25,
+        'earth elemental (MM 124)': 5,
+        'water elemental (MM 125)': 5
     },
     wood_woad: {
-        wood_woad: 5
+        'wood woad (VOLO 198)': 5
     },
     zombie: {
-        yellow_musk_zombie: .25,
-        zombie: .25,
-        ogre_zombie: 2
+        'zombie (MM 316)': .25,
+        'ogre zombie (MM 316)': 2,
+        'yellow musk zombie (FEF 251)': 5
     },
     myconid: {
-        sprout: 0,
-        adult: .5,
-        spore_servant: 1,
-        sovereign: 2
+        'sprout (MM 230)': 0,
+        'adult (MM 232)': .5,
+        'spore servant (MM 230)': 1,
+        'sovereign (MM 232)': 2
     },
     vegepygmy: {
-        vegepygmy: .25,
-        chief: 2
+        'vegepygmy (VOLO 196)': .25,
+        'chief (VOLO 197)': 2
     },
     witch_grass: {
-        witch_grass: 0,
-        tri_flower_frond: .5
+        'witch grass (FEF 248)': 0,
+        'tri flower frond (FEF 232)': .5
     },
     swarm: {
-        swarm_of_rats: .25,
-        swarm_of_insects: .25,
-        death_butterfly_swarm: 4
+        'swarm of rats (MM 339)': .25,
+        'swarm of insects (MM 338)': .25,
+        'death butterfly swarm (ToB 71)': 4
     },
     giant_fire_beetle: {
-        giant_fire_beetle: 0
+        'giant fire beetle (MM 325)': 0,
     },
     gibbering_mouther: {
-        gibbering_mouther: 2
+        'gibbering mouther (MM 157)': 2
     },
     shambling_mound: {
-        shambling_mound: 5
+        'shambling mound (M 270)': 5
     },
     treant: {
-        treant: 9
+        'treant (MM 289)': 9
     },
     ettercap: {
-        ettercap: 2,
-        spider: 0,
-        giant_wolf_spider: .25,
-        giant_spider: 1
+        'ettercap (MM 131)': 2,
+        'spider (MM 337)': 0,
+        'giant wolf spider (MM 330)': .25,
+        'giant spider (MM 328)': 1
     },
 };
 
 export const GreatCloudSea = {
     dragon_eel: {
-        dragon_eel: 12
+        'dragon eel (ToB 146)': 12
     },
     elemental: {
-        air_elemental: 5,
-        lightning_elemental: 5
+        'air elemental (MM 124)': 5,
+        'lightning elemental (air)': 5
     },
     mephit: {
-        smoke_mephit: .25,
-        steam_mephit: .25,
-        dust_mephit: .5
+        'smoke mephit (MM 217)': .25,
+        'steam mephit (MM 217)': .25,
+        'dust mephit (MM 215)': .5
     },
     invisible_stalker: {
-        invisible_stalker: 6
+        'invisible stalker (MM 192)': 6
     },
     blood_hawk: {
-        blood_hawk: .125
+        'blood hawk (MM 319)': .125
     },
     environmental_hazard: {
-        lightning_storm: 0
+        'lightning storm/strong winds (DMG 110)': 0
     },
     elder_tempest: {
-        elder_tempest: 23
+        'elder tempest (MORD 200)': 23
     },
     giant_eagle: {
-        giant_eagle: 1
+        'giant eagle (MM 324)': 1
     },
     chimera: {
-        chimera: 6
+        'chimera (MM 39)': 6
     },
     manticore: {
-        manticore: 3
+        'manticore (MM 213)': 3
     },
     cockatrice: {
-        cockatrice: .5
+        'cockatrice (MM 42)': .5
     },
     fungi: {
-        gas_spore: .5
+        'gas spore (MM 138)': .5
     },
     wyvern: {
-        wyvern: 6
+        'wyvern (MM 303)': 6
     },
     pegasus: {
-        pegasus: 2
+        'pegasus (MM 250)': 2
     },
     harpy: {
-        harpy: 1,
-        owl_harpy: 5
+        'harpy (MM 181)': 1,
+        'owl harpy (ToB 246)': 5
     },
     griffon: {
-        griffon: 2
+        'griffon (MM 174)': 2
     },
     peryton: {
-        peryton: 2
+        'peryton (MM 251)': 2
     },
     hippogriff: {
-        hippogriff: 1
+        'hippogriff (MM 184)': 1
     }
 };

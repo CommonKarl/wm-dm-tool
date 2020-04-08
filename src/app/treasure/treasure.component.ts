@@ -37,7 +37,7 @@ export class TreasureComponent implements OnInit {
     this.hoards = [
       { label: 'Random', value: 0 },
       { label: 'Individual Treasure', value: 1 },
-      { label: 'Small (ungaurded) Hoard', value: 2 },
+      { label: 'Tiny Hoard', value: 2 },
       { label: 'Small Hoard', value: 3 },
       { label: 'Medium Hoard', value: 4 },
       { label: 'Large Hoard', value: 5 },
