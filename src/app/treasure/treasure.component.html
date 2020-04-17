@@ -20,6 +20,18 @@
     <button pButton type="submit" label="Generate Treasure" style="width: 100%;"></button>
   </div>
 </form>
+<div class="treasure-wrap">
+  <select name="potionType" [(ngModel)]="potionTypeSelect" style="width: 100%;">
+    <option *ngFor="let rarity of potionTypes" [ngValue]="rarity.value">{{rarity.label}}</option>
+  </select>
+  <button pButton (click)="generatePotion(potionTypeSelect)" label="Generate Potion" style="width: 100%;"></button>
+</div>
+<div class="treasure-wrap">
+  <select name="scrollType" [(ngModel)]="scrollTypeSelect" style="width: 100%;">
+    <option *ngFor="let level of scrollTypes" [ngValue]="level.value">{{level.label}}</option>
+  </select>
+  <button pButton (click)="generateScroll(scrollTypeSelect)" label="Generate Scroll" style="width: 100%;"></button>
+</div>
 
 <div style="margin-top: 15px;">
   <ul>

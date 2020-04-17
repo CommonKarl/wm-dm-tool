@@ -1,4 +1,9 @@
 .treasure-wrap{
     max-width: 500px;
     margin: 0 auto;
+    margin-top: 10px;
+}
+
+form .treasure-wrap{
+    margin-top: 0;
 }

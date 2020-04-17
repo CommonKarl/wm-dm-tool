@@ -19,16 +19,18 @@ export class TreasureComponent implements OnInit {
   treasureTypeSelect: any;
   hoards: SelectItem[];
   treasureTypes: SelectItem[];
+  potionTypes: SelectItem[];
+  scrollTypes: SelectItem[];
   treasureHoardValue: any;
   randomizeTV = false;
   encounterLevelOptions = [
-    {label:'1', value:1},
-    {label:'2', value:2},
-    {label:'3', value:3},
-    {label:'4', value:4},
-    {label:'5', value:5},
-    {label:'6', value:6},
-    {label:'7', value:7},
+    { label: '1', value: 1 },
+    { label: '2', value: 2 },
+    { label: '3', value: 3 },
+    { label: '4', value: 4 },
+    { label: '5', value: 5 },
+    { label: '6', value: 6 },
+    { label: '7', value: 7 },
   ];
 
   constructor() { }
@@ -76,6 +78,44 @@ export class TreasureComponent implements OnInit {
       { label: 'Coins', value: 4 },
       { label: 'Gems', value: 5 }
     ];
+
+    this.potionTypes = [
+      { label: 'common', value: 0 },
+      { label: 'uncommon', value: 1 }
+    ];
+
+    this.scrollTypes = [
+      { label: 'cantrip', value: 0 },
+      { label: '1st level spell', value: 1 },
+      { label: '2nd level spell', value: 2 },
+      { label: '3rd level spell', value: 3 }
+    ]
+  }
+
+  generatePotion(rarity: number) {
+    this.treasureHoardValue = [];
+    switch (rarity) {
+      case 0: this.treasureHoardValue.push(PotionCommon[Math.floor(Math.random() * 4)]);
+        break;
+      case 1: this.treasureHoardValue.push(PotionUncommon[Math.floor(Math.random() * 10)]);
+        break;
+    }
+  }
+
+  generateScroll(level: number) {
+    this.treasureHoardValue = [];
+    let scroll = 'Scroll of ';
+    switch (level) {
+      case 0: scroll += Spells0[Math.floor(Math.random() * 44)];
+        break;
+      case 1: scroll += Spells1[Math.floor(Math.random() * 74)];
+        break;
+      case 2: scroll += Spells2[Math.floor(Math.random() * 72)];
+        break;
+      case 3: scroll += Spells3[Math.floor(Math.random() * 63)];
+        break;
+    }
+    this.treasureHoardValue.push(scroll);
   }
 
   generateTreasure() {
@@ -165,7 +205,7 @@ export class TreasureComponent implements OnInit {
       }
       let finalTreasureValue = this.encounterLevel / 2 * this.encounterLevel * this.treasureUnitValue * hoardBV;
       let randomizer = finalTreasureValue * .2;
-      this.generateIndividualTreasure(Math.floor(finalTreasureValue + (Math.random() * (randomizer + randomizer) -randomizer)));
+      this.generateIndividualTreasure(Math.floor(finalTreasureValue + (Math.random() * (randomizer + randomizer) - randomizer)));
     }
   }
 
@@ -850,13 +890,13 @@ export class TreasureComponent implements OnInit {
           break;
         case (sized20 < 6): sizeMod = -1; size = 'Small (0.1 lbs. each, [10/lb.])'; // 10 per lb. (.1 lbs.)
           break;
-        case (sized20 < 14): sizeMod = 0; size = 'Average (0.2 lbs. each, [5/lb.])'; // .5lbs., roughly 2x2x2 inches
+        case (sized20 < 14): sizeMod = 0; size = 'Average (0.2 lbs. each, [5/lb.], rougly 2x2x2)'; // .5lbs., roughly 2x2x2 inches
           break;
-        case (sized20 < 18): sizeMod = 1; size = 'Large (1 lb. each)'; // fist sized/baseball sized, 2 lb.
+        case (sized20 < 18): sizeMod = 1; size = 'Large (1 lb. each, fist sized)'; // fist sized/baseball sized, 2 lb.
           break;
-        case (sized20 < 19): sizeMod = 2; size = 'Very Large (5 lbs. each)'; // 2 fists, 5 lb.
+        case (sized20 < 19): sizeMod = 2; size = 'Very Large (5 lbs. each, 2 fist sizes)'; // 2 fists, 5 lb.
           break;
-        case (sized20 < 20): sizeMod = 3; size = 'Huge (10 lbs. each)'; // small sized head, 15 lb.
+        case (sized20 < 20): sizeMod = 3; size = 'Huge (10 lbs. each, small head size)'; // small sized head, 15 lb.
           break;
         case (sized20 < 21):
           sized20 = this.roll(20);
@@ -1255,7 +1295,7 @@ const Gem = ['Azurite', 'Banded Agate', 'Blue Quartz', 'Eye Agate', 'Hematite', 
   'Tiger Eye', 'Turquoise', 'Mother of Pearl', 'Amazon Stone', 'Bloodstone', 'Carnelian', 'Chalcedony', 'Chrysoprase', 'Citrine', 'Jasper', 'Moonstone', 'Onyx',
   'Rock Crystal', 'Sardonyx', 'Serpentine', 'Smoky Quartz', 'Star Rose Quartz', 'Variscite', 'Amber', 'Alamandines', 'Alexandrite', 'Amethyst', 'Chrysoberyl',
   'Coral', 'Diopside', 'Garnet', 'Idicolite', 'Jade', 'Jet', 'Morganite', 'Nephrite', 'Pearl', 'Spessarite', 'Sugilite (luvulite)', 'Rubellite Tourmaline',
-  'Zircon', 'Aquamarine', 'Garnet', 'Black Pearl', 'Peridot', 'Spinel', 'Kunzite', 'Hiddentine', 'Topaz', 'Zoisite (Tanzanite)', 'Black Opal', 'Emerald',
+  'Zircon', 'Aquamarine', 'Garnet', 'Black Pearl', 'Peridot', 'Spinel', 'Kunzite', 'Hiddenite', 'Topaz', 'Zoisite (Tanzanite)', 'Black Opal', 'Emerald',
   'Fire Opal', 'Garnet', 'Opal', 'Oriental Amethyst', 'Oriental Topaz', 'Sapphire', 'Star Ruby', 'Star Sapphire', 'Ammolite', 'Black Sapphire', 'Diamond',
   'Jacinth', 'Oriental Emerald', 'Ruby'];
 
@@ -1281,3 +1321,39 @@ const Perfume = [{
 
 const ArtSubject = ['Abstract', 'Monster', 'Humanoid', 'Supernatural', 'Local', 'Historical', 'Religious', 'Wealthy/Noble', 'Royalty'];
 
+const PotionCommon = ['Potion of Climbing, DMG 187', 'Potion of Healing, DMG 187', 'Potion of Healing, DMG 187', 'Potion of Healing, DMG 187'];
+
+const PotionUncommon = ['Oil of Slipperiness, DMG 184', 'Philter of Love, DMG 184', 'Potion of Animal Friendship, DMG 187', 'Potion of Fire Breath, DMG 187',
+  'Potion of Hill Giant Strength, DMG 187', 'Potion of Growth, DMG 187', 'Potion of Greater Healing, DMG 187', 'Potion of Poison, DMG 188', 'Potion of Resistance, DMG 188',
+  'Potion of Water Breathing, DMG 188'];
+
+const Spells0 = ['Acid Splash', 'Blade Ward', 'Booming Blade', 'Chill Touch', 'Control Flames', 'Create Bonfire', 'Dancing Lights', 'Druidcraft', 'Eldritch Blast',
+  'Encode Thoughts', 'Fire Bolt', 'Friends', 'Frostbite', 'Green Flame Blade', 'Guidance', 'Gust', 'Infestation', 'Light', 'Lightning Lure', 'Mage Hand',
+  'Magic Stone', 'Mending', 'Message', 'Minor Illusion', 'Mold Earth', 'Poison Spray', 'Prestidigitation', 'Primal Savagery', 'Produce Flame', 'Ray of Frost',
+  'Resistance', 'Sacred Flame', 'Shape Water', 'Shillelagh', 'Shocking Grasp', 'Spare the Dying', 'Sword Burst', 'Thaumaturgy', 'Thorn Whip', 'Thunderclap',
+  'Toll the Dead', 'True Strike', 'Vicious Mockery', 'Word of Radiance'];
+
+const Spells1 = ['Absorb Elements', 'Alarm', 'Animal Friendship', 'Armor of Agathys', 'Arms of Hadar', 'Bane', 'Beast Bond', 'Bless', 'Burning Hands', 'Catapult',
+  'Cause Fear', 'Ceremony', 'Charm Person', 'Chaos Bolt', 'Chromatic Orb', 'Color Spray', 'Command', 'Compelled Duel', 'Comprehend Languages', 'Create or Destroy Water',
+  'Cure Wounds', 'Detect Evil and Good', 'Detect Magic', 'Detect Poison and Disease', 'Disguise Self', 'Dissonant Whispers', 'Divine Favor', 'Earth Tremor', 'Ensnaring Strike',
+  'Entangle', 'Expeditious Retreat', 'Faerie Fire', 'False Life', 'Feather Fall', 'Find Familiar', 'Fog Cloud', 'Goodberry', 'Grease', 'Guiding Bolt', 'Hail of Thorns',
+  'Healing Word', 'Hellish Rebuke', 'Heroism', 'Hex', 'Hunters Mark', 'Ice Knife', 'Identify', 'Illusory Script', 'Inflict Wounds', 'Jump', 'Longstrider', 'Mage Armor',
+  'Magic Missile', 'Protection from Evil and Good', 'Puppet', 'Purify Food and Drink', 'Ray of Sickness', 'Sanctuary', 'Searing Smite', 'Shield', 'Shield of Faith',
+  'Silent Image', 'Snare', 'Sleep', 'Speak with Animals', 'Sudden Awakening', 'Tashas Hideous Laughter', 'Tensers Floating Disk', 'Thunderous Smite', 'Thunderwave',
+  'Unseen Servant', 'Witch Bolt', 'Wrathful Smite', 'Zephyr Strike'];
+
+const Spells2 = ['Aganazzars Scorcher', 'Aid', 'Alter Self', 'Animal Messenger', 'Arcane Lock', 'Augury', 'Barkskin', 'Beast Sense', 'Blindness/Deafness', 'Blur', 'Branding Smite',
+  'Calm Emotions', 'Cloud of Daggers', 'Continual Flame', 'Cordon of Arrows', 'Crown of Madness', 'Darkness', 'Darkvision', 'Detect Thoughts', 'Dust Devil', 'Dragons Breath',
+  'Earthbind', 'Enhance Ability', 'Enlarge/Reduce', 'Enthrall', 'Find Steed', 'Find Traps', 'Flame Blade', 'Flaming Sphere', 'Flock of Familiars', 'Gentle Repose', 'Gust of Wind',
+  'Healing Spirit', 'Heat Metal', 'Hold Person', 'Invisibility', 'Knock', 'Lesser Restoration', 'Levitate', 'Locate Animals or Plants', 'Locate Object', 'Magic Mouth',
+  'Magic Weapon', 'Maximillians Earthen Grasp', 'Melfs Acid Arrow', 'Mind Spike', 'Mirror Image', 'Misty Step', 'Moonbeam', 'Nystuls Magic Aura', 'Pass Without Trace', 'Phantasmal Force',
+  'Prayer of Healing', 'Protection from Poison', 'Pyrotechnics', 'Ray of Enfeeblement', 'Rope Trick', 'Scorching Ray', 'See Invisibility', 'Shadow Blade', 'Shatter', 'Silence',
+  'Skywrite', 'Snillocs Snowball Storm', 'Spider Climb', 'Spike Growth', 'Spiritual Weapon', 'Suggestion', 'Warding Bond', 'Warding Wind', 'Web', 'Zone of Truth'];
+
+const Spells3 = ['Animate Dead', 'Aura of Vitality', 'Beacon of Hope', 'Bestow Curse', 'Blinding Smite', 'Blink', 'Call Lightning', 'Catnap', 'Clairvoyance',
+  'Conjure Animals', 'Conjure Barrage', 'Counterspell', 'Create Food and Water', 'Crusaders Mantle', 'Daylight', 'Dispel Magic', 'Elemental Weapon', 'Enemies Abound',
+  'Erupting Earth', 'Fear', 'Feign Death', 'Fireball', 'Flame Arrows', 'Fly', 'Galders Tower', 'Gaseous Form', 'Glyph of Warding', 'Haste', 'Hunger of Hadar',
+  'Hypnotic Pattern', 'Leomunds Tiny Hut', 'Life Transference', 'Lightning Arrow', 'Lightning Bolt', 'Magic Circle', 'Major Image', 'Mass Healing Word',
+  'Meld into Stone', 'Melfs Minute Meteors', 'Nondetection', 'Phantom Steed', 'Plant Growth', 'Protection from Energy', 'Remove Curse', 'Revivify', 'Sending',
+  'Sleet Storm', 'Slow', 'Speak with Dead', 'Speak with Plants', 'Spirit Guardians', 'Summon Lesser Demons', 'Stinking Cloud', 'Thunder Step', 'Tidal Wave',
+  'Tiny Servant', 'Tongues', 'Vampiric Touch', 'Wall of Sand', 'Wall of Water', 'Water Breathing', 'Water Walk', 'Wind Wall'];
