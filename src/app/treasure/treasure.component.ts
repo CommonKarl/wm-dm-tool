@@ -39,13 +39,13 @@ export class TreasureComponent implements OnInit {
     this.hoards = [
       { label: 'Random', value: 0 },
       { label: 'Individual Treasure', value: 1 },
-      { label: 'Tiny Hoard', value: 2 },
-      { label: 'Small Hoard', value: 3 },
-      { label: 'Medium Hoard', value: 4 },
-      { label: 'Large Hoard', value: 5 },
-      { label: 'Huge Hoard', value: 6 },
-      { label: 'Massive Hoard', value: 7 },
-      { label: 'Gargantuan Hoard', value: 8 }
+      { label: 'Tiny Hoard (1 - 3)', value: 2 },
+      { label: 'Small Hoard (2 - 7)', value: 3 },
+      { label: 'Medium Hoard (4 - 7)', value: 4 },
+      { label: 'Large Hoard (6 - 10)', value: 5 },
+      { label: 'Huge Hoard (8 - 14)', value: 6 },
+      { label: 'Massive Hoard (9 - 18)', value: 7 },
+      { label: 'Gargantuan Hoard (12 - 24)', value: 8 }
     ];
 
     this.treasureTypes = [
@@ -349,7 +349,7 @@ export class TreasureComponent implements OnInit {
       mult = 10;
       this.artValueMod += 4;
     } else {
-      console.log('art weight mult error');
+      console.log('art weight mult error; type: ' + type);
     }
     // Math.floor(Math.random() * (max - min + 1) ) + min;
     switch (size) {
@@ -884,26 +884,26 @@ export class TreasureComponent implements OnInit {
     do {
       sized20 = this.roll(20);
       switch (true) {
-        case (sized20 < 2): sizeMod = -3; size = 'Tiny (0.01 lbs. each, [100/lb.])'; // 100 per lb. (.01 lbs.)
+        case (sized20 < 2): sizeMod = -3; size = 'Tiny (100/slot)'; // 100 per lb. (.01 lbs.)
           break;
-        case (sized20 < 3): sizeMod = -2; size = 'Very Small (0.05 lbs. each, [20/lb.])'; // 20 per lb. (.05 lbs.)
+        case (sized20 < 3): sizeMod = -2; size = 'Very Small (100/slot)'; // 20 per lb. (.05 lbs.)
           break;
-        case (sized20 < 6): sizeMod = -1; size = 'Small (0.1 lbs. each, [10/lb.])'; // 10 per lb. (.1 lbs.)
+        case (sized20 < 6): sizeMod = -1; size = 'Small (100/slot)'; // 10 per lb. (.1 lbs.)
           break;
-        case (sized20 < 14): sizeMod = 0; size = 'Average (0.2 lbs. each, [5/lb.], rougly 2x2x2)'; // .5lbs., roughly 2x2x2 inches
+        case (sized20 < 14): sizeMod = 0; size = 'Average (5/slot)'; // .5lbs., roughly 2x2x2 inches
           break;
-        case (sized20 < 18): sizeMod = 1; size = 'Large (1 lb. each, fist sized)'; // fist sized/baseball sized, 2 lb.
+        case (sized20 < 18): sizeMod = 1; size = 'Large (5/slot)'; // fist sized/baseball sized, 2 lb.
           break;
-        case (sized20 < 19): sizeMod = 2; size = 'Very Large (5 lbs. each, 2 fist sizes)'; // 2 fists, 5 lb.
+        case (sized20 < 19): sizeMod = 2; size = 'Very Large (1 slot)'; // 2 fists, 5 lb.
           break;
-        case (sized20 < 20): sizeMod = 3; size = 'Huge (10 lbs. each, small head size)'; // small sized head, 15 lb.
+        case (sized20 < 20): sizeMod = 3; size = 'Huge (2 slots)'; // small sized head, 15 lb.
           break;
         case (sized20 < 21):
           sized20 = this.roll(20);
           switch (true) {
-            case (sized20 < 15): sizeMod = 4; size = 'Massive (25 lbs. each)'; // medium creature head size, 50 lb.
+            case (sized20 < 15): sizeMod = 4; size = 'Massive (4 slots)'; // medium creature head size, 50 lb.
               break;
-            case (sized20 < 21): sizeMod = 5; size = 'Gargantuan (100 lbs. each)'; // ~torso, 150 lb.
+            case (sized20 < 21): sizeMod = 5; size = 'Gargantuan (10 slots)'; // ~torso, 150 lb.
               break;
             default: console.log('gem size 2 error');
           }
@@ -934,7 +934,8 @@ export class TreasureComponent implements OnInit {
         break;
       case 5: quality = 'Flawless';
         break;
-      default: console.log('gem quality error');
+      default: quality = 'ERROR; ignore';
+        console.log('gem quality error; quality mod: ' + qualityMod);
         break;
     }
 
@@ -1291,7 +1292,7 @@ const Hidden = ['Concealment', 'Invisibility', 'Secret space under container', '
 
 // Gems
 
-const Gem = ['Azurite', 'Banded Agate', 'Blue Quartz', 'Eye Agate', 'Hematite', 'Lapis Lazuli', 'Malachite', 'Moss Agate', 'Obsidian', 'Pyrite', 'Rhodochrosite',
+const Gem = ['Azurite', 'Banded Agate', 'Clear Quartz', 'Blue Quartz', 'Eye Agate', 'Hematite', 'Lapis Lazuli', 'Malachite', 'Moss Agate', 'Obsidian', 'Pyrite', 'Rhodochrosite',
   'Tiger Eye', 'Turquoise', 'Mother of Pearl', 'Amazon Stone', 'Bloodstone', 'Carnelian', 'Chalcedony', 'Chrysoprase', 'Citrine', 'Jasper', 'Moonstone', 'Onyx',
   'Rock Crystal', 'Sardonyx', 'Serpentine', 'Smoky Quartz', 'Star Rose Quartz', 'Variscite', 'Amber', 'Alamandines', 'Alexandrite', 'Amethyst', 'Chrysoberyl',
   'Coral', 'Diopside', 'Garnet', 'Idicolite', 'Jade', 'Jet', 'Morganite', 'Nephrite', 'Pearl', 'Spessarite', 'Sugilite (luvulite)', 'Rubellite Tourmaline',
@@ -1300,13 +1301,13 @@ const Gem = ['Azurite', 'Banded Agate', 'Blue Quartz', 'Eye Agate', 'Hematite', 
   'Jacinth', 'Oriental Emerald', 'Ruby'];
 
 const GemRanks = {
-  5: ['Azurite', 'Banded Agate', 'Blue Quartz', 'Eye Agate', 'Hematite', 'Lapis Lazuli', 'Malachite', 'Moss Agate', 'Obsidian', 'Pyrite', 'Rhodochrosite', 'Tiger Eye',
+  5: ['Azurite', 'Banded Agate', 'Clear Quartz', 'Blue Quartz', 'Eye Agate', 'Hematite', 'Lapis Lazuli', 'Malachite', 'Moss Agate', 'Obsidian', 'Pyrite', 'Rhodochrosite', 'Tiger Eye',
     'Turquoise', 'Mother of Pearl'],
   6: ['Amazon Stone', 'Bloodstone', 'Carnelian', 'Chalcedony', 'Chrysoprase', 'Citrine', 'Jasper', 'Moonstone', 'Onyx', 'Rock Crystal', 'Sardonyx', 'Serpentine',
     'Smoky Quartz', 'Star Rose Quartz', 'Variscite'],
   7: ['Amber', 'Alamandines', 'Alexandrite', 'Amethyst', 'Chrysoberyl', 'Coral', 'Diopside', 'Garnet', 'Idicolite', 'Jade', 'Jet', 'Morganite', 'Nephrite', 'Pearl',
     'Spessarite', 'Sugilite (luvulite)', 'Rubellite Tourmaline', 'Zircon'],
-  8: ['Aquamarine', 'Garnet', 'Black Pearl', 'Peridot', 'Spinel', 'Kunzite', 'Hiddentine', 'Topaz', 'Zoisite (Tanzanite)'],
+  8: ['Aquamarine', 'Garnet', 'Black Pearl', 'Peridot', 'Spinel', 'Kunzite', 'Hiddenite', 'Topaz', 'Zoisite (Tanzanite)'],
   9: ['Black Opal', 'Emerald', 'Fire Opal', 'Garnet', 'Opal', 'Oriental Amethyst', 'Oriental Topaz', 'Sapphire', 'Star Ruby', 'Star Sapphire'],
   10: ['Ammolite', 'Black Sapphire', 'Diamond', 'Jacinth', 'Oriental Emerald', 'Ruby']
 };
