@@ -22,6 +22,8 @@ export class TreasureComponent implements OnInit {
   potionTypes: SelectItem[];
   scrollTypes: SelectItem[];
   treasureHoardValue: any;
+  potionTypeSelect = 0;
+  scrollTypeSelect = 0;
   randomizeTV = false;
   encounterLevelOptions = [
     { label: '1', value: 1 },
@@ -94,28 +96,34 @@ export class TreasureComponent implements OnInit {
 
   generatePotion(rarity: number) {
     this.treasureHoardValue = [];
-    switch (rarity) {
-      case 0: this.treasureHoardValue.push(PotionCommon[Math.floor(Math.random() * 4)]);
-        break;
-      case 1: this.treasureHoardValue.push(PotionUncommon[Math.floor(Math.random() * 10)]);
-        break;
+    let units = this.generateTreasureUnits(this.hoardSelect);
+    for (let i = 0; i < units; i++) {
+      switch (rarity) {
+        case 0: this.treasureHoardValue.push(PotionCommon[Math.floor(Math.random() * 4)]);
+          break;
+        case 1: this.treasureHoardValue.push(PotionUncommon[Math.floor(Math.random() * 10)]);
+          break;
+      }
     }
   }
 
   generateScroll(level: number) {
     this.treasureHoardValue = [];
-    let scroll = 'Scroll of ';
-    switch (level) {
-      case 0: scroll += Spells0[Math.floor(Math.random() * 44)];
-        break;
-      case 1: scroll += Spells1[Math.floor(Math.random() * 74)];
-        break;
-      case 2: scroll += Spells2[Math.floor(Math.random() * 72)];
-        break;
-      case 3: scroll += Spells3[Math.floor(Math.random() * 63)];
-        break;
+    let units = this.generateTreasureUnits(this.hoardSelect);
+    for (let i = 0; i < units; i++) {
+      let scroll = 'Scroll of ';
+      switch (level) {
+        case 0: scroll += Spells0[Math.floor(Math.random() * 44)];
+          break;
+        case 1: scroll += Spells1[Math.floor(Math.random() * 74)];
+          break;
+        case 2: scroll += Spells2[Math.floor(Math.random() * 72)];
+          break;
+        case 3: scroll += Spells3[Math.floor(Math.random() * 63)];
+          break;
+      }
+      this.treasureHoardValue.push(scroll);
     }
-    this.treasureHoardValue.push(scroll);
   }
 
   generateTreasure() {
@@ -149,28 +157,7 @@ export class TreasureComponent implements OnInit {
       hoardSize = this.hoardSelect;
     }
 
-    // roll # treasure unit based on hoard size
-    let numTreasureUnits;
-    switch (hoardSize) {
-      case 1: numTreasureUnits = 1;
-        break;
-      case 2: numTreasureUnits = this.roll(3);
-        break;
-      case 3: numTreasureUnits = this.roll(6) + 1;
-        break;
-      case 4: numTreasureUnits = this.roll(4) + 3;
-        break;
-      case 5: numTreasureUnits = this.roll(4) + 6;
-        break;
-      case 6: numTreasureUnits = this.roll(4) + this.roll(4) + 6;
-        break;
-      case 7: numTreasureUnits = this.roll(4) + this.roll(4) + this.roll(4) + 6;
-        break;
-      case 8: numTreasureUnits = (this.roll(4) + 2) * 4;
-        break;
-      default: console.log('hoard size is unrecognizable!');
-        break;
-    }
+    let numTreasureUnits = this.generateTreasureUnits(hoardSize);
 
     for (let i = 0; i < numTreasureUnits; i++) {
       let hoardBV = 1;
@@ -207,6 +194,33 @@ export class TreasureComponent implements OnInit {
       let randomizer = finalTreasureValue * .2;
       this.generateIndividualTreasure(Math.floor(finalTreasureValue + (Math.random() * (randomizer + randomizer) - randomizer)));
     }
+  }
+
+  generateTreasureUnits(hoardSize: number): number {
+    // roll # treasure unit based on hoard size
+    let numTreasureUnits;
+    switch (hoardSize) {
+      case 1: numTreasureUnits = 1;
+        break;
+      case 2: numTreasureUnits = this.roll(3);
+        break;
+      case 3: numTreasureUnits = this.roll(6) + 1;
+        break;
+      case 4: numTreasureUnits = this.roll(4) + 3;
+        break;
+      case 5: numTreasureUnits = this.roll(4) + 6;
+        break;
+      case 6: numTreasureUnits = this.roll(4) + this.roll(4) + 6;
+        break;
+      case 7: numTreasureUnits = this.roll(4) + this.roll(4) + this.roll(4) + 6;
+        break;
+      case 8: numTreasureUnits = (this.roll(4) + 2) * 4;
+        break;
+      default: console.log('hoard size is unrecognizable!');
+        numTreasureUnits = 1;
+        break;
+    }
+    return numTreasureUnits;
   }
 
   generateIndividualTreasure(treasureValue) {
@@ -342,6 +356,8 @@ export class TreasureComponent implements OnInit {
     if (this.isMaterial('Wood', type) || this.isMaterial('Fabric', type) || this.isMaterial('LightArt', type)) {
       mult = (2 / 3);
       this.artValueMod -= 1;
+    } else if (this.isMaterial('FancyFabric', type)) {
+      mult = (2 / 3);
     } else if (this.isMaterial('Stone', type) || this.isMaterial('MedArt', type)) {
       mult = 3;
       this.artValueMod += 2;
@@ -965,7 +981,6 @@ export class TreasureComponent implements OnInit {
           // deeper object
           for (const tempkey of Object.keys(tempdeets)) {
             let doubletempdeets = tempdeets[tempkey][Math.floor(Math.random() * tempdeets[tempkey].length)];
-
             if (typeof (doubletempdeets) === 'string') {
               if (doubletempdeets.includes('Random') === true) {
                 doubletempdeets = this.treasureDetailsArr(eval(doubletempdeets.slice(7)));
@@ -996,13 +1011,35 @@ export class TreasureComponent implements OnInit {
       let moredeets = '';
       for (const key of Object.keys(deets)) {
         let tempdeets = deets[key][Math.floor(Math.random() * deets[key].length)];
-        if (tempdeets.includes('Random') === true) {
-          tempdeets = this.treasureDetailsArr(eval(tempdeets.slice(7)));
+        if(typeof(tempdeets) === 'string') {
+          if (tempdeets.includes('Random') === true) {
+            tempdeets = this.treasureDetailsArr(eval(tempdeets.slice(7)));
+          }
+          moredeets += ' ' + tempdeets;
+        } else {
+          tempdeets = this.resolveNestedTreasureObject(tempdeets);
         }
-        moredeets += ' ' + tempdeets;
       }
       return moredeets.replace(' ', '');
     }
+  }
+
+  resolveNestedTreasureObject(obj) {
+    let res = '';
+    for (const tempkey of Object.keys(obj)) {
+      let doubletempdeets = obj[tempkey][Math.floor(Math.random() * obj[tempkey].length)];
+      if (typeof (doubletempdeets) === 'string') {
+        if (doubletempdeets.includes('Random') === true) {
+          doubletempdeets = this.treasureDetailsArr(eval(doubletempdeets.slice(7)));
+        }
+        res += ' ' + doubletempdeets;
+      } else {
+        // deeper object
+        console.log('double deeper! what the fuuuuuuuuck!!!!!');
+      }
+
+    }
+    return res.replace(' ', '');
   }
 
   roll(sides) {
@@ -1091,7 +1128,7 @@ const Painting = [{
 const Crafts = [
   { 1: ['Glass', 'Random Metal', 'Random Wood'], 2: ['Bracelets'] }, { 1: ['Random Fabric'], 2: ['Lace'] },
   'Paper Origami', 'Ornamental Egg', { 1: ['Glass', 'Ceramic'], 2: ['Mosaic'] }, { 1: ['Random Wood'], 2: ['Burning'] },
-  { 1: ['Random FancyFabric'], 2: 'covered', 3: 'Ball Game Ball' }
+  { 1: ['Random FancyFabric'], 2: ['covered'], 3: ['Ball Game Ball'] }
 ];
 
 const Carving = [{
@@ -1154,7 +1191,7 @@ const artValue = {
 
 const LightArt = ['Paper', 'Canvas', 'Gourd'];
 
-const MedArt = ['Plaster', 'Structural Object', 'Clay', 'Glass', 'Ceramic', 'Bone', 'Egg', 'Ivory'];
+const MedArt = ['Plaster', 'Structural Object', 'Clay', 'Glass', 'Ceramic', 'Bone', 'Egg', 'Ivory', 'Carving'];
 
 //
 
@@ -1190,7 +1227,7 @@ const FancyFabric = ['Barkcloth', 'Broadcloth', 'Burlap', 'Calico', 'Cambric', '
 
 const Ivory = [{
   1: ['Baku', 'Behemoth', 'Catoblepas', 'Hippopotamus', 'Hollyphant', 'Mammoth', 'Mastodon', 'Narwhal', 'Oliphant', 'Walrus', 'Giant Walrus', 'Minotaur'],
-  2: ['Ivory', { 1: 'Random Subject', 2: 'Scrimshaw' }]
+  2: ['Ivory', { 1: ['Scrimshaw of'], 2: ['Random ArtSubject'], 3:['subject'] }]
 }];
 
 const ReligiousArtifacts = [{

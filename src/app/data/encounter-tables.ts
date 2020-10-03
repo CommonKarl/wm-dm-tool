@@ -106,9 +106,10 @@ export const Hills = {
         'wolf (MM 341)': .25,
         'dire wolf (MM 321)': 1
     },
-    spider: {
-        'spider (MM 337)': 0,
-        'giant wolf spider (MM 330)': .25
+    kruthik: {
+        'young kruthik (MORD 211)': .125,
+        'adult kruthik (MORD 212)': 2,
+        'kruthik hive lord (MORD 212)': 5
     },
     bear: {
         'black bear (MM 318)': .5,
@@ -353,8 +354,7 @@ export const EastJungle = {
     },
     eblis: {
         'commoner (MM 345)': 0,
-        'eblis (FEF 89)': .5,
-        'kobold scale sorcerer (VOLO 167)': 1,
+        'eblis (C1 page)': 1,
         'warlock of the great old one (VOLO 220)': 6
     },
     crocodile: {
@@ -554,8 +554,10 @@ export const NorthHills = {
     displacer_beast: {
         'displacer beast (MM 81)': 3
     },
-    crimson_basilisk: {
-        'crimson basilisk (FEF 21)': 3
+    kruthik: {
+        'young kruthik (MORD 211)': .125,
+        'adult kruthik (MORD 212)': 2,
+        'kruthik hive lord (MORD 212)': 5
     },
     roper: {
         'roper (MM 261)': 5
@@ -657,7 +659,7 @@ export const SouthPlains = {
     }
 };
 
-export const Highlands = {
+export const Uplands = {
     hyena: {
         'hyena (MM 331)': 0,
         'giant hyena (MM 326)': 1
@@ -678,6 +680,11 @@ export const Highlands = {
         'ghost (MM 147)': 4,
         'banshee (MM 23)': 4
     },
+    kruthik: {
+        'young kruthik (MORD 211)': .125,
+        'adult kruthik (MORD 212)': 2,
+        'kruthik hive lord (MORD 212)': 5
+    },
     boar: {
         'boar (MM 319)': .25,
         'giant boar (MM 232)': 2
@@ -691,8 +698,8 @@ export const Highlands = {
         'gnoll fang of yeenoghu (MM 163)': 4,
         'flind (MM 153)': 9
     },
-    giant_horsefly: {
-        'giant horsefly (FEF 146)': .5
+    shrunken_head_wall: {
+        'flameskull (MM 134)': .5
     },
     rust_monster: {
         'rust monster (MM 262)': .5
@@ -766,8 +773,8 @@ export const SouthDesert = {
     sandling: {
         'sandling (FEF 196)': 1
     },
-    death_worm: {
-        'death worm (FEF 78)': 3
+    tlincalli: {
+        'tlincalli (VOLO 193)': 3
     },
     mummy: {
         'mummy (228)': 3
@@ -949,6 +956,11 @@ export const Mountains = {
     pteranodon: {
         'pteranodon (MM 80)': .25
     },
+    kruthik: {
+        'young kruthik (MORD 211)': .125,
+        'adult kruthik (MORD 212)': 2,
+        'kruthik hive lord (MORD 212)': 5
+    },
     hobgoblin: {
         'hobgoblin (MM 186)': .5,
         'priest (MM 348)': 2,
@@ -1026,6 +1038,11 @@ export const NorthMountains = {
     },
     ice_mephit: {
         'ice mephit (MM 215)': .5
+    },
+    kruthik: {
+        'young kruthik (MORD 211)': .125,
+        'adult kruthik (MORD 212)': 2,
+        'kruthik hive lord (MORD 212)': 5
     },
     hobgoblin: {
         'hobgoblin (MM 186)': .5,
